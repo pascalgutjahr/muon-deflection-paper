@@ -1,3 +1,7 @@
+import proposal as pp
+from tqdm import tqdm
+import numpy as np
+
 ### Muon propagation
 def propagate_deflected_muons_custom(
     initial_energies, 
@@ -8,7 +12,7 @@ def propagate_deflected_muons_custom(
         pp.particle.Interaction_Type.photonuclear, 
         pp.particle.Interaction_Type.epair], 
     deflection='default', 
-    deflection_type='continuous+stochastic', 
+    deflection_type='m_scat+stochastic', 
     e_cut=500, 
     v_cut=0.05, 
     cont_rand=False, 
@@ -109,7 +113,7 @@ def propagate_deflected_muons_custom(
 
 
 ### get deflection angle
-def get_angle_deviation(azimuth1, zenith1, azimuth2, zenith2, dtype='float64'):
+def get_angle_deviation(azimuth1, zenith1, azimuth2, zenith2, dtype='float128'):
     """Get opening angle of two vectors defined by (azimuth, zenith)
     Parameters
     ----------
@@ -131,3 +135,24 @@ def get_angle_deviation(azimuth1, zenith1, azimuth2, zenith2, dtype='float64'):
                 np.cos(zenith1, dtype=dtype) * np.cos(zenith2, dtype=dtype))
     cos_dist = np.clip(cos_dist, -1., 1., dtype=dtype)
     return np.arccos(cos_dist, dtype=dtype)  
+
+
+### name energy to save dataframe and plots
+def energy_name(E):
+    e_unit = None
+    if E / 1e12 >= 1:
+        e_unit = '{}EeV'.format(int(E/1e12))
+    elif E / 1e9 >= 1:
+        e_unit = '{}PeV'.format(int(E/1e9))
+    elif E / 1e6 >= 1:
+        e_unit = '{}TeV'.format(int(E/1e6))
+    elif E / 1e3 >= 1:
+        e_unit = '{}GeV'.format(int(E/1e3))
+    elif E >= 1:
+        e_unit ='{}MeV'.format(int(E/1))
+    elif E * 1e3 >= 1:
+        e_unit = '{}KeV'.format(int(E/1e-3))
+        
+    assert e_unit != None, "energy too low"
+    
+    return e_unit
