@@ -1,6 +1,7 @@
 import proposal as pp
 from tqdm import tqdm
 import numpy as np
+import pandas as pd
 
 ### Muon propagation
 def propagate_deflected_muons_custom(
@@ -33,12 +34,12 @@ def propagate_deflected_muons_custom(
     initial_energies: list of energies
     minimum_energs: list of energies, lower propagation limit
     inter_type: list of interaction types for propagation/deflection, 
-                default: ioniz, brems, nuclint, epaiprod
+                default: ioniz, brems, nuclint, epairprod
     deflection_type: string, choose one:
             1. 'm_scat+stochastic'
             2. 'm_scat'
             3. 'stochastic'
-    beta: scaling factor for Bremsstrahlung
+    beta: scaling factor for chosen interaction type
     e_cut, v_cut, cont_rand: usual PROPOSAL energy cut settings
     initial_direction: list of initial direction (cartesian coordinates)
     table_path: string, path to interpolation tables
@@ -156,3 +157,80 @@ def energy_name(E):
     assert e_unit != None, "energy too low"
     
     return e_unit
+
+
+### get deflection per interaction
+def get_zenith_deflections_along_track(tracks, param_name):
+    '''
+    Returns
+    -------
+        deflections in degree
+    '''
+    types = {
+            'Interaction_Type.continuousenergyloss': 0,
+            'Interaction_Type.epair': 1,
+            'Interaction_Type.brems': 2,
+            'Interaction_Type.photonuclear': 3,
+            'Interaction_Type.ioniz': 4,
+            'Interaction_Type.decay': 5,
+    }
+    
+    defl_stoch = []
+    defl_cont = []
+    defl_type = []
+    defl_angle_stoch = []
+    defl_angle_cont = []
+    
+    for track in tqdm(tracks):
+        zenith_last = track.track_directions()[0].spherical_coordinates[2]
+        azimuth_last = track.track_directions()[0].spherical_coordinates[1]
+        
+        for typ, direction in zip(track.track_types()[1:], \
+                                  track.track_directions()[1:]):
+            zenith_new = direction.spherical_coordinates[2]
+            azimuth_new = direction.spherical_coordinates[1]
+            zenith_diff = abs(zenith_last - zenith_new)
+            angle = get_angle_deviation(azimuth_last, zenith_last, azimuth_new, zenith_new)
+            if str(typ) in ['Interaction_Type.epair',\
+                            'Interaction_Type.brems',\
+                            'Interaction_Type.photonuclear',\
+                            'Interaction_Type.ioniz']:
+                defl_stoch.append(zenith_diff)
+                defl_type.append(types[str(typ)])
+                defl_angle_stoch.append(angle)
+            elif str(typ) == 'Interaction_Type.continuousenergyloss':
+                defl_cont.append(zenith_diff)
+                defl_type.append(types[str(typ)])
+                defl_angle_cont.append(angle)
+            # if particle decays, skip that interactionpoint
+            # else:
+                # print(typ)
+                # defl_type.append(types[str(typ)])
+            zenith_last = zenith_new
+            azimuth_last = azimuth_new
+    
+    data_along_track = {
+        '{}_along_defl_stoch'.format(param_name): np.rad2deg(defl_stoch),
+        '{}_along_defl_cont'.format(param_name): np.rad2deg(defl_cont),
+        '{}_along_defl_type'.format(param_name): np.array(defl_type),
+        '{}_along_defl_angle_stoch'.format(param_name): np.rad2deg(defl_angle_stoch),
+        '{}_along_defl_angle_cont'.format(param_name): np.rad2deg(defl_angle_cont),
+        
+    }
+    return data_along_track
+
+
+### save data per interaction
+def save_data_along_dict(df_dir, hdf_name, dict_along):
+    for key in dict_along:
+        df = pd.DataFrame({key: dict_along[key]})
+        df.to_hdf(df_dir + hdf_name, key=key)
+        
+        
+### load data per interaction        
+def load_data_along_dict(df_dir, hdf_name, param_name):
+    dict_along = {}
+    for key in ['defl_stoch', 'defl_cont', 'defl_type', 'defl_angle_stoch', 'defl_angle_cont']:
+        df = pd.read_hdf(df_dir + hdf_name, key='{}_along_{}'.format(param_name, key))
+        dict_along['{}_along_{}'.format(param_name, key)] = df['{}_along_{}'.format(param_name, key)].values
+    return dict_along
