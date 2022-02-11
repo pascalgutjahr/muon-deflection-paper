@@ -23,6 +23,13 @@ def main(cfg):
     # Read data
     with open(cfg, 'r') as stream:
         cfg = yaml.full_load(stream)
+        
+        
+    # Print settings    
+    for key in cfg: 
+        print("{}: {}".format(key, cfg[key]))    
+    print('Total events', cfg['n_jobs'] * cfg['n_events_per_job'])   
+        
     
     # Get random numbers
     rnd = np.random.RandomState(cfg['rnd_state_seed'])
@@ -46,9 +53,6 @@ def main(cfg):
         arg['rnd_seed'] = rnds[i]
         args.append(arg) # [arg]
 
-
-    print('Total jobs: ', cfg['n_jobs'])
-    print('Total events', cfg['n_jobs'] * cfg['n_events_per_job'])
     
     # Start propagation
     start = time.time()

@@ -86,7 +86,7 @@ def propagate_deflected_muons_custom_settings_multi(
         # print('multiple scattering')
         collection.scattering = pp.scattering.ScatteringMultiplier(multiple_scatter, beta_multiplescatter)
     elif deflection_type == 'm_scat+stochastic':
-        print('multiple scattering and stochastic deflection')
+        # print('multiple scattering and stochastic deflection')
         collection.scattering = pp.scattering.ScatteringMultiplier(
             multiple_scatter, 
             stochastic_deflect, # no list for default deflection!!!

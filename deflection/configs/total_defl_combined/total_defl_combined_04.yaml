@@ -1,5 +1,5 @@
 E_i: !!float 1e9 
-E_f: !!float 5e8 
+E_f: !!float 1e5 
     
 deflection: [
     'tsaiapproximationbremsstrahlung', 
