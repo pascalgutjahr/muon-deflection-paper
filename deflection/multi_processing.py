@@ -5,69 +5,54 @@ interaktion zu ermitteln
 '''
 
 import numpy as np
+import click 
+import yaml
 from multiprocessing import Pool 
 import time
+import os
 import pandas as pd
 from helper_functions_multi import muon_propagation_custom_multi
 
 
 
+@click.command() 
+@click.argument('cfg', type=click.Path(exists=True))
 
+def main(cfg):
 
-def start_propagation():
+    # Read data
+    with open(cfg, 'r') as stream:
+        cfg = yaml.full_load(stream)
     
-    E_i = 1e9 
-    E_f = 1e6 
-    
-    deflection = ['tsaiapproximationbremsstrahlung', 
-                  'naivionization',
-                  'borogpetrukhinnuclearinteraction',
-                  'kelnerpairproduction'] ### same as default
-    e_cut = 500
-    v_cut = 0.05
-    cont_rand = False
-    scattering_method="highlandintegral"
-    deflection_type="m_scat+stochastic"
-    
-    # table_path="/Users/pgutjahr/.cache/PROPOSAL" # mac mini
-    # table_path="/Users/pascalgutjahr/.cache/PROPOSAL" # lehrstuhl macbook
-    table_path="/net/nfshome/home/pgutjahr/.cache/PROPOSAL" # vollmond
+    # Get random numbers
+    rnd = np.random.RandomState(cfg['rnd_state_seed'])
+    rnds = rnd.randint(0, 9999, size=cfg['n_jobs'])
 
-    file_name = "{}_{}".format(scattering_method, deflection_type) # sampled_energies
-    output_folder = "data"
-    
-    n_CPU = 2
-    n_jobs = 2
-    n_events_per_job = 10
-    total_events = n_jobs * n_events_per_job
-    n_rnd = n_jobs
-    rnd_state_seed = 3
-    rnd = np.random.RandomState(rnd_state_seed)
-    rnds = rnd.randint(0, 9999, size=n_rnd)
-
+    # Set configs for propagation
     args = []
-    for i in range(n_rnd):
+    for i in range(cfg['n_jobs']):
         arg = {
-            'E_i': E_i, 
-            'E_f': E_f, 
-            'deflection': deflection,
-            'n_events': n_events_per_job,
-            'e_cut': e_cut,
-            'v_cut': v_cut, 
-            'cont_rand': cont_rand,
-            'scattering_method': scattering_method,
-            'deflection_type': deflection_type,
-            'table_path': table_path,
+            'E_i': cfg['E_i'], 
+            'E_f': cfg['E_f'], 
+            'deflection': cfg['deflection'],
+            'n_events': cfg['n_events_per_job'],
+            'e_cut': cfg['e_cut'],
+            'v_cut': cfg['v_cut'], 
+            'cont_rand': cfg['cont_rand'],
+            'scattering_method': cfg['scattering_method'],
+            'deflection_type': cfg['deflection_type'],
+            'table_path': cfg['table_path'],
         } 
         arg['rnd_seed'] = rnds[i]
         args.append(arg) # [arg]
 
-    start = time.time()
 
-    print('Total jobs: ', n_jobs)
-    print('Total events', total_events)
+    print('Total jobs: ', cfg['n_jobs'])
+    print('Total events', cfg['n_jobs'] * cfg['n_events_per_job'])
     
-    pool = Pool(n_CPU) # number CPU cores
+    # Start propagation
+    start = time.time()
+    pool = Pool(cfg['n_CPU']) # number CPU cores
     results = pool.map(muon_propagation_custom_multi, args)
     pool.close()
     pool.join()
@@ -75,7 +60,11 @@ def start_propagation():
     results_df = pd.concat(results, ignore_index=True)
     print(results_df)
     
-    results_df.to_hdf('{}/{}.hdf5'.format(output_folder, file_name), key='seed_{}'.format(rnd_state_seed))
+    # Save data
+    s = stream.name 
+    config_name = s[len(s) - s[::-1].find('/'):s.find('.yaml')]
+    os.system('mkdir -p {}'.format(cfg['output_folder']))
+    results_df.to_hdf('{}/{}_{}.hdf5'.format(cfg['output_folder'], cfg['file_name'], config_name), key='seed_{}'.format(cfg['rnd_state_seed']))
     
     end = time.time()
     print('Duration: {} s'.format(end-start))
@@ -84,4 +73,4 @@ def start_propagation():
 ### ----------------- MAIN ----------------------
 if __name__ == '__main__':
     
-    start_propagation()
+    main()
