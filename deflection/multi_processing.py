@@ -51,6 +51,8 @@ def main(cfg):
             'table_path': cfg['table_path'],
         } 
         arg['rnd_seed'] = rnds[i]
+        if 'get_data_along_track' in cfg and cfg['get_data_along_track'] == True:
+            arg['get_data_along_track']: True
         args.append(arg) # [arg]
 
     

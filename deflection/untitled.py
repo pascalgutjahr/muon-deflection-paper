@@ -18,6 +18,9 @@ def main(cfg):
     
     config_name = s[len(s) - s[::-1].find('/'):s.find('.yaml')]
     print(config_name)
+    print(cfg['a'])
+    if 'b' in cfg and cfg['b']:
+        print('hello world')
 
 
 
