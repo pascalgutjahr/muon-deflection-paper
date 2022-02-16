@@ -11,6 +11,7 @@ from multiprocessing import Pool
 import time
 import os
 import pandas as pd
+from iteration_utilities import flatten
 from helper_functions_multi import muon_propagation_custom_multi, muon_propagation_custom_multi_along
 
 
@@ -64,37 +65,36 @@ def main(cfg):
     pool.close()
     pool.join()
     
-    # print(results)
-    print(type(results))
-    print(len(results))
-    print(len(results[0]))
-    print(len(results[0][1]))
-    print('---------------------------------------------------')
-    # print(results[0][1])
-    dfs = []
+
+    
+
+    dfs_final = []
     dicts_along = []
-    for result in results:
-        dfs.append(result[0])
-        dicts_along.append(result[1])
+    for dict_ in results:
+        dfs_final.append(dict_['final_data'])
+        dicts_along.append(dict_['data_along'])
+        
+    # print(len(dicts_along)) # 4, number of jobs 
+    # print(len(dicts_along[0])) # 10, number of events per job
+    # print(len(dicts_along[0][0])) # 5, number of dict entries in dict_data_along_track
+    # print(len(list(flatten(dicts_along)))) # 40, number of all events 
+    dicts_along_flatten = list(flatten(dicts_along))
     
-    print(len(dicts_along)) # 4, one list per job
-    print(dicts_along[0])
-    print(len(dicts_along[0])) # 10, one dict per event 
-    print(dicts_along[0][0]) # one dict
-    
-    results_df = pd.concat(dfs, ignore_index=True)
-    # print(results_df)
+    dfs_final_concat = pd.concat(dfs_final, ignore_index=True)
+    print(dfs_final_concat)
     
     # Save data
+    print('Saving data...')
     s = stream.name 
     config_name = s[len(s) - s[::-1].find('/'):s.find('.yaml')]
     os.system('mkdir -p {}'.format(cfg['output_folder']))
-    results_df.to_hdf('{}/{}_{}.hdf5'.format(cfg['output_folder'], cfg['file_name'], config_name), key='seed_{}'.format(cfg['rnd_state_seed']))
+    dfs_final_concat.to_hdf('{}/{}_{}.hdf5'.format(cfg['output_folder'], cfg['file_name'], config_name), key='seed_{}'.format(cfg['rnd_state_seed']))
     
-    for dict_ in dicts_along:
+    # Save data for data along track
+    for dict_ in dicts_along_flatten:
         for key in dict_.keys():
             df = pd.DataFrame({key: dict_[key]})
-            df.to_hdf('{}/{}_{}.hdf5'.format(cfg['output_folder'], cfg['file_name'], config_name), key='seed_{}_key'.format(cfg['rnd_state_seed'], key))
+            df.to_hdf('{}/{}_{}.hdf5'.format(cfg['output_folder'], cfg['file_name'], config_name), format='table', key='seed_{}_{}'.format(cfg['rnd_state_seed'], key), append=True, index=True)
     
     end = time.time()
     print('Duration: {} s'.format(end-start))

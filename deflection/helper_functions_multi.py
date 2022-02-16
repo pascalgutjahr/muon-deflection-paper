@@ -220,8 +220,13 @@ def muon_propagation_custom_multi_along(args):
     df['z_f'] = z_f_l
         
     print('-- job done --')
+    
+    return_dict = {
+        'final_data': df,
+        'data_along': dicts_along
+    }
 
-    return df, dicts_along
+    return return_dict
 
 ### get deflection angle
 def get_angle_deviation(azimuth1, zenith1, azimuth2, zenith2, dtype='float128'):
