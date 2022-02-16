@@ -140,9 +140,6 @@ def muon_propagation_custom_multi(args):
         x_f_l.append(track.track_positions()[-1].x)
         y_f_l.append(track.track_positions()[-1].y)
         z_f_l.append(track.track_positions()[-1].z)
-        # Get data along track
-        if args['get_data_along_track'] == True:
-            dict_data_along_track = get_data_along_track(track)
     
     # Save data
     df = pd.DataFrame()
@@ -166,7 +163,65 @@ def muon_propagation_custom_multi(args):
 
 
 
+def muon_propagation_custom_multi_along(args):
 
+    # args = args[0]
+    
+    init_state, prop = propagate_deflected_muons_custom_settings_multi(deflection=args['deflection'], rnd_seed=args['rnd_seed'], table_path=args['table_path'], e_cut=args['e_cut'], v_cut=args['v_cut'], cont_rand=args['cont_rand'], scattering_method=args['scattering_method'], deflection_type=args['deflection_type'])
+    
+    E_i = args['E_i']
+    E_min = args['E_f']
+    n_events = args['n_events']
+    
+    E_i_l = []
+    E_f_track_l = []
+    distance_l = []
+    deflection_l = []
+    x_f_l = []
+    y_f_l = []
+    z_f_l = []
+    dicts_along = [] # for data along track
+    for i in range(n_events):
+        init_state.energy = E_i # initial energy in MeV
+        track = prop.propagate(init_state, max_distance = 1e9, min_energy = E_min)
+        # Prepare data
+        E_f_track = track.track_energies()[-1] 
+        distance = track.track_propagated_distances()[-1]
+        deflection = get_angle_deviation(track.track_directions()[0].spherical_coordinates[1], track.track_directions()[0].spherical_coordinates[2], track.track_directions()[-1].spherical_coordinates[1], track.track_directions()[-1].spherical_coordinates[2])
+        E_i_l.append(E_i)
+        E_f_track_l.append(E_f_track)
+        distance_l.append(distance)
+        deflection_l.append(deflection)
+        x_f_l.append(track.track_positions()[-1].x)
+        y_f_l.append(track.track_positions()[-1].y)
+        z_f_l.append(track.track_positions()[-1].z)
+        # Get data along track
+        if args['get_data_along_track'] == True:
+            dict_data_along_track = get_data_along_track(track)
+            dicts_along.append(dict_data_along_track)
+    
+    # if args['get_data_along_track'] == True:
+        # save_data_along_dict(dicts_along)
+    
+    # Save data
+    df = pd.DataFrame()
+    df['E_i'] = np.array(E_i_l) / 1e3 # in GeV
+    df['E_f'] = np.array(E_f_track_l) / 1e3 # in GeV
+    df['distances'] = np.array(distance_l) / 100 # in meter
+    df['deflection'] = np.rad2deg(deflection_l) # in degree
+    df['x_dir_i'] = init_state.direction.x * np.ones(n_events)
+    df['y_dir_i'] = init_state.direction.y * np.ones(n_events)
+    df['z_dir_i'] = init_state.direction.z * np.ones(n_events)
+    df['x_i'] = init_state.position.x * np.ones(n_events) # position in cm
+    df['y_i'] = init_state.position.y * np.ones(n_events)
+    df['z_i'] = init_state.position.z * np.ones(n_events)
+    df['x_f'] = x_f_l
+    df['y_f'] = y_f_l
+    df['z_f'] = z_f_l
+        
+    print('-- job done --')
+
+    return df, dicts_along
 
 ### get deflection angle
 def get_angle_deviation(azimuth1, zenith1, azimuth2, zenith2, dtype='float128'):
@@ -269,6 +324,9 @@ def get_data_along_track(track):
     defl_angle_stoch = []
     defl_angle_cont = []
     
+    zenith_last = track.track_directions()[0].spherical_coordinates[2]
+    azimuth_last = track.track_directions()[0].spherical_coordinates[1]
+    
     for typ, direction in zip(track.track_types()[1:], \
                                   track.track_directions()[1:]):
             zenith_new = direction.spherical_coordinates[2]
@@ -305,10 +363,11 @@ def get_data_along_track(track):
 
 
 ### save data per interaction
-def save_data_along_dict(df_dir, hdf_name, dict_along):
-    for key in dict_along:
-        df = pd.DataFrame({key: dict_along[key]})
-        df.to_hdf(df_dir + hdf_name, key=key)
+def save_data_along_dict(df_dir, hdf_name, dicts_along):
+    for dict_ in dicts_along:
+        for key in dict_:
+            df = pd.DataFrame({key: dict_[key]})
+            df.to_hdf(df_dir + hdf_name, key=key)
         
         
 ### load data per interaction        
