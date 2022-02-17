@@ -33,6 +33,7 @@
 - Naming of the parametrizations: use Van Ginneken or cross-sections?
 - How many events per plot?
 - Use mode and smallest interval (depends on binning)  or median and central interval?
+- Errors on deflection parametrizations?
 
 ## Important things not to show! -> next technical PROPOSAL paper 
 - Implementation of deflection
