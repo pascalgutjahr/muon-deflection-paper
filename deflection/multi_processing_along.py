@@ -59,6 +59,7 @@ def main(cfg):
 
     
     # Start propagation
+    print('starting jobs...')
     start = time.time()
     pool = Pool(cfg['n_CPU']) # number CPU cores
     results = pool.map(muon_propagation_custom_multi_along, args)
