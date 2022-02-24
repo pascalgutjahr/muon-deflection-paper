@@ -22,6 +22,7 @@
     - Combined plot for different E_f --> fit possible?
 - NN-Based deflection parametrization (look-up table)
     - usecase: quick deflection estimation
+- Discussion / Conclusion
 
 ## Plots
 - Deflection per interaction (which E_i, E_f?)
