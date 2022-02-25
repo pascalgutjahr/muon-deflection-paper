@@ -45,7 +45,7 @@ def propagate_deflected_muons_custom_settings_multi(
     e_cut, v_cut, cont_rand: usual PROPOSAL energy cut settings
     initial_direction: list of initial direction (cartesian coordinates)
     table_path: string, path to interpolation tables
-    '''q
+    '''
     pp.InterpolationSettings.tables_path = table_path   # version 7
     
     pp.RandomGenerator.get().set_seed(rnd_seed)
