@@ -16,10 +16,10 @@
 ## Chapters 
 - Motivation
 - Deflection per interaction along the track
-    - How to show these deflections? --> diff or angle?
+    - How to show these deflections? --> diff or angle? --> angles sampled extern
 - Accumulated/total muon deflection
     - Which E_i and E_f?
-    - Combined plot for different E_f --> fit possible?
+    - Combined plot for different E_f --> fit possible? --> yes
 - NN-Based deflection parametrization (look-up table)
     - usecase: quick deflection estimation
 - Discussion / Conclusion
@@ -33,7 +33,7 @@
 ## General 
 - Naming of the parametrizations: use Van Ginneken or cross-sections?
 - How many events per plot?
-- Use mode and smallest interval (depends on binning)  or median and central interval?
+- Use mode and smallest interval (depends on binning)  or median and central interval? --> median is typically used
 - Errors on deflection parametrizations?
 
 ## Important things not to show! -> next technical PROPOSAL paper 
