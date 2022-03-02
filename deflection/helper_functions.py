@@ -140,6 +140,12 @@ def get_angle_deviation(azimuth1, zenith1, azimuth2, zenith2, dtype='float128'):
 
 ### name energy to save dataframe and plots
 def energy_name(E):
+    '''
+        Parameters
+        ----------
+        E:
+            energy in MeV
+    '''
     e_unit = None
     if E / 1e12 >= 1:
         e_unit = '{}EeV'.format(int(E/1e12))
