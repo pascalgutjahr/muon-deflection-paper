@@ -16,7 +16,8 @@ def main(folder):
     if folder.endswith('/'):
         folder = folder[:-1]
     for file in os.listdir(folder):
-        os.system('python multi_processing.py {}/{}'.format(folder, file))
+        if file.endswith('.yaml'):
+            os.system('python multi_processing.py {}/{}'.format(folder, file))
         
         
 if __name__ == '__main__':
