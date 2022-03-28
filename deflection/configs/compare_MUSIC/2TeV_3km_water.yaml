@@ -20,9 +20,9 @@ table_path: "/net/nfshome/home/pgutjahr/.cache/PROPOSAL" # vollmond
 file_name: "MUSIC"
 output_folder:  "data/compare_MUSIC"
     
-n_CPU:  20
-n_jobs:  40
-n_events_per_job: 500
+n_CPU:  40
+n_jobs:  1000
+n_events_per_job: 1000
 ### total_events = n_jobs * n_events_per_job
 rnd_state_seed: 3
 
