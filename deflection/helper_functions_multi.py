@@ -19,6 +19,7 @@ def propagate_deflected_muons_custom_settings_multi(
     e_cut=500, 
     v_cut=0.05, 
     cont_rand=False, 
+    medium="ice",
     scattering_method="highlandintegral", 
     beta_brems=1.0,
     beta_ioniz=1.0,
@@ -48,10 +49,15 @@ def propagate_deflected_muons_custom_settings_multi(
     '''
     pp.InterpolationSettings.tables_path = table_path   # version 7
     
+    media = {
+        "ice": pp.medium.Ice(),
+        "water": pp.medium.Water()
+    }
+    
     pp.RandomGenerator.get().set_seed(rnd_seed)
     args = {
             "particle_def": pp.particle.MuMinusDef(),
-            "target": pp.medium.Ice(),
+            "target": media[medium],
             "interpolate": True,
             "cuts": pp.EnergyCutSettings(e_cut, v_cut, cont_rand)
             }
@@ -119,6 +125,10 @@ def muon_propagation_custom_multi(args):
     E_min = args['E_f']
     n_events = args['n_events']
     
+    if 'max_dist' in args:
+        max_dist = args['max_dist']
+    else: max_dist = 1e9
+    
     E_i_l = []
     E_f_track_l = []
     distance_l = []
@@ -128,7 +138,7 @@ def muon_propagation_custom_multi(args):
     z_f_l = []
     for i in range(n_events):
         init_state.energy = E_i # initial energy in MeV
-        track = prop.propagate(init_state, max_distance = 1e9, min_energy = E_min)
+        track = prop.propagate(init_state, max_distance = max_dist, min_energy = E_min) # max_dist=1e9
         # Prepare data
         E_f_track = track.track_energies()[-1] 
         distance = track.track_propagated_distances()[-1]

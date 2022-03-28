@@ -49,6 +49,8 @@ def main(cfg):
             'scattering_method': cfg['scattering_method'],
             'deflection_type': cfg['deflection_type'],
             'table_path': cfg['table_path'],
+            'medium': cfg['medium'],
+            'max_dist': cfg['max_dist']
         } 
         arg['rnd_seed'] = rnds[i]
         if 'get_data_along_track' in cfg and cfg['get_data_along_track'] == True:
