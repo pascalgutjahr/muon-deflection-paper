@@ -3,41 +3,37 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: elsarticle-template-num.aux
 The style file: elsarticle-num.bst
 Database file #1: lit.bib
-Warning--empty journal in bibtest
-Warning--empty year in bibtest
-Warning--empty author and editor in b2
-Warning--empty title in b2
-Warning--empty publisher in b2
-You've used 2 entries,
+Warning--I didn't find a database entry for ""
+You've used 0 entries,
             2952 wiz_defined-function locations,
-            674 strings with 5139 characters,
-and the built_in function-call counts, 378 in all, are:
-= -- 17
-> -- 5
+            669 strings with 5110 characters,
+and the built_in function-call counts, 44 in all, are:
+= -- 0
+> -- 0
 < -- 0
-+ -- 3
-- -- 1
-* -- 17
-:= -- 59
-add.period$ -- 2
-call.type$ -- 2
-change.case$ -- 1
++ -- 0
+- -- 0
+* -- 2
+:= -- 23
+add.period$ -- 0
+call.type$ -- 0
+change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 7
-duplicate$ -- 15
-empty$ -- 57
-format.name$ -- 1
-if$ -- 94
+cite$ -- 0
+duplicate$ -- 0
+empty$ -- 1
+format.name$ -- 0
+if$ -- 1
 int.to.chr$ -- 0
-int.to.str$ -- 2
-missing$ -- 2
-newline$ -- 14
-num.names$ -- 1
-pop$ -- 19
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 8
+num.names$ -- 0
+pop$ -- 0
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 31
+skip$ -- 1
 stack$ -- 0
 substring$ -- 0
 swap$ -- 0
@@ -45,8 +41,8 @@ text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 5
-while$ -- 1
-width$ -- 3
-write$ -- 18
-(There were 5 warnings)
+warning$ -- 0
+while$ -- 0
+width$ -- 0
+write$ -- 7
+(There was 1 warning)

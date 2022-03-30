@@ -53,6 +53,14 @@
 \usepackage{lineno}
 \linenumbers
 
+% Load custom packages
+\usepackage[
+    locale=US,
+    separate-uncertainty=true,
+    per-mode=fraction,    
+]{siunitx}
+\usepackage{xcolor}
+
 \journal{Astroparticle Physics}
 
 \begin{document}
@@ -84,7 +92,7 @@
 %%             country={}}
 %% \fntext[label3]{}
 
-\title{Simulate muon deflection by PROPOSAL}
+\title{Simulate muon deflection with PROPOSAL}
 
 %% use optional labels to link authors explicitly to addresses:
 %% \author[label1,label2]{}
@@ -112,9 +120,7 @@
             country={Germany}}
 
 \begin{abstract}
-%% Text of abstract
-Neutrinos have a major role to play in the study of the universe. To determine the position of extraterrestrial neutrino sources more precisely, neutrino experiments are constantly being optimized. For uncertainty estimation of the reconstruction of muon neutrinos, the deflection of muons along a propagated path in ice and water is simulated using the PROPOSAL lepton propagator. The deflection per interaction spans several orders of magnitude with phi in [1e-9°, 0.1°] and is rather negligible. The deflection of a muon after a propagated track is ~0.1° for energies around 1 TeV and thus in the order of magnitude of the directional resolution of present neutrino detectors. This deflection can be fit against energy with a third degree polynomial. Machine learning is also used to estimate the deflection distribution for initial and final energy and propagation distance. 
-
+\input{00_abstract.tex}
 \end{abstract}
 
 %%Graphical abstract
@@ -136,7 +142,7 @@ Neutrinos have a major role to play in the study of the universe. To determine t
 %% MSC codes here, in the form: \MSC code \sep code
 %% or \MSC[2008] code \sep code (2000 is the default)
 
-Neutrino Astronomy \sep Point-Source-Analysis \sep Angular \sep Resolution \sep PROPOSAL \sep Machine Learning \sep (!maximum of 6 keywords!)
+Neutrino Astronomy \sep Point-Source-Analysis \sep Angular \sep Resolution \sep Machine Learning \sep (!maximum of 6 keywords!)
 
 \end{keyword}
 
@@ -145,15 +151,13 @@ Neutrino Astronomy \sep Point-Source-Analysis \sep Angular \sep Resolution \sep 
 %% \linenumbers
 
 %% main text
-\section{my section}
-hehe \\
-next \\
-ok\\
-ja\\
-nein\\
-yes\\
-\cite{bibtest}
-\cite{b2}
+ 
+\input{01_introduction.tex}
+\input{02_defl_per_int.tex}
+\input{03_accum_defl.tex}
+\input{04_nn_defl.tex}
+\input{05_conclusion.tex}
+
 %% The Appendices part is started with the command \appendix;
 %% appendix sections are then done as normal sections
 %% \appendix
