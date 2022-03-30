@@ -1,0 +1,30 @@
+E_i: !!float 2e6 
+E_f: !!float 2e2 
+    
+deflection: [
+    'bremsginneken', 
+    'ioniznaive',
+    'photoginneken',
+    'epairginneken'] ### same as default
+    
+e_cut: 1
+v_cut: 0.001
+cont_rand: False
+scattering_method: "moliere"
+deflection_type: "m_scat+stochastic"
+    
+# table_path: "/Users/pgutjahr/.cache/PROPOSAL" # mac mini
+# table_path: "/Users/pascalgutjahr/.cache/PROPOSAL" # lehrstuhl macbook
+table_path: "/net/nfshome/home/pgutjahr/.cache/PROPOSAL" # vollmond
+
+file_name: "MUSIC"
+output_folder:  "data/compare_MUSIC"
+    
+n_CPU:  40
+n_jobs:  1000
+n_events_per_job: 1000
+### total_events = n_jobs * n_events_per_job
+rnd_state_seed: 3
+
+max_dist: !!float 3e5 # 3 km
+medium: "water"

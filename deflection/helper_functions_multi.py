@@ -9,25 +9,23 @@ import proposal as pp
 
 ### Muon propagation
 def propagate_deflected_muons_custom_settings_multi( 
-    inter_type=[
-        pp.particle.Interaction_Type.ioniz, 
-        pp.particle.Interaction_Type.brems, 
-        pp.particle.Interaction_Type.photonuclear, 
-        pp.particle.Interaction_Type.epair], 
-    deflection='default', 
-    deflection_type='m_scat+stochastic', 
-    e_cut=500, 
-    v_cut=0.05, 
-    cont_rand=False, 
-    scattering_method="highlandintegral", 
-    beta_brems=1.0,
-    beta_ioniz=1.0,
-    beta_epair=1.0,
-    beta_multiplescatter=1.0,
-    beta_photonuclear=1.0,
-    rnd_seed=1337, 
-    initial_direction=[0, 0, 1], 
-    table_path="/Users/pgutjahr/.cache/PROPOSAL"):
+    inter_type, 
+    deflection, 
+    deflection_type, 
+    e_cut, 
+    v_cut, 
+    cont_rand, 
+    medium,
+    interpol_nodes,
+    scattering_method, 
+    beta_brems,
+    beta_ioniz,
+    beta_epair,
+    beta_photonuclear,
+    beta_multiplescatter,
+    rnd_seed, 
+    initial_direction, 
+    table_path):
 
     '''Propagate muon tracks with deflection. Scaling of Bremsstrahlung opening angle can be done by beta.
     
@@ -48,10 +46,19 @@ def propagate_deflected_muons_custom_settings_multi(
     '''
     pp.InterpolationSettings.tables_path = table_path   # version 7
     
+    pp.InterpolationSettings.nodes_dndx_e = interpol_nodes
+    pp.InterpolationSettings.nodes_dndx_v = interpol_nodes
+
+    
+    media = {
+        "ice": pp.medium.Ice(),
+        "water": pp.medium.Water()
+    }
+    
     pp.RandomGenerator.get().set_seed(rnd_seed)
     args = {
             "particle_def": pp.particle.MuMinusDef(),
-            "target": pp.medium.Ice(),
+            "target": media[medium],
             "interpolate": True,
             "cuts": pp.EnergyCutSettings(e_cut, v_cut, cont_rand)
             }
@@ -111,13 +118,72 @@ def propagate_deflected_muons_custom_settings_multi(
 
 def muon_propagation_custom_multi(args):
 
-    # args = args[0]
+    default_settings = {
+        'inter_type': [
+                    pp.particle.Interaction_Type.ioniz, 
+                    pp.particle.Interaction_Type.brems, 
+                    pp.particle.Interaction_Type.photonuclear, 
+                    pp.particle.Interaction_Type.epair], 
+        'deflection': 'default', 
+        'deflection_type': 'm_scat+stochastic', 
+        'e_cut': 500, 
+        'v_cut': 0.05, 
+        'cont_rand': False, 
+        'medium': "ice",
+        'interpol_nodes': 100,
+        'scattering_method': "highlandintegral", 
+        'beta_brems': 1.0,
+        'beta_ioniz': 1.0,
+        'beta_epair': 1.0,
+        'beta_multiplescatter': 1.0,
+        'beta_photonuclear': 1.0,
+        'rnd_seed': 1337, 
+        'initial_direction': [0, 0, 1], 
+        'table_path': "/Users/pascalgutjahr/.cache/PROPOSAL",
+    }
     
-    init_state, prop = propagate_deflected_muons_custom_settings_multi(deflection=args['deflection'], rnd_seed=args['rnd_seed'], table_path=args['table_path'], e_cut=args['e_cut'], v_cut=args['v_cut'], cont_rand=args['cont_rand'], scattering_method=args['scattering_method'], deflection_type=args['deflection_type'])
+    for key in default_settings.keys():
+        if key not in args:
+            args[key] = default_settings[key]
+    
+    
+    init_state, prop = propagate_deflected_muons_custom_settings_multi(
+        inter_type=args['inter_type'],
+        deflection=args['deflection'], 
+        deflection_type=args['deflection_type'],
+        e_cut=args['e_cut'], 
+        v_cut=args['v_cut'], 
+        cont_rand=args['cont_rand'], 
+        medium=args['medium'],
+        interpol_nodes=args['interpol_nodes'],
+        scattering_method=args['scattering_method'], 
+        beta_brems=args['beta_brems'],
+        beta_ioniz=args['beta_ioniz'],
+        beta_epair=args['beta_epair'],
+        beta_photonuclear=args['beta_photonuclear'],
+        beta_multiplescatter=args['beta_multiplescatter'],
+        rnd_seed=args['rnd_seed'], 
+        initial_direction=args['initial_direction'], 
+        table_path=args['table_path']
+    )
+    
     
     E_i = args['E_i']
     E_min = args['E_f']
-    n_events = args['n_events']
+    n_events = args['n_events_per_job']
+    
+    if 'max_dist' in args:
+        max_dist = args['max_dist']
+    else: max_dist = 1e9
+    
+    if args['print_settings']:
+        print('E_i: ', E_i)
+        print('E_min: ', E_min)
+        print('max_dist: ', max_dist)
+        for key in args:
+            if key not in ['print_settings', 'rnd_seed']:
+                print('{}: {}'.format(key, args[key]))
+    
     
     E_i_l = []
     E_f_track_l = []
@@ -128,7 +194,7 @@ def muon_propagation_custom_multi(args):
     z_f_l = []
     for i in range(n_events):
         init_state.energy = E_i # initial energy in MeV
-        track = prop.propagate(init_state, max_distance = 1e9, min_energy = E_min)
+        track = prop.propagate(init_state, max_distance = max_dist, min_energy = E_min) # max_dist=1e9
         # Prepare data
         E_f_track = track.track_energies()[-1] 
         distance = track.track_propagated_distances()[-1]
