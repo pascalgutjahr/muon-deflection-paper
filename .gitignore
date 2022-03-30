@@ -6,7 +6,7 @@
 *.spl
 *.gz
 *.fdb_latexmk
-tex/*.pdf
+*.pdf
 
 plots/
 data/
