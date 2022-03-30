@@ -7,7 +7,7 @@ deflection: [
     'photoginneken',
     'epairginneken'] 
     
-e_cut: 1
+e_cut: !!float 1e9
 v_cut: 0.001
 cont_rand: False
 scattering_method: "moliere"
