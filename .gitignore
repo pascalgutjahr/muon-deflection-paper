@@ -1,3 +1,12 @@
+*.aux
+*.bbl
+*.blg
+*.fls
+*.log
+*.spl
+*.gz
+*.fdb_latexmk
+
 plots/
 data/
 
