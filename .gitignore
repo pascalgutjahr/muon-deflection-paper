@@ -6,6 +6,7 @@
 *.spl
 *.gz
 *.fdb_latexmk
+tex/*.pdf
 
 plots/
 data/
