@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import proposal as pp
+from tqdm import tqdm
 
 
 ### ------------- DEFINE FUNCTIONS ------------
@@ -192,7 +193,7 @@ def muon_propagation_custom_multi(args):
     x_f_l = []
     y_f_l = []
     z_f_l = []
-    for i in range(n_events):
+    for i in tqdm(range(n_events)):
         init_state.energy = E_i # initial energy in MeV
         track = prop.propagate(init_state, max_distance = max_dist, min_energy = E_min) # max_dist=1e9
         # Prepare data
