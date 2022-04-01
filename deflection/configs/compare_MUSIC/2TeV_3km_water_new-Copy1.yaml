@@ -1,5 +1,5 @@
 E_i: !!float 2e6 
-E_f: !!float 1e1 # propagate to muon mass
+E_f: !!float 3e2 # 1e1 # propagate to muon mass
     
 deflection: [
     'bremsginneken', 
@@ -14,17 +14,17 @@ scattering_method: "moliere"
 deflection_type: "m_scat+stochastic"
     
 # table_path: "/Users/pgutjahr/.cache/PROPOSAL" # mac mini
-table_path: "/Users/pascalgutjahr/.cache/PROPOSAL" # lehrstuhl macbook
-# table_path: "/net/nfshome/home/pgutjahr/.cache/PROPOSAL" # vollmond
+# table_path: "/Users/pascalgutjahr/.cache/PROPOSAL" # lehrstuhl macbook
+table_path: "/net/nfshome/home/pgutjahr/.cache/PROPOSAL" # vollmond
 
 file_name: "MUSIC"
 output_folder:  "data/compare_MUSIC"
     
-n_CPU:  1
-n_jobs:  1 
-n_events_per_job: 100000
+n_CPU: 1 # 30
+n_jobs: 1 # 100
+n_events_per_job: 3305 # 10000
 ### total_events = n_jobs * n_events_per_job
-rnd_state_seed: 12
+rnd_state_seed: 16
 
 max_dist: !!float 3e5 # 3 km
 medium: "water"

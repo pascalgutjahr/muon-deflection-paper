@@ -147,6 +147,9 @@ def muon_propagation_custom_multi(args):
         if key not in args:
             args[key] = default_settings[key]
     
+    #### bisection ###
+    args['rnd_seed'] =  430171
+    ####
     
     init_state, prop = propagate_deflected_muons_custom_settings_multi(
         inter_type=args['inter_type'],
@@ -184,7 +187,8 @@ def muon_propagation_custom_multi(args):
         for key in args:
             if key not in ['print_settings', 'rnd_seed']:
                 print('{}: {}'.format(key, args[key]))
-    
+
+    print('rnd_seed for test: ',args['rnd_seed'])
     
     E_i_l = []
     E_f_track_l = []

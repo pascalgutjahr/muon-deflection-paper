@@ -20,8 +20,6 @@ from helper_functions_multi import muon_propagation_custom_multi
 @click.argument('cfg', type=click.Path(exists=True))
 
 def main(cfg):
-
-    start_total = time.time()
     
     # Read data
     with open(cfg, 'r') as stream:
@@ -110,7 +108,6 @@ def main(cfg):
     results_df.to_hdf('{}/{}_{}.hdf5'.format(cfg['output_folder'], cfg['file_name'], config_name), key='seed_{}'.format(cfg['rnd_state_seed']))
     
     end = time.time()
-    print('Total Duration: {} s'.format(np.round(end-start_total, 2)))
     print('Duration: {} s'.format(np.round(end-start, 2)))
     
 
