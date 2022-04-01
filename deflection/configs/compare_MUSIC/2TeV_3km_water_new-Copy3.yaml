@@ -1,4 +1,4 @@
-E_i: !!float 2e6 
+E_i: !!float 3e8 # 3e5 logging # 1e6 error
 E_f: !!float 3e2 # 1e1 # propagate to muon mass
     
 deflection: [
@@ -7,8 +7,8 @@ deflection: [
     'photoginneken',
     'epairginneken'] 
     
-e_cut: !!float 1e9
-v_cut: 0.001
+e_cut: 500
+v_cut: 0.05
 cont_rand: False
 scattering_method: "moliere"
 deflection_type: "m_scat+stochastic"
