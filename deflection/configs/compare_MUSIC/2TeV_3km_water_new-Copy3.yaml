@@ -1,4 +1,4 @@
-E_i: !!float 3e8 # 3e5 logging # 1e6 error
+E_i: !!float 1e6 # 3e5 logging # 1e6 error
 E_f: !!float 3e2 # 1e1 # propagate to muon mass
     
 deflection: [
