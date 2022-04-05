@@ -22,7 +22,7 @@ table_path: "/net/nfshome/home/pgutjahr/.cache/PROPOSAL" # vollmond
 file_name: "total_defl"
 output_folder:  "data/total_defl_combined_moliere_10TeV_water"
     
-n_CPU:  10
+n_CPU:  25
 n_jobs:  50
 n_events_per_job: 1100 
 ### total_events = n_jobs * n_events_per_job
