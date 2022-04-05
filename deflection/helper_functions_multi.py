@@ -148,7 +148,7 @@ def muon_propagation_custom_multi(args):
             args[key] = default_settings[key]
     
     #### bisection ###
-    args['rnd_seed'] =  430171
+    ### args['rnd_seed'] =  430171
     ####
     
     init_state, prop = propagate_deflected_muons_custom_settings_multi(
@@ -188,7 +188,7 @@ def muon_propagation_custom_multi(args):
             if key not in ['print_settings', 'rnd_seed']:
                 print('{}: {}'.format(key, args[key]))
 
-    print('rnd_seed for test: ',args['rnd_seed'])
+    ### print('rnd_seed for test: ',args['rnd_seed'])
     
     E_i_l = []
     E_f_track_l = []
@@ -197,7 +197,7 @@ def muon_propagation_custom_multi(args):
     x_f_l = []
     y_f_l = []
     z_f_l = []
-    for i in tqdm(range(n_events)):
+    for i in range(n_events):
         init_state.energy = E_i # initial energy in MeV
         track = prop.propagate(init_state, max_distance = max_dist, min_energy = E_min) # max_dist=1e9
         # Prepare data
