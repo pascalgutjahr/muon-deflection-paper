@@ -1,8 +1,25 @@
 \section{Muon Deflection per Interaction}\label{sec:defl_per_int}
-\begin{itemize}
-    \item short description of PROPOSAL \\
-        (stochastic/continuous energy losses, explain $e_{\text{cut}}/v_{\text{cut}}$, 
-        input, output, 
-        interaction types)
-    \item plot with deflection per interaction
-\end{itemize}
+The tool PROPOSAL propagates charged leptons and photons through media und is 
+used in this paper to analyze the deflection of muons. For this purpose, 
+negative charged muons $\mu^-$ are propagated through the media ice and water 
+to estimate the deflection for IceCube and KM3NeT/ARCA. All muon interaction types as bremsstrahlung, photonuclear interaction, electron pair production, 
+ionization and decay are provided. The interaction processes are sampled by their cross section. Since bremsstrahlung interactions can be 
+arbitrary small due to a massless exchange particle, the photon, an energy cut is introduced to avoid an infinite number of bremsstrahlung interactions 
+and furthermore to speed up the propagation process with small uncertainties.
+The limit is applied with 
+\begin{equation}
+    E_{\text{loss,min}} = \min{(E \cdot \texttt{v\_cut}, \texttt{e\_cut})}\,,
+\end{equation}
+using two parameters - a relative and total energy cut denoted as 
+$\texttt{v\_cut}$ and $\texttt{e\_cut}$. A sampled energy loss 
+$E_{\text{loss}} < E_{\text{loss,min}}$ builds an integrated part of a 
+stochastic energy loss referred to as continuous energy loss.
+The deflection for stochastic interactions is parametrized by Van Ginneken 
+in \cite{Van_Ginneken} with a direct calculation of the deflection in 
+ionization using four-momentum conservation. To estimate the deflection along 
+a continuous energy loss multiple scattering established by Moliére is used
+\cite{moliere_scattering}. 
+The latest updates with a detailed description of the whole tool can be found 
+in \cite{phd_soedingrekso}.
+All simulations are done with PROPOSAL $7.3.0$.
+
