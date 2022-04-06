@@ -17,6 +17,8 @@ def propagate_deflected_muons_custom(
     e_cut=500, 
     v_cut=0.05, 
     cont_rand=False, 
+    medium='ice',
+    interpol_nodes=100,
     scattering_method="highlandintegral", 
     beta_brems=1.0,
     beta_ioniz=1.0,
@@ -46,10 +48,19 @@ def propagate_deflected_muons_custom(
     '''
     pp.InterpolationSettings.tables_path = table_path   # version 7
     
+    pp.InterpolationSettings.nodes_dndx_e = interpol_nodes
+    pp.InterpolationSettings.nodes_dndx_v = interpol_nodes
+
+    
+    media = {
+        "ice": pp.medium.Ice(),
+        "water": pp.medium.Water()
+    }
+    
     pp.RandomGenerator.get().set_seed(rnd_seed)
     args = {
             "particle_def": pp.particle.MuMinusDef(),
-            "target": pp.medium.Ice(),
+            "target": media[medium],
             "interpolate": True,
             "cuts": pp.EnergyCutSettings(e_cut, v_cut, cont_rand)
             }
