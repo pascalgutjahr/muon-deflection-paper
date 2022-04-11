@@ -27,6 +27,7 @@ def propagate_deflected_muons_custom(
     beta_photonuclear=1.0,
     rnd_seed=1337, 
     initial_direction=[0, 0, 1], 
+    max_dist=1e9,
     table_path="/Users/pgutjahr/.cache/PROPOSAL"):
 
     '''Propagate muon tracks with deflection. Scaling of Bremsstrahlung opening angle can be done by beta.
@@ -118,7 +119,7 @@ def propagate_deflected_muons_custom(
     tracks = []
     for E_i, E_min in zip(tqdm(initial_energies), minimum_energies):
         init_state.energy = E_i # initial energy in MeV
-        track = prop.propagate(init_state, max_distance = 1e9, min_energy = E_min)
+        track = prop.propagate(init_state, max_distance = max_dist, min_energy = E_min)
         tracks.append(track)
         
     return tracks
