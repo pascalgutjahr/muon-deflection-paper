@@ -9,7 +9,7 @@
 *.pdf
 *.dvi
 *.out
-*.synctex
+*.synctex(busy)
 
 plots/
 data/
