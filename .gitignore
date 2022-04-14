@@ -8,6 +8,8 @@
 *.fdb_latexmk
 *.pdf
 *.dvi
+*.out
+*.synctex
 
 plots/
 data/
