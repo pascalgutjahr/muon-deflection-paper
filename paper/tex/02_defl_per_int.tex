@@ -17,8 +17,9 @@ stochastic energy loss referred to as continuous energy loss.
 The deflection for stochastic interactions is parametrized by Van Ginneken 
 in \cite{Van_Ginneken} with a direct calculation of the deflection in 
 ionization using four-momentum conservation. To estimate the deflection along 
-a continuous energy loss multiple scattering established by Moliére is used
-\cite{moliere_scattering}. 
+a continuous energy loss multiple scattering established by Moliére 
+\cite{moliere_scattering} and the gaussian approximation by Highland 
+can be chosen \cite{highland_scattering}. 
 The latest updates with a detailed description of the whole tool can be found 
 in \cite{phd_soedingrekso}.
 All simulations are done with PROPOSAL $7.3.0$.
@@ -31,9 +32,10 @@ and a $\SI{95}{\percent}$ central interval of \textcolor{red}{$[\SI{e-7}{degree}
 
 \begin{figure}
     \centering 
-    \includegraphics[width=0.8\textwidth]{figures/1PeV_1TeV_100events_vG_DPG.pdf}
-    \caption{\textcolor{red}{USE NEWEST FIGURE} The propagation is done for \textcolor{red}{5000} 
-    events from $E_{\text{i}} = \SI{1}{\peta\electronvolt}$ to $E_{\text{f}} = \SI{1}{\tera\electronvolt}$.}
+    \includegraphics[width=0.8\textwidth]{figures/1PeV_1TeV_1000events.pdf}
+    \caption{The propagation is done for $\num{1000}$ 
+    muons from $E_{\text{i}} = \SI{1}{\peta\electronvolt}$ to $E_{\text{f,\,min}} = \SI{1}{\tera\electronvolt}$ using $\texttt{e\_cut} = \SI{500}{\mega\electronvolt}$ and $\texttt{v\_cut} = 0.05$. For multiple scattering 
+    the Moliére parametrization.}
     \label{fig:defl_per_int}
 \end{figure}
 
