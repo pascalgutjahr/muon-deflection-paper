@@ -58,10 +58,22 @@
     locale=US,
     separate-uncertainty=true,
     per-mode=fraction,    
+    print-unity-mantissa = false
 ]{siunitx}
 \usepackage{xcolor}
 \usepackage{subcaption}
 \usepackage{hyperref}
+
+\usepackage{float}
+\usepackage{scrhack}
+\floatplacement{figure}{htbp}
+\floatplacement{table}{htbp}
+
+\usepackage{multirow}
+
+% schöne Tabellen
+\usepackage{booktabs}
+\usepackage{multirow}
 
 \journal{Astroparticle Physics}
 
@@ -133,8 +145,10 @@
 %%Research highlights
 \begin{highlights}
 \item Stochastic muon deflection implemented into PROPOSAL
-\item NN-based parametrization of muon deflection distribution 
+\item Comparison of deflections of MUISIC, GEANT4 and PROPOSAL
 \item Third degree polynomial fit of muon deflection 
+\item Theoretical estimation of angular uncertainty on directional muon reconstruction 
+\item (NN-based parametrization of muon deflection distribution? --> useful?!) 
 \end{highlights}
 
 \begin{keyword}
@@ -160,6 +174,7 @@ Neutrino Astronomy \sep Point-Source-Analysis \sep Angular \sep Resolution \sep 
 \input{03_accum_defl.tex}
 \input{04_nn_defl.tex}
 \input{05_conclusion.tex}
+\input{06_acknowledgement.tex}
 
 %% The Appendices part is started with the command \appendix;
 %% appendix sections are then done as normal sections
