@@ -10,7 +10,7 @@ deflection: [
 e_cut: !!float 1e10
 v_cut: !!float 1e-5
 cont_rand: False
-scattering_method: "highland"
+scattering_method: "highlandintegral" # "highland"
 deflection_type: "m_scat+stochastic"
     
 # table_path: "/Users/pgutjahr/.cache/PROPOSAL" # mac mini
