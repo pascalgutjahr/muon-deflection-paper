@@ -1,10 +1,9 @@
 \section{Accumulated Muon Deflection}\label{sec:accum_defl}
 
 As shown in Section~\ref{sec:defl_per_int}, the deflection per interaction 
-is lower $\SI{1}{\degree}$ and thus not relevant for the current muon 
-directional reconstruction. Since these deflections accumulate along the 
+is lower $\SI{1}{\degree}$. Since these deflections accumulate along the 
 propagation distance, the angle between the incoming muon and the outgoing 
-muon direction is simulated. 
+muon direction is simulated to study a limit on the angular reconstruction.
 At first, the deflections in PROPOSAL are compared to 
 the tools MUSIC and GEANT4.
 
@@ -13,18 +12,47 @@ the tools MUSIC and GEANT4.
 \begin{figure}
     \centering
     \subcaptionbox{
+        The accumulated deflection in degree is very similar in all cases.
         \label{fig:compare_MUSIC_degree}}
         {\includegraphics[width=0.48\textwidth]{figures/compare_MUSIC_degree.pdf}}
     \subcaptionbox{
+        The lateral displacement builds two results in general, which depend on the scattering method. Moliére scattering leads to higher distances.
         \label{fig:compare_MUSIC_dist}}
         {\includegraphics[width=0.48\textwidth]{figures/compare_MUSIC_dist.pdf}}
-    \caption{}
+    \caption{A comparison of the results of MUSIC, GEANT4 and PROPOSAL is presented for $\num{1000000}$ negative charged muons propagated with 
+    $E_{\text{i}} = \SI{2}{\tera\electronvolt}$ over a distance of 
+    $\SI{3}{\kilo\meter}$. A $\texttt{v\_cut} = 0.001$ is set. In PROPOSAL, 
+    bremsstrahlung and photonuclear interaction are parametrized by 
+    Van Ginneken (vG) and GEANT4. Detailed information are given in 
+    Table~\ref{tab:compare_MUSIC}. The results for MUSIC and GEANT4 are taken from 
+    \cite{comparison_MUSIC_GEANT4_2009}.}
     \label{fig:compare_MUSIC}
 \end{figure}
 
 
 
-
+\begin{table}
+    \small
+    \centering
+    \caption{The survival probability $p_{\text{s}}$, the mean survived muon 
+    energy $\overline{E}_{\text{f}}$, the mean scattered angle $\overline{\theta}$ 
+    and the mean displacement $\overline{x}$ are presented for all cases from 
+    Figure~\ref{fig:compare_MUSIC}. For all means, the standard deviation is given.
+    The largest deflection and displacement result in the tool GEANT4, which has the lowest mean survived energy. The lower the energy, the larger the deflection.}
+    \begin{tabular}{l|cc|cccc}
+        \toprule
+        & & & \multicolumn{4}{c}{PROPOSAL} \\
+        &  & & \multicolumn{2}{c}{Molière} & \multicolumn{2}{c}{Highland} \\
+        & MUSIC & GEANT4 & vG & GEANT4 & vG & GEANT4 \\
+        \midrule
+        $p_{\text{s}}\,/\,\si{\percent}$ & 77.9 & 79.3 &  \multicolumn{4}{c}{77.9}\\
+        $\overline{E}_{\text{f}}\,/\,\si{\giga\electronvolt}$ & 323 & 317 & \multicolumn{4}{c}{331$\pm$178} \\
+        $\overline{\theta}\,/\,\si{\degree}$ & 0.22 & 0.27 & 0.24$\pm$0.45 & 0.24$\pm$0.45 & 0.22$\pm$0.35 & 0.22$\pm$0.35   \\
+        $\overline{x}\,/\,\si{\meter}$ & 2.6 & 3.3 & 2.9$\pm$2.6 & 2.9$\pm$2.6 & 2.7$\pm$1.6 & 2.7$\pm$1.7  \\
+     \bottomrule
+    \end{tabular}
+    \label{tab:compare_MUSIC}
+    \end{table}
 
 
 

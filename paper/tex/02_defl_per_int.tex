@@ -5,19 +5,30 @@ negative charged muons $\mu^-$ are propagated through the media ice and water
 to estimate the deflection for IceCube and KM3NeT/ARCA. All muon interaction types as bremsstrahlung, photonuclear interaction, electron pair production, 
 ionization and decay are provided. The interaction processes are sampled by their cross section. Since bremsstrahlung interactions can be 
 arbitrary small due to a massless exchange particle, the photon, an energy cut is introduced to avoid an infinite number of bremsstrahlung interactions 
-and furthermore to speed up the propagation process with small uncertainties.
+and furthermore to speed up the propagation process. 
 The limit is applied with 
 \begin{equation}
     E_{\text{loss,min}} = \min{(E \cdot \texttt{v\_cut}, \texttt{e\_cut})}\,,
 \end{equation}
 using two parameters - a relative and total energy cut denoted as 
-$\texttt{v\_cut}$ and $\texttt{e\_cut}$. A sampled energy loss 
-$E_{\text{loss}} < E_{\text{loss,min}}$ builds an integrated part of a 
-stochastic energy loss referred to as continuous energy loss.
-The deflection for stochastic interactions is parametrized by Van Ginneken 
+$\texttt{v\_cut}$ and $\texttt{e\_cut}$. The uncertainties are small 
+for a relative energy cut $\texttt{v\_cut}\ll 1$ \cite{}.
+A sampled energy loss 
+$E_{\text{loss}} < E_{\text{loss,\,min}}$ builds an integrated part of a 
+stochastic energy loss referred to as continuous energy loss. The 
+propagation process is defined by an initial energy $E_{\text{i}}$ and 
+two stopping criteria - a final energy $E_{\text{f,\,min}}$ and a 
+maximum propagation distance $d_{\text{min}}$. If the last interaction of 
+a propagation is sampled by a stochastic interaction, the true final energy 
+$E_{\text{f}}$ and the 
+propagation distance $d$ can become lower than the required limits. 
+The deflections for stochastic interactions are parametrized by Van Ginneken 
 in \cite{Van_Ginneken} with a direct calculation of the deflection in 
-ionization using four-momentum conservation. To estimate the deflection along 
-a continuous energy loss multiple scattering established by Moliére 
+ionization using four-momentum conservation. 
+Furthermore, there are parametrizations for deflections given in GEANT4 \cite{GEANT4_manual} for bremsstrahlung and photonuclear interaction, which 
+are available in PROPOSAL, too.
+To estimate the deflection along 
+a continuous energy loss, multiple scattering established by Moliére 
 \cite{moliere_scattering} and the gaussian approximation by Highland 
 can be chosen \cite{highland_scattering}. 
 The latest updates with a detailed description of the whole tool can be found 
@@ -27,15 +38,30 @@ All simulations are done with PROPOSAL $7.3.0$.
 
 The deflections per interaction are presented in Figure~\ref{fig:defl_per_int} 
 for each interaction type and the total amount. A single deflection 
-extend over several orders of magnitude with a median of \textcolor{red}{$\SI{e-6}{\degree}$}
-and a $\SI{95}{\percent}$ central interval of \textcolor{red}{$[\SI{e-7}{degree}, \,\SI{e-2}{degree}]$}.
+extend over several orders of magnitude with a median of $\SI{1.5e-6}{\degree}$
+and a $\SI{95}{\percent}$ central interval of $[\SI{1.6e-7}{degree}, \,\SI{2.8e-4}{degree}]$.
 
 \begin{figure}
     \centering 
     \includegraphics[width=0.8\textwidth]{figures/1PeV_1TeV_1000events.pdf}
     \caption{The propagation is done for $\num{1000}$ 
     muons from $E_{\text{i}} = \SI{1}{\peta\electronvolt}$ to $E_{\text{f,\,min}} = \SI{1}{\tera\electronvolt}$ using $\texttt{e\_cut} = \SI{500}{\mega\electronvolt}$ and $\texttt{v\_cut} = 0.05$. For multiple scattering 
-    the Moliére parametrization.}
+    the Moliére parametrization is used. Details are presented in 
+    Table~\ref{tab:defl_per_int}.}
     \label{fig:defl_per_int}
 \end{figure}
 
+\begin{table}
+    \centering 
+    \caption{The medians of deflections per interaction from Figure~\ref{fig:defl_per_int} are presented for each interaction type and the total distribution with the upper and lower limits of the $\SI{95}{\percent}$ 
+    central content levels.}
+    \begin{tabular}{ccccc}
+        \toprule 
+        brems & nuclint & epair & ioniz & total \\
+        $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-4}{\degree}$ & $\theta\,/\,\SI{e-6}{\degree}$ & $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-6}{\degree}$\\
+        \midrule 
+        $3.8_{-0.1}^{+297}$ & $1.2_{-0.4}^{+96}$ & $1.3_{-0.2}^{+42}$ & $4.4_{-0.1}^{+181}$& $1.5_{-0.2}^{+279}$\\ 
+        \bottomrule
+    \end{tabular}
+    \label{tab:defl_per_int}
+\end{table}
