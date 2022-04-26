@@ -6,19 +6,21 @@ propagation distance, the angle between the incoming muon and the outgoing
 muon direction is simulated to study a limit on the angular reconstruction.
 At first, the deflections in PROPOSAL are compared to 
 the tools MUSIC and GEANT4.
-
+\textcolor{red}{add short description and settings of MUSIC}
+\textcolor{red}{add short description and settings of GEANT4}
 
 
 \begin{figure}
     \centering
     \subcaptionbox{
-        The accumulated deflection in degree is very similar in all cases.
+        The accumulated deflection $\theta_{\mathrm{acc}}$ in degree is very similar in all cases.
         \label{fig:compare_MUSIC_degree}}
-        {\includegraphics[width=0.48\textwidth]{figures/compare_MUSIC_degree.pdf}}
+        {\includegraphics[width=0.48\textwidth]{figures/compare_MUSIC_angle_paper.pdf}}
     \subcaptionbox{
-        The lateral displacement builds two results in general, which depend on the scattering method. Moliére scattering leads to higher distances.
+        The lateral displacement $x$ in meter results in two cases, which depend 
+        on the scattering method. Moliére scattering leads to higher distances.
         \label{fig:compare_MUSIC_dist}}
-        {\includegraphics[width=0.48\textwidth]{figures/compare_MUSIC_dist.pdf}}
+        {\includegraphics[width=0.48\textwidth]{figures/compare_MUSIC_dist_paper.pdf}}
     \caption{A comparison of the results of MUSIC, GEANT4 and PROPOSAL is presented for $\num{1000000}$ negative charged muons propagated with 
     $E_{\text{i}} = \SI{2}{\tera\electronvolt}$ over a distance of 
     $\SI{3}{\kilo\meter}$. A $\texttt{v\_cut} = 0.001$ is set. In PROPOSAL, 
@@ -52,7 +54,7 @@ the tools MUSIC and GEANT4.
      \bottomrule
     \end{tabular}
     \label{tab:compare_MUSIC}
-    \end{table}
+\end{table}
 
 
 
@@ -69,9 +71,12 @@ with a $\SI{95}{\percent}$ central interval is presented in
 Figure~\ref{fig:fit_median}.
 
 \begin{equation}
+    add fit
     \label{eqn:fit_median}
 \end{equation}
 
+\textcolor{red}{Deviation between the median of the deflection in ice and water 
+is lower than $\SI{1}{\percent}$ for all energies.}
 
 \begin{figure}
     \centering 
