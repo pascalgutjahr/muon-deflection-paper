@@ -5,9 +5,24 @@ is lower $\SI{1}{\degree}$. Since these deflections accumulate along the
 propagation distance, the angle between the incoming muon and the outgoing 
 muon direction is simulated to study a limit on the angular reconstruction.
 At first, the deflections in PROPOSAL are compared to 
-the tools MUSIC and GEANT4.
+the tools MUSIC \cite{MUSIC,comparison_MUSIC_GEANT4_2009} and GEANT4 \cite{GEANT4}.
+MUSIC (MUon SImulation Code) is a tool to simulate the propagation of muons 
+through media like rock and water considering the same energy losses as in 
+PROPOSAL. Also, the losses are divided into continuous und stochastic 
+energy losses by an relative energy cut. 
+\begin{itemize}
+    \item maybe use a table for the cross-section comparison?
+    \item electron pair production: Kokoulin-Petrukhin [11], deflection [12]
+    \item bremsstrahlung: 1. BezrukovandBugaev[9], 2.Kelner, Kokoulin andPetrukhin
+    [4], deflection [12] 
+    \item inelastic scattering: Bezrukov and Bugaev [16], deflection GEANT4
+    \item ionization: treated as stochastic process, but no deflection
+    \item scattering: gaussian approx
+\end{itemize}
+
 \textcolor{red}{add short description and settings of MUSIC}
 \textcolor{red}{add short description and settings of GEANT4}
+\textcolor{red}{was machen MUSIC und GEANT4 mit ioniz?}
 
 
 \begin{figure}
@@ -69,25 +84,51 @@ $E_{\text{f,\,min}} < E_{\text{i}}$ for each simulation. To compare the results 
 a total of $\num{36}$ simulations, the median of the deflection distribution 
 with a $\SI{95}{\percent}$ central interval is presented in 
 Figure~\ref{fig:fit_median}.
+The lower the final muon energy, the larger the accumulated deflection. 
+For energies $E_{\text{f}} = \SI{1}{\peta\electronvolt}$, the median deflection 
+is lower than $\SI{e-3}{\degree}$. For energies $E_{\text{f}} = \SI{10}{\giga\electronvolt}$, 
+angles larger than $\SI{1}{\degree}$ are possible. Deflections for a typical energy range 
+for astrophysical neutrinos of $E_{\text{f}} \approx \SI{500}{\giga\electronvolt} - \SI{5}{\tera\electronvolt}$
+\cite{jan?} results in small overlap with the angular resolution of KM3NeT 
+\cite{KM3NeT_Resolution2016}. The resolution of IceCube is a bit worse and 
+therefore not affected \cite{IceCube_Resolution2021}. Since these simulations are done 
+in ice, the same simulations are done in water. The deviations of the medians
+are less than $\SI{1}{\percent}$ for all energies.
 
+Furthermore, in Figure~\ref{fig:fit_median} there are only $12$ medians visible, 
+instead of $36$ which is the total amount of all simulations. This result points 
+out that the total deflection of a muon 
+primarily depends on the final muon energy. Hence, the reconstructed muon 
+energy in a detector can be used to estimate a theoretical deflection. For this 
+purpose, the following fit-function 
 \begin{equation}
-    add fit
+     f(x) = a \cdot x^3 + b \cdot x^2 + c \cdot x + d \,,
     \label{eqn:fit_median}
 \end{equation}
+can be applied with the parameters 
+\begin{align}
+    a =& +0.024 \pm 0.001\,,  & c =& +0.379 \pm 0.057\,,\\
+    b =& -0.312 \pm 0.016\,,  & d =& -0.216 \pm 0.058\,,
+\end{align}
+in the logarithmic space via 
+\begin{align}
+    g(x) =& 10^{f(x)}\,, & x =& \log_{10}\left(\frac{E_{\text{f}}}{\si{\giga\electronvolt}}\right)\,.
+\end{align}
 
-\textcolor{red}{Deviation between the median of the deflection in ice and water 
-is lower than $\SI{1}{\percent}$ for all energies.}
+
 
 \begin{figure}
     \centering 
-    \includegraphics[width=0.8\textwidth]{figures/fit_median_defl_cut_10percent_only_poly.pdf}
-    \caption{The median of the accumulated deflection with a $\SI{95}{\percent}$ 
+    \includegraphics[width=0.96\textwidth]{figures/fit_median_defl_cut_10percent_only_poly.pdf}
+    \caption{The median of the accumulated deflection $\theta_{\text{acc}}$ in degree 
+    with a $\SI{95}{\percent}$ 
     central interval is shown for four different initial energies $E_{\text{i}}$. 
     Each data set includes more than $\num{50000}$ events with the requirement 
     that the true final particle energy $E_{\text{f}}$ is maximum 
     $\SI{10}{\percent}$ below the set final energy $E_{\text{f,\,min}}$,   
     $E_{\text{f}} > E_{\text{f,\,min}} \cdot 0.9$. The energy cuts are $\texttt{e\_cut} = \SI{500}{\mega\electronvolt}$ and $\texttt{v\_cut} = 0.05$ and 
-    Moliére scattering is chosen. 
+    Moliére scattering is chosen. Simulations are done in ice, the deviation 
+    of the medians in a water based simulation are less than $\SI{1}{\percent}$.
     Since the medians overlap for different initial energies, there is no 
     strong impact of the initial energy on the median deflection. These 
     medians can be fit by a third degree polynomial in the log-space as 
