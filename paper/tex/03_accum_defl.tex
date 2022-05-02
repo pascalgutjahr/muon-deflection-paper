@@ -9,40 +9,74 @@ the tools MUSIC \cite{MUSIC,comparison_MUSIC_GEANT4_2009} and GEANT4 \cite{GEANT
 MUSIC (MUon SImulation Code) is a tool to simulate the propagation of muons 
 through media like rock and water considering the same energy losses as in 
 PROPOSAL. Also, the losses are divided into continuous and stochastic 
-energy losses by a relative energy cut. 
-\begin{itemize}
-    \item this is MUSIC: maybe use a table for the cross-section comparison?
-    \item electron pair production:  Kelner-..[\cite{epair_kelner,epair_kokoulin_petrukhin}], deflection [\cite{Van_Ginneken}]
-    \item bremsstrahlung: Kelner, Kokoulin andPetrukhin
-    [\cite{Bremsstrahlung_KKP}], deflection [\cite{Van_Ginneken}] 
-    \item inelastic scattering: shlepin and Bugaev [\cite{nulcint_bugaev_Shlepin}], \cite{bugaev_1980_defl,bugaev_1981_defl} (überprüfe, ob genau diese referenz auch im GEANT4 verwendet wird!!!)
-    \item ionization: treated as stochastic process (Bethe-Bloch formula) including knock-on electron production, but no deflection
-    \item scattering: gaussian approx \cite{HIGHLAND_1975}
-\end{itemize}
+energy losses by a relative energy cut. Several cross-sections, multiple scattering 
+methods and parametrizations for stochastic deflection are 
+available. For these studies, it is chosen bremsstrahlung \cite{Bremsstrahlung_KKP}, 
+nuclear interaction \cite{nulcint_bugaev_Shlepin, bugaev_1980_defl,bugaev_1981_defl} 
+and electron pair production \cite{epair_kelner,epair_kokoulin_petrukhin}, 
+which deflections are parametrized by \cite{Van_Ginneken}. 
+Also, ionization is treated as a stochastic process with the Bethe-Bloch 
+formula including knock-on electron production. As scattering, the gaussian 
+approximation \cite{HIGHLAND_1975} is set. 
+GEANT4 is another common toolkit to simulate the passage of particles through 
+a medium with several possibilities and a focus on high-energy 
+particle accelerators \cite{GEANT4}. 
 
-\textcolor{red}{add short description and settings of MUSIC}
-\textcolor{red}{add short description and settings of GEANT4}
-\textcolor{red}{was machen MUSIC und GEANT4 mit ioniz?}
+A comparison of all three tools is done in Figure~\ref{fig:compare_MUSIC} 
+with four different settings in PROPOSAL for the 
+accumulated deflection angle $\theta_{\text{acc}}$ and the lateral displacement
+$x$. The deflection angles are very similar in all cases. The 
+displacement is dominated by GEANT4 and PROPOSAL with Molière scattering, which 
+leads to the largest deflections and thus to a larger displacement. 
+PROPOSAL with Highland scattering and MUSIC have less outliers, since large 
+deflections are neglected in the Gaussian approximation \cite{HIGHLAND_1975}. 
+
+Detailed information are given in Table~\ref{tab:compare_MUSIC}. In GEANT4, the 
+largest deflections result with $\overline{\theta} = \SI{0.27}{\degree}$ 
+and $\overline{x} = \SI{3.3}{\meter}$. The lowest values $\overline{\theta} = \SI{0.22}{\degree}$ and 
+$\overline{x} = \SI{2.6}{\meter}$ result in MUSIC. The results of PROPOSAL lay between 
+these two tools for all four settings which approves the 
+correctness of PROPOSAL.
+
+A measurement of muon deflection in low-Z materials was done in \cite{attwood_2006}. 
+From this it can be seen that for $Z < 4$ the scattering angle is overestimated 
+by Molière scattering in GEANT4. Hence, the lower scattering in PROPOSAL leads 
+to a better precision.
+\textcolor{red}{kann ich einen ähnlichen plot mit proposal erzeugen um die 
+ergbeniss mit attwood zu vgl?}
+
+% \begin{itemize}
+%     \item this is MUSIC: 
+%     \item electron pair production:  Kelner-..[\cite{epair_kelner,epair_kokoulin_petrukhin}], deflection [\cite{Van_Ginneken}]
+%     \item bremsstrahlung: Kelner, Kokoulin andPetrukhin
+%     [\cite{Bremsstrahlung_KKP}], deflection [\cite{Van_Ginneken}] 
+%     \item inelastic scattering: shlepin and Bugaev [\cite{nulcint_bugaev_Shlepin}], \cite{bugaev_1980_defl,bugaev_1981_defl} (überprüfe, ob genau diese referenz auch im GEANT4 verwendet wird!!!)
+%     \item ionization: treated as stochastic process (Bethe-Bloch formula) including knock-on electron production, but no deflection
+%     \item scattering: gaussian approx \cite{HIGHLAND_1975}
+% \end{itemize}
+
+
+\textcolor{red}{was macht GEANT4 mit ioniz?}
 \textcolor{red}{Moliere beschreibt nur die Winkeländerung, jedoch nicht die laterale Verschiebung. Wie machen wir das mit der 
 laterale Verschiebung in PROPOSAL für Moliere? Gaussian approx berücsichtigt die Verschiebung}
 
-\begin{itemize}
-    \item this is GEANT4
-    \item electron pair production: 
-    \item bremsstrahlung:
-    \item inelastic scattering: cross-section \cite{Borog:1975_inelastic}, deflection \cite{Borog:1977_inelastic,Borog:1975_inelastic}
-    \item ionization:
-    \item scattering:
-\end{itemize}
+% \begin{itemize}
+%     \item this is GEANT4
+%     \item electron pair production: 
+%     \item bremsstrahlung:
+%     \item inelastic scattering: cross-section \cite{Borog:1975_inelastic}, deflection \cite{Borog:1977_inelastic,Borog:1975_inelastic}
+%     \item ionization:
+%     \item scattering:
+% \end{itemize}
 
-\begin{itemize}
-    \item this is PROPOSAL
-    \item electron pair production: KelnerKokoulinPetrukhin (Proc. 12th ICCR (1971), 2436) with corrections for the interaction with atomic electrons (Phys. Atom. Nucl. 61 (1998), 448) [\cite{}], deflection \cite{Van_Ginneken}
-    \item bremsstrahlung: KelnerKokoulinPetrukhin (Preprint MEPhI (1995) no. 024-95) and (Phys. Atom. Nucl. 62 (1999), 272) [\cite{}], deflection \cite{Van_Ginneken,GEANT4}
-    \item inelastic scattering: AbramowiczLevinLevyMaor97 (arXiv::hep-ph/9712415) \cite{} with shadowing ButkevichMikheyev (JETP 95 (2002), 11) \cite{}, deflection \cite{Van_Ginneken, Borog:1977_inelastic,Borog:1975_inelastic}
-    \item ionization: BetheBlochRossi Ionization described by Bethe-Bloch formula with corrections for muons and taus by (B. B. Rossi. Prentice-Hall, Inc., Englewood Cliffs, NJ, 1952) [\cite{}], deflection [direct calculation using four-momentum transfers]
-    \item scattering: \cite{HIGHLAND_1975,moliere_scattering}
-\end{itemize}
+% \begin{itemize}
+%     \item this is PROPOSAL
+%     \item electron pair production: KelnerKokoulinPetrukhin (Proc. 12th ICCR (1971), 2436) with corrections for the interaction with atomic electrons (Phys. Atom. Nucl. 61 (1998), 448) [\cite{}], deflection \cite{Van_Ginneken}
+%     \item bremsstrahlung: KelnerKokoulinPetrukhin (Preprint MEPhI (1995) no. 024-95) and (Phys. Atom. Nucl. 62 (1999), 272) [\cite{}], deflection \cite{Van_Ginneken,GEANT4}
+%     \item inelastic scattering: AbramowiczLevinLevyMaor97 (arXiv::hep-ph/9712415) \cite{} with shadowing ButkevichMikheyev (JETP 95 (2002), 11) \cite{}, deflection \cite{Van_Ginneken, Borog:1977_inelastic,Borog:1975_inelastic}
+%     \item ionization: BetheBlochRossi Ionization described by Bethe-Bloch formula with corrections for muons and taus by (B. B. Rossi. Prentice-Hall, Inc., Englewood Cliffs, NJ, 1952) [\cite{}], deflection [direct calculation using four-momentum transfers]
+%     \item scattering: \cite{HIGHLAND_1975,moliere_scattering}
+% \end{itemize}
 
 
 \begin{figure}

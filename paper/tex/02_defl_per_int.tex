@@ -2,8 +2,11 @@
 The tool PROPOSAL propagates charged leptons and photons through media und is 
 used in this paper to analyze the deflection of muons. For this purpose, 
 negative charged muons $\mu^-$ are propagated through the media ice and water 
-to estimate the deflection for IceCube and KM3NeT/ARCA. All muon interaction types as bremsstrahlung, photonuclear interaction, electron pair production, 
-ionization and decay are provided. The interaction processes are sampled by their cross section. Since bremsstrahlung interactions can be 
+to estimate the deflection for IceCube and KM3NeT/ARCA. All relevant muon interaction types 
+as bremsstrahlung \cite{KKP_1995, Karnaukhov_1999}, photonuclear interaction \cite{Abramowicz_1997} with 
+shadowing \cite{ButkevichMikheyev_2002}, electron pair production \cite{KKP_proc} with corrections for the 
+interaction with atomic electrons \cite{Kelner_1998}, 
+ionization by Bethe-Block formula with corrections for muons \cite{Rossi} and decay are provided. The interaction processes are sampled by their cross section. Since bremsstrahlung interactions can be 
 arbitrary small due to a massless exchange particle, the photon, an energy cut is introduced to avoid an infinite number of bremsstrahlung interactions 
 and furthermore to speed up the propagation process. 
 The limit is applied with 
@@ -12,7 +15,8 @@ The limit is applied with
 \end{equation}
 using two parameters - a relative and total energy cut denoted as 
 $\texttt{v\_cut}$ and $\texttt{e\_cut}$. The uncertainties are small 
-for a relative energy cut $\texttt{v\_cut}\ll 1$ \cite{}.
+for a relative energy cut $\texttt{v\_cut}\ll 1$, which increases the 
+CPU runtime.
 A sampled energy loss 
 $E_{\text{loss}} < E_{\text{loss,\,min}}$ builds an integrated part of a 
 stochastic energy loss referred to as continuous energy loss. The 
@@ -25,12 +29,15 @@ propagation distance $d$ can become lower than the required limits.
 The deflections for stochastic interactions are parametrized by Van Ginneken 
 in \cite{Van_Ginneken} with a direct calculation of the deflection in 
 ionization using four-momentum conservation. 
-Furthermore, there are parametrizations for deflections given in GEANT4 \cite{GEANT4_manual} for bremsstrahlung and photonuclear interaction, which 
+Furthermore, there are parametrizations for deflections given in GEANT4 \cite{GEANT4} 
+for bremsstrahlung and photonuclear interaction, which 
 are available in PROPOSAL, too.
 To estimate the deflection along 
 a continuous energy loss, multiple scattering established by Moliére 
 \cite{moliere_scattering} and the gaussian approximation by Highland 
 can be chosen \cite{HIGHLAND_1975}. 
+The deflection angle in the plane perpendicular to the muon direction is 
+sampled uniformly between $0$ and $2\pi$.
 The latest updates with a detailed description of the whole tool can be found 
 in \cite{phd_soedingrekso}.
 All simulations are done with PROPOSAL $7.3.0$.
