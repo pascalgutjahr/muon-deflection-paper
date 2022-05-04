@@ -46,16 +46,19 @@ All simulations are done with PROPOSAL $7.3.0$.
 First, the stochastic deflections introduced by \cite{Van_Ginneken} implemented 
 in PROPOSAL are investigated in relation to the two multiple scattering methods. Thereby, the deflections per interaction are presented 
 for each interaction type and the total amount in Figure~\ref{fig:defl_per_int}. A single deflection 
-extend over several orders of magnitude with a median of $\SI{1.5e-6}{\degree}$
-and a $\SI{95}{\percent}$ central interval of $[\SI{1.6e-7}{degree}, \,\SI{2.8e-4}{degree}]$. \textcolor{red}{achtung, ohne cont! - muss noch geändert werden}
-It thus follows that the deflections are primarily dominated by multiple scattering, except for a few outliers. 
+extend over several orders of magnitude with a median of $\SI{3.9e-6}{\degree}$
+and a $\SI{95}{\percent}$ central interval of $[\SI{4.9e-7}{\degree}, \,\SI{1.3e-3}{\degree}]$. 
+It follows that the deflections are primarily dominated by multiple scattering, except for a few outliers caused by bremsstrahlung, which 
+allows very large energy losses and thus the largest deflections.
+The median propagation distance with the lower and upper $\SI{95}{\percent}$ 
+interval results to $16.4_{-7.3}^{+24.6}\,\si{\kilo\meter}$.
 
 \begin{figure}
     \centering 
-    \includegraphics[width=0.8\textwidth]{figures/1PeV_1TeV_1000events.pdf}
+    \includegraphics[width=0.8\textwidth]{figures/1PeV_1TeV_1000events_moliere_ecut500_vcut0.05_interpol200_vG_binning_paper.pdf}
     \caption{The propagation is done for $\num{1000}$ 
     muons from $E_{\text{i}} = \SI{1}{\peta\electronvolt}$ to $E_{\text{f,\,min}} = \SI{1}{\tera\electronvolt}$ using $\texttt{e\_cut} = \SI{500}{\mega\electronvolt}$ and $\texttt{v\_cut} = 0.05$ in ice. Two simulations 
-    are done to check both multiple scattering methods Molière and Highland. The total distribution is done for all stochastic processes and Molière. Details are presented in 
+    are done to check both multiple scattering methods Molière and Highland. The total distribution includes all stochastic processes and Molière's. Details are presented in 
     Table~\ref{tab:defl_per_int}.}
     \label{fig:defl_per_int}
 \end{figure}
@@ -64,14 +67,13 @@ It thus follows that the deflections are primarily dominated by multiple scatter
     \centering 
     \caption{The medians of deflections per interaction from Figure~\ref{fig:defl_per_int} are presented for each interaction type and the total distribution with the upper and lower limits of the $\SI{95}{\percent}$ 
     central content levels.}
-    \begin{tabular}{ccccc}
+    \begin{tabular}{ccccccc}
         \toprule 
-        brems & nuclint & epair & ioniz & total \\
-        $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-4}{\degree}$ & $\theta\,/\,\SI{e-6}{\degree}$ & $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-6}{\degree}$\\
+        brems & nuclint & epair & ioniz & moliere & highland & total \\
+        $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-4}{\degree}$ & $\theta\,/\,\SI{e-6}{\degree}$ & $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-6}{\degree}$\\
         \midrule 
-        $3.8_{-0.1}^{+297}$ & $1.2_{-0.4}^{+96}$ & $1.3_{-0.2}^{+42}$ & $4.4_{-0.1}^{+181}$& $1.5_{-0.2}^{+279}$\\ 
+        $3.8_{-0.1}^{+297}$ & $1.2_{-0.4}^{+96}$ & $1.3_{-0.2}^{+42}$ & $4.4_{-0.1}^{+181}$& $1.2_{-0.05}^{+222}$ & $1.2_{-0.05}^{+225}$ & $3.9_{-0.2}^{+1285}$\\ 
         \bottomrule
     \end{tabular}
     \label{tab:defl_per_int}
 \end{table}
-\textcolor{red}{füge moliere und highland sowohl im plot, als auch in der tabelle hinzu. überprüfe dann nochmal die werte! ändere die werte von total auf die neue total kurve mit multiple scattering (moliere)}
