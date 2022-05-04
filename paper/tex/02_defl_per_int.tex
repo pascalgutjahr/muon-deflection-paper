@@ -1,6 +1,6 @@
-\section{Muon Deflection per Interaction}\label{sec:defl_per_int}
+\section{Overview of the Simulation Tool PROPOSAL}\label{sec:proposal}
 The tool PROPOSAL propagates charged leptons and photons through media und is 
-used in this paper to analyze the deflection of muons. For this purpose, 
+used in this paper to simulate the deflection of muons. For this purpose, 
 negative charged muons $\mu^-$ are propagated through the media ice and water 
 to estimate the deflection for IceCube and KM3NeT/ARCA. All relevant muon interaction types 
 as bremsstrahlung \cite{KKP_1995, Karnaukhov_1999}, photonuclear interaction \cite{Abramowicz_1997} with 
@@ -9,12 +9,12 @@ interaction with atomic electrons \cite{Kelner_1998},
 ionization by Bethe-Block formula with corrections for muons \cite{Rossi} and decay are provided. The interaction processes are sampled by their cross section. Since bremsstrahlung interactions can be 
 arbitrary small due to a massless exchange particle, the photon, an energy cut is introduced to avoid an infinite number of bremsstrahlung interactions 
 and furthermore to speed up the propagation process. 
-The limit is applied with 
+The limit is applied with a minimum energy loss
 \begin{equation}
     E_{\text{loss,min}} = \min{(E \cdot \texttt{v\_cut}, \texttt{e\_cut})}\,,
 \end{equation}
 using two parameters - a relative and total energy cut denoted as 
-$\texttt{v\_cut}$ and $\texttt{e\_cut}$. The uncertainties are small 
+$\texttt{v\_cut}$ and $\texttt{e\_cut}$ with particle energy $E$. The uncertainties are small 
 for a relative energy cut $\texttt{v\_cut}\ll 1$, which increases the 
 CPU runtime.
 A sampled energy loss 
@@ -24,8 +24,8 @@ propagation process is defined by an initial energy $E_{\text{i}}$ and
 two stopping criteria - a final energy $E_{\text{f,\,min}}$ and a 
 maximum propagation distance $d_{\text{min}}$. If the last interaction of 
 a propagation is sampled by a stochastic interaction, the true final energy 
-$E_{\text{f}}$ and the 
-propagation distance $d$ can become lower than the required limits. 
+$E_{\text{f}}$ can become lower and the 
+propagation distance $d$ can be higher than the required limits. 
 The deflections for stochastic interactions are parametrized by Van Ginneken 
 in \cite{Van_Ginneken} with a direct calculation of the deflection in 
 ionization using four-momentum conservation. 
@@ -42,7 +42,7 @@ The latest updates with a detailed description of the whole tool can be found
 in \cite{phd_soedingrekso}.
 All simulations are done with PROPOSAL $7.3.0$.
 
-
+\section{Muon deflection per Interaction}\label{sec:defl_per_int}
 The deflections per interaction are presented in Figure~\ref{fig:defl_per_int} 
 for each interaction type and the total amount. A single deflection 
 extend over several orders of magnitude with a median of $\SI{1.5e-6}{\degree}$
