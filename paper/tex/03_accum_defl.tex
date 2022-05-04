@@ -1,9 +1,11 @@
 \section{Accumulated Muon Deflection}\label{sec:accum_defl}
 
-As shown in Section~\ref{sec:defl_per_int}, the deflection per interaction 
-is lower $\SI{1}{\degree}$. Since these deflections accumulate along the 
-propagation distance, the angle between the incoming muon and the outgoing 
-muon direction is simulated to study a limit on the angular reconstruction.
+As shown in Section~\ref{sec:defl_per_int}, in general the deflection per interaction 
+is lower $\sim\SI{1}{\degree}$. Since these deflections accumulate along the 
+propagation path, the angle between the incoming muon direction and the outgoing 
+muon direction is analyzed. The deflection results as a limit on the 
+angular reconstruction accuracy.
+
 At first, the deflections in PROPOSAL are compared to 
 the tools MUSIC \cite{MUSIC,comparison_MUSIC_GEANT4_2009} and GEANT4 \cite{GEANT4}.
 MUSIC (MUon SImulation Code) is a tool to simulate the propagation of muons 
@@ -30,6 +32,9 @@ displacement is dominated by GEANT4 and PROPOSAL with Molière scattering, which
 leads to the largest deflections and thus to a larger displacement. 
 PROPOSAL with Highland scattering and MUSIC have less outliers, since large 
 deflections are neglected in the Gaussian approximation \cite{HIGHLAND_1975}. 
+The combination of Highland and \cite{Van_Ginneken} leads to the smallest 
+displacement, since in nuclear interaction, the sampling from the root mean squared angle in the 
+exponential distribution neglects outliers to larger angles.
 
 Detailed information are given in Table~\ref{tab:compare_MUSIC}. In GEANT4, the 
 largest deflections result with $\overline{\theta} = \SI{0.27}{\degree}$ 
@@ -57,8 +62,8 @@ ergbeniss mit attwood zu vgl?}
 
 
 \textcolor{red}{was macht GEANT4 mit ioniz?}
-\textcolor{red}{Moliere beschreibt nur die Winkeländerung, jedoch nicht die laterale Verschiebung. Wie machen wir das mit der 
-laterale Verschiebung in PROPOSAL für Moliere? Gaussian approx berücsichtigt die Verschiebung}
+% \textcolor{red}{Moliere beschreibt nur die Winkeländerung, jedoch nicht die laterale Verschiebung. Wie machen wir das mit der 
+% laterale Verschiebung in PROPOSAL für Moliere? Gaussian approx berücsichtigt die Verschiebung}
 
 % \begin{itemize}
 %     \item this is GEANT4
@@ -86,7 +91,7 @@ laterale Verschiebung in PROPOSAL für Moliere? Gaussian approx berücsichtigt d
         \label{fig:compare_MUSIC_degree}}
         {\includegraphics[width=0.48\textwidth]{figures/compare_MUSIC_angle_paper.pdf}}
     \subcaptionbox{
-        The lateral displacement $x$ in meter results in two cases, which depend 
+        The lateral displacement $x$ in meter depends 
         on the scattering method. Moliére scattering leads to larger distances.
         \label{fig:compare_MUSIC_dist}}
         {\includegraphics[width=0.48\textwidth]{figures/compare_MUSIC_dist_paper.pdf}}
@@ -94,9 +99,9 @@ laterale Verschiebung in PROPOSAL für Moliere? Gaussian approx berücsichtigt d
     $E_{\text{i}} = \SI{2}{\tera\electronvolt}$ over a distance of 
     $\SI{3}{\kilo\meter}$ in water. A $\texttt{v\_cut} = 0.001$ is set. In PROPOSAL, 
     bremsstrahlung and photonuclear interaction are parametrized by 
-    Van Ginneken (vG) and GEANT4. Detailed information are given in 
+    Van Ginneken (vG) and GEANT4 and both scattering methods are checked. Detailed information are given in 
     Table~\ref{tab:compare_MUSIC}. The results for MUSIC and GEANT4 are taken from 
-    \cite{comparison_MUSIC_GEANT4_2009}.}
+    \cite{comparison_MUSIC_GEANT4_2009}. \textcolor{red}{schreibe Highland und Moliére groß im Plot}}
     \label{fig:compare_MUSIC}
 \end{figure}
 
@@ -142,7 +147,7 @@ The lower the final muon energy, the larger the accumulated deflection.
 For energies $E_{\text{f}} = \SI{1}{\peta\electronvolt}$, the median deflection 
 is lower than $\SI{e-3}{\degree}$. For energies $E_{\text{f}} = \SI{10}{\giga\electronvolt}$, 
 angles larger than $\SI{1}{\degree}$ are possible. Deflections for a typical energy range 
-for astrophysical neutrinos of $E_{\text{f}} \approx \SI{500}{\giga\electronvolt} - \SI{5}{\tera\electronvolt}$
+for point-source-analysis of $E_{\text{f}} \approx \SI{500}{\giga\electronvolt} - \SI{5}{\tera\electronvolt}$ \textcolor{red}{wo kommen die zahlen her? ist das quatsch?}
 \cite{jan?} results in small overlap with the angular resolution of KM3NeT 
 \cite{KM3NeT_Resolution2016}. The resolution of IceCube is a bit worse and 
 therefore not affected \cite{IceCube_Resolution2021}. Since these simulations are done 
