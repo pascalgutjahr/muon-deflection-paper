@@ -1,4 +1,4 @@
-TexOptions = --lualatex --interaction=nonstopmode --halt-on-error --output-directory=build
+TexOptions = --pdf --interaction=nonstopmode --halt-on-error --output-directory=build
 
 Target = elsarticle-template-num
 
