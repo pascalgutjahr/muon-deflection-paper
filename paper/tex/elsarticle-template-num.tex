@@ -75,6 +75,10 @@
 \usepackage{booktabs}
 \usepackage{multirow}
 
+% reviewing
+\usepackage{todonotes}
+\newcommand{\alexander}[1]{\todo[inline,color=green!40]{\textit{Alexander:} #1}}
+
 \journal{Astroparticle Physics}
 
 \begin{document}
@@ -187,6 +191,8 @@ Neutrino Astronomy \sep Point-Source-Analysis \sep Angular Resolution
 %% If you have bibdatabase file and want bibtex to generate the
 %% bibitems, please use
 %%
+\alexander{Die Referenzen müssen überprüft werden; in vielen Fällen stehen
+nur Initialen da, selbst für den Nachnamen!}
 \bibliographystyle{elsarticle-num} 
 \bibliography{lit.bib}
 
