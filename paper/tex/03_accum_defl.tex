@@ -46,8 +46,21 @@ correctness of PROPOSAL.
 A measurement of muon deflection in low-Z materials was done in \cite{attwood_2006}. 
 From this it can be seen that for $Z < 4$ the scattering angle is overestimated 
 by Molière scattering in GEANT4. Hence, the lower scattering in PROPOSAL leads 
-to a better precision.
-\textcolor{red}{Vergleichsplot wurde am 13.05. noch angefertigt, zeigen?}
+to a better precision especially in the region of outliers. The simulation is 
+done in liquid $\text{H}_2$ with a thickness of $\SI{109}{\milli\meter}$ and an 
+initial particle energy of $E_{\mathrm{i}} = \SI{199}{\mega\electronvolt}$. 
+The result is presented in Figure~\ref{fig:attwood_comparison}.
+\begin{figure}
+    \centering 
+    \includegraphics[width=0.8\textwidth]{figures/attwood_comparison_moliere_199MeV_final.pdf}
+    \caption{In total $\num{e5}$ muons with $E_{\mathrm{i}} = \SI{199}{\mega\electronvolt}$ are propagated through 
+    $\SI{109}{\milli\meter}$ of liquid $\text{H}_2$. In PROPOSAL, the simulation is done 
+    for two different energy cuts $\texttt{v\_cut} = \num{e-3}$ and $\texttt{v\_cut} = \num{e-5}$ using Molière scattering.
+    Measured data of Attwood and simulation data of GEANT4 are taken from \cite{attwood_2006}. The figure presents 
+    the normalized counts in dependence of the projected scattering angle $\theta_{\mathrm{y}}$ in radians. At small deflections, PROPOSAL 
+    is underestimating, but at larger deflections the result seems to be more accurate than GEANT4's.}
+    \label{fig:attwood_comparison}
+\end{figure}
 
 % \begin{itemize}
 %     \item this is MUSIC: 
@@ -91,7 +104,7 @@ to a better precision.
         {\includegraphics[width=0.48\textwidth]{figures/compare_MUSIC_angle_paper.pdf}}
     \subcaptionbox{
         The lateral displacement $x$ in meter depends 
-        on the scattering method. Moliére scattering leads to larger distances.
+        on the scattering method. Molière scattering leads to larger distances.
         \label{fig:compare_MUSIC_dist}}
         {\includegraphics[width=0.48\textwidth]{figures/compare_MUSIC_dist_paper.pdf}}
     \caption{A comparison of the results of MUSIC, GEANT4 and PROPOSAL is presented for $\num{1000000}$ negative charged muons propagated with 
@@ -156,7 +169,9 @@ are less than $\SI{1}{\percent}$ for all energies.
 Furthermore, in Figure~\ref{fig:fit_median} there are only $12$ medians visible, 
 instead of $36$ which is the total amount of all simulations. This result points 
 out that the total deflection of a muon 
-primarily depends on the final muon energy. Hence, the reconstructed muon 
+primarily depends on the final muon energy.
+The initial muon energy is negligible. 
+Hence, the reconstructed muon 
 energy in a detector can be used to estimate a theoretical deflection. For this 
 purpose, the following fit-function 
 \begin{equation}
@@ -172,9 +187,6 @@ in the logarithmic space via
 \begin{align}
     g(x) =& 10^{f(x)}\,, & x =& \log_{10}\left(\frac{E_{\text{f}}}{\si{\giga\electronvolt}}\right)\,.
 \end{align}
-\alexander{Hängt das überhaupt nicht davon ab, wie das Verhältnis von $E_i$ und $E_f$ ist?
-Das kannst du nicht nur in die Bildunterschrift packen!}
-
 
 \begin{figure}
     \centering 
@@ -186,7 +198,7 @@ Das kannst du nicht nur in die Bildunterschrift packen!}
     that the true final particle energy $E_{\text{f}}$ is maximum 
     $\SI{10}{\percent}$ below the set final energy $E_{\text{f,\,min}}$,   
     $E_{\text{f}} > E_{\text{f,\,min}} \cdot 0.9$. The energy cuts are $\texttt{e\_cut} = \SI{500}{\mega\electronvolt}$ and $\texttt{v\_cut} = 0.05$ and 
-    Moliére scattering is chosen. Simulations are done in ice, the deviation 
+    Molière scattering is chosen. Simulations are done in ice, the deviation 
     of the medians in a water based simulation are less than $\SI{1}{\percent}$.
     Since the medians overlap for different initial energies, there is no 
     strong impact of the initial energy on the median deflection. These 
