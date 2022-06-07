@@ -46,8 +46,21 @@ correctness of PROPOSAL.
 A measurement of muon deflection in low-Z materials was done in \cite{attwood_2006}. 
 From this it can be seen that for $Z < 4$ the scattering angle is overestimated 
 by Molière scattering in GEANT4. Hence, the lower scattering in PROPOSAL leads 
-to a better precision.
-\textcolor{red}{Vergleichsplot wurde am 13.05. noch angefertigt, zeigen?}
+to a better precision especially in the region of outliers. The simulation is 
+done in liquid $\text{H}_2$ with a thickness of $\SI{109}{\milli\meter}$ and an 
+initial particle energy of $E_{\mathrm{i}} = \SI{199}{\mega\electronvolt}$. 
+The result is presented in Figure~\ref{fig:attwood_comparison}.
+\begin{figure}
+    \centering 
+    \includegraphics[width=0.8\textwidth]{figures/attwood_comparison_moliere_199MeV_final.pdf}
+    \caption{In total $\num{e5}$ muons with $E_{\mathrm{i}} = \SI{199}{\mega\electronvolt}$ are propagated through 
+    $\SI{109}{\milli\meter}$ of liquid $\text{H}_2$. In PROPOSAL, the simulation is done 
+    for two different energy cuts $\texttt{v\_cut} = \num{e-3}$ and $\texttt{v\_cut} = \num{e-5}$ using Molière scattering.
+    Measured data of Attwood and simulation data of GEANT4 are taken from \cite{attwood_2006}. The figure presents 
+    the normalized counts in dependence of the projected scattering angle in radians. At small deflections, PROPOSAL 
+    is underestimating, but at larger deflections the result seems to be more accurate than GEANT4's.}
+    \label{fig:attwood_comparison}
+\end{figure}
 
 % \begin{itemize}
 %     \item this is MUSIC: 
