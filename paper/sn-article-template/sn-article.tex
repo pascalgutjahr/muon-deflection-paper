@@ -205,7 +205,7 @@ used in this paper to simulate the deflection of muons. For this purpose,
 muons are propagated through the media ice and water 
 to estimate the deflection for IceCube and KM3NeT/ARCA. All relevant muon interaction types 
 as bremsstrahlung \cite{KKP_1995, Karnaukhov_1999}, photonuclear interaction \cite{Abramowicz_1997} with 
-shadowing \cite{ButkevichMikheyev_2002}, electron pair production \cite{KKP_proc} with corrections for the 
+shadowing \cite{ButkevichMikheyev_2002}, electron pair production \cite{epair_kokoulin_petrukhin} with corrections for the 
 interaction with atomic electrons \cite{Kelner_1998}, 
 ionization by Bethe-Bloch formula with corrections for muons \cite{Rossi} and decay are provided. The interaction processes are sampled by their cross section. Since bremsstrahlung interactions can be 
 arbitrary small due to a massless exchange particle, the photon, an energy cut is introduced to avoid an infinite number of bremsstrahlung interactions 
@@ -405,7 +405,15 @@ angles larger than $\SI{1}{\degree}$ are possible. For energies
 $E_{\text{f}} \approx \SI{100}{\giga\electronvolt}$, 
 there is a small overlap of the deflection with the angular resolution of KM3NeT 
 \cite{KM3NeT_Resolution2016}. The resolution of IceCube is a bit worse and 
-therefore not affected \cite{IceCube_Resolution2021}. Since these simulations are done 
+therefore not affected \cite{IceCube_Resolution2021}. 
+The kinematic angle between the incident neutrino and the produced muon is 
+larger than the deflection in the presented region from $\SI{300}{\giga\electronvolt}$
+to $\SI{200}{\tera\electronvolt}$. Here it must be noted that the kinematic angle 
+and the resolution of ARCA are presented in dependence of the neutrino energy 
+in \cite{KM3NeT_Resolution2016, KM3NeT_Resolution2021}. Hence, a rescale to 
+the muon energy is done using the energy transfer of the neutrino to 
+the nucleus \cite{GANDHI199681}. This shifts both the curves to lower energies. 
+Since all of these simulations are done 
 in ice, the same simulations are done in water. The deviations of the medians
 are less than $\SI{1}{\percent}$ for all energies.
 
@@ -447,16 +455,16 @@ in the logarithmic space via
     strong impact of the initial energy on the median deflection. These 
     medians can be fit by a third degree polynomial in the log-space as 
     shown in Equation~\eqref{eqn:fit_median}. The kinematic angle between the muon and 
-    neutrino is taken from \cite{KM3NeT_Resolution2016}.
+    neutrino is taken from \cite{KM3NeT_Resolution2016}. Since the kinematic angle and 
+    the angular resolution of ARCA taken from \cite{KM3NeT_Resolution2016, KM3NeT_Resolution2021} are 
+    presented in dependence of the neutrino energy, a rescale to the muon energy is done 
+    using the energy transfer to the nucleus \cite{GANDHI199681}. 
     For energies 
     $E_{\text{f}} \approx \SI{100}{\giga\electronvolt}$, there is a minimal influence of deflection on the angular resolution of 
     KM3NeT/ARCA \cite{KM3NeT_Resolution2021}. The resolution shown by IceCube is not 
     impacted \cite{IceCube_Resolution2021}.}
     \label{fig:fit_median}
 \end{figure}
-
-
-\textcolor{red}{Fig3 beinhaltet noch keine neutrino-energy korrektur! der neueste plot ist in figures/fit\_median\_defl\_cut\_10percent\_only\_poly\_resolution\_rescale\_no\_icecube.pdf}
 
 \section{Conclusion}\label{sec:conclusion}
 
