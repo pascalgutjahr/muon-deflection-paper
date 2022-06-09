@@ -46,9 +46,11 @@ correctness of PROPOSAL.
 A measurement of muon deflection in low-Z materials was done in \cite{attwood_2006}. 
 From this it can be seen that for $Z < 4$ the scattering angle is overestimated 
 by Molière scattering in GEANT4. Hence, the lower scattering in PROPOSAL leads 
-to a better precision especially in the region of outliers. The simulation is 
+to a better precision especially in the region of outliers. The comparison is 
 done in liquid $\text{H}_2$ with a thickness of $\SI{109}{\milli\meter}$ and an 
-initial particle energy of $E_{\mathrm{i}} = \SI{199}{\mega\electronvolt}$. 
+initial particle energy of $E_{\mathrm{i}} = \SI{199}{\mega\electronvolt}$, which 
+results via the energy-momentum relation of an in \cite{attwood_2006} used beam momentum 
+of $p = \SI[per-mode=symbol]{168.9}{\mega\electronvolt\per\clight}$. 
 The result is presented in Figure~\ref{fig:attwood_comparison}.
 \begin{figure}
     \centering 
@@ -156,8 +158,8 @@ Figure~\ref{fig:fit_median}.
 The lower the final muon energy, the larger the accumulated deflection. 
 For energies $E_{\text{f}} = \SI{1}{\peta\electronvolt}$, the median deflection 
 is lower than $\SI{e-3}{\degree}$. For energies $E_{\text{f}} = \SI{10}{\giga\electronvolt}$, 
-angles larger than $\SI{1}{\degree}$ are possible. For an energy range 
-$E_{\text{f}} \approx \SI{500}{\giga\electronvolt} - \SI{1}{\tera\electronvolt}$, 
+angles larger than $\SI{1}{\degree}$ are possible. For energies  
+$E_{\text{f}} \approx \SI{100}{\giga\electronvolt}$, 
 there is a small overlap of the deflection with the angular resolution of KM3NeT 
 \cite{KM3NeT_Resolution2016}. The resolution of IceCube is a bit worse and 
 therefore not affected \cite{IceCube_Resolution2021}. Since these simulations are done 
@@ -201,9 +203,11 @@ in the logarithmic space via
     Since the medians overlap for different initial energies, there is no 
     strong impact of the initial energy on the median deflection. These 
     medians can be fit by a third degree polynomial in the log-space as 
-    shown in Equation~\ref{eqn:fit_median}. For energies 
-    $E_{\text{f}} \approx \SI{500}{\giga\electronvolt} - \SI{1}{\tera\electronvolt}$, there is a minimal influence of deflection on the angular resolution of 
-    KM3NeT \cite{KM3NeT_Resolution2016}. The resolution of IceCube is not 
+    shown in Equation~\ref{eqn:fit_median}. The kinematic angle between the muon and 
+    neutrino is taken from \cite{KM3NeT_Resolution2016}.
+    For energies 
+    $E_{\text{f}} \approx \SI{100}{\giga\electronvolt}$, there is a minimal influence of deflection on the angular resolution of 
+    KM3NeT/ARCA \cite{KM3NeT_Resolution2021}. The resolution shown by IceCube is not 
     impacted \cite{IceCube_Resolution2021}.}
     \label{fig:fit_median}
 \end{figure}
