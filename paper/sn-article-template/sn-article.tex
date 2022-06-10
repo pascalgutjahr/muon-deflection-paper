@@ -294,26 +294,26 @@ interval results to $16.4_{-7.3}^{+24.6}\,\si{\kilo\meter}$.
 \section{Accumulated Muon Deflection}\label{sec:accum_defl}
 
 As shown in Section~\ref{sec:defl_per_int}, in general the deflection per interaction 
-is lower $\sim\SI{1}{\degree}$. Since these deflections accumulate along the 
+is lower \alexedit{than} $\sim\SI{1}{\degree}$. Since these deflections accumulate along the 
 propagation path, the angle between the incoming muon direction and the outgoing 
 muon direction is analyzed. The deflection results as a limit on the 
-angular reconstruction accuracy.
+angular reconstruction accuracy. \alexcomment{Diesen Satz verstehe ich nicht.}
 
-At first, the deflections in PROPOSAL are compared to 
-the tools MUSIC \cite{MUSIC,comparison_MUSIC_GEANT4_2009} and GEANT4 \cite{GEANT4}.
+\alexreplace{At first}{First}, the deflections in PROPOSAL are compared to 
+the tools MUSIC \cite{MUSIC,comparison_MUSIC_GEANT4_2009} and \alexreplace{GEANT4}{Geant4} \cite{GEANT4}.
 MUSIC (MUon SImulation Code) is a tool to simulate the propagation of muons 
 through media like rock and water considering the same energy losses as in 
 PROPOSAL. Also, the losses are divided into continuous and stochastic 
 energy losses by a relative energy cut. Several cross-sections, multiple scattering 
 methods and parametrizations for stochastic deflection are 
-available. For these studies, it is chosen bremsstrahlung \cite{Bremsstrahlung_KKP}, 
+available. For these studies, \alexreplace{it is chosen}{the chosen cross section parametrizations are for} bremsstrahlung \cite{Bremsstrahlung_KKP}, 
 nuclear interaction \cite{nulcint_bugaev_Shlepin, bugaev_1980_defl,bugaev_1981_defl} 
 and electron pair production \cite{epair_kelner,epair_kokoulin_petrukhin}, 
-which deflections are parametrized by \cite{Van_Ginneken}. 
+\alexreplace{which deflections are}{with stochastic deflections as} parametrized by \cite{Van_Ginneken}. 
 Also, ionization is treated as a stochastic process with the Bethe-Bloch 
-formula including knock-on electron production. As scattering, the gaussian 
+formula including knock-on electron production. As \alexedit{multiple} scattering, the gaussian 
 approximation \cite{HIGHLAND_1975} is set. 
-GEANT4 is another common toolkit to simulate the passage of particles through 
+\alexreplace{GEANT4}{Geant4} is another common toolkit to simulate the passage of particles through 
 a medium with several possibilities and a focus on high-energy 
 particle accelerators \cite{GEANT4}. 
 
@@ -321,7 +321,7 @@ A comparison of all three tools is done in Figure~\ref{fig:compare_MUSIC}
 with four different settings in PROPOSAL for the 
 accumulated deflection angle $\theta_{\text{acc}}$ and the lateral displacement
 $x$. The deflection angles are very similar in all cases. The 
-displacement is dominated by GEANT4 and PROPOSAL with Molière scattering, which 
+displacement is dominated by \alexreplace{GEANT4}{Geant4} and PROPOSAL with Molière scattering, which 
 leads to the largest deflections and thus to a larger displacement. 
 PROPOSAL with Highland scattering and MUSIC have less outliers, since large 
 deflections are neglected in the Gaussian approximation \cite{HIGHLAND_1975}. 
@@ -329,12 +329,13 @@ The combination of Highland and \cite{Van_Ginneken} leads to the smallest
 displacement, since in nuclear interaction, the sampling from the root mean squared angle in the 
 exponential distribution neglects outliers to larger angles.
 
-Detailed information are given in Table~\ref{tab:compare_MUSIC}. In GEANT4, the 
-largest deflections result with $\overline{\theta} = \SI{0.27}{\degree}$ 
+Detailed information are given in Table~\ref{tab:compare_MUSIC}. In \alexreplace{GEANT4}{Geant4}, the 
+largest deflections \alexreplace{result with}{are} $\overline{\theta} = \SI{0.27}{\degree}$ 
 and $\overline{x} = \SI{3.3}{\meter}$. The lowest values $\overline{\theta} = \SI{0.22}{\degree}$ and 
-$\overline{x} = \SI{2.6}{\meter}$ result in MUSIC. The results of PROPOSAL lay between 
+$\overline{x} = \SI{2.6}{\meter}$ \alexreplace{result}{are obtained} in MUSIC. The results of PROPOSAL lay between 
 these two tools for all four settings which approves the 
-correctness of PROPOSAL.
+correctness of PROPOSAL. \alexcomment{Inwiefern ''approves the correctness``?
+Das zeigt nur Konsistenz zwischen verschiedenen Codes.}
 
 A measurement of muon deflection in low-$Z$ materials was done in \cite{attwood_2006}. 
 From this it can be seen that for $Z < 4$ the scattering angle is overestimated 
@@ -345,31 +346,33 @@ initial particle energy of $E_{\mathrm{i}} = \SI{199}{\mega\electronvolt}$, whic
 results via the energy-momentum relation of an in \cite{attwood_2006} used beam momentum 
 of $p = \SI[per-mode=symbol]{168.9}{\mega\electronvolt\per\clight}$. 
 The result is presented in Figure~\ref{fig:attwood_comparison}.
+\alexcomment{Was ist mit Akimenko (bei höheren Energien und in Kupfer),
+gegen den wir uns in Dunsch et al. verglichen haben?}
 \begin{figure}
     \centering 
     \includegraphics[width=0.8\textwidth]{../../deflection/plots/FINAL/attwood_comparison_moliere_E199MeV_final.pdf}
     \caption{In total $\num{e5}$ muons with $E_{\mathrm{i}} = \SI{199}{\mega\electronvolt}$ are propagated through 
     $\SI{109}{\milli\meter}$ of liquid $\text{H}_2$. In PROPOSAL, the simulation is done 
     for two different energy cuts $\texttt{v\_cut} = \num{e-3}$ and $\texttt{v\_cut} = \num{e-5}$ using Molière scattering.
-    Measured data of Attwood and simulation data of GEANT4 are taken from \cite{attwood_2006}. The figure presents 
+    Measured data of Attwood and simulation data of \alexreplace{GEANT4}{Geant4} are taken from \cite{attwood_2006}. The figure presents 
     the normalized counts in dependence of the projected scattering angle $\theta_{\mathrm{y}}$ in radians. At small deflections, PROPOSAL 
-    is underestimating, but at larger deflections the result seems to be more accurate than GEANT4's.}
+    is underestimating, but at larger deflections the result seems to be more accurate than \alexreplace{GEANT4}{Geant4}'s.}
     \label{fig:attwood_comparison}
 \end{figure}
 
 \begin{figure}
     \centering 
     \includegraphics[width=0.98\textwidth]{../../deflection/plots/FINAL/2TeV_1e6events_accumulated_defl_paper_combined.pdf}
-    \caption{A comparison of the results of MUSIC, GEANT4 and PROPOSAL is presented for $\num{1000000}$ negative charged muons propagated with 
+    \caption{A comparison of the results of MUSIC, \alexreplace{GEANT4}{Geant4} and PROPOSAL is presented for $\num{1000000}$ negative charged muons propagated with 
     $E_{\text{i}} = \SI{2}{\tera\electronvolt}$ over a distance of 
     $\SI{3}{\kilo\meter}$ in water. A $\texttt{v\_cut} = 0.001$ is set. In PROPOSAL, 
     bremsstrahlung and photonuclear interaction are parametrized by 
-    Van Ginneken (vG) and GEANT4 and both scattering methods are checked. 
+    Van Ginneken (vG) and \alexreplace{GEANT4}{as in Geant4} and both scattering methods are checked. 
     Left: The accumulated deflection $\theta_{\mathrm{acc}}$ in degree is very similar in all cases.
     Right: The lateral displacement $x$ in meter depends 
     on the scattering method. Molière scattering leads to larger distances.
     Detailed information are given in 
-    Table~\ref{tab:compare_MUSIC}. The results for MUSIC and GEANT4 are taken from 
+    Table~\ref{tab:compare_MUSIC}. The results for MUSIC and \alexreplace{GEANT4}{Geant4} are taken from 
     \cite{comparison_MUSIC_GEANT4_2009}.}
     \label{fig:compare_MUSIC}
 \end{figure}
@@ -381,7 +384,7 @@ The result is presented in Figure~\ref{fig:attwood_comparison}.
     energy $\overline{E}_{\text{f}}$, the mean scattered angle $\overline{\theta}$ 
     and the mean displacement $\overline{x}$ are presented for all cases from 
     Figure~\ref{fig:compare_MUSIC}. For all means, the standard deviation is given.
-    The largest deflection and displacement result in the tool GEANT4, which has the lowest mean survived energy. The lower the energy, the larger the deflection.}
+    The largest deflection and displacement \alexreplace{result}{is observed} in the tool \alexreplace{GEANT4}{Geant4}, which has the lowest mean survived energy. The lower the energy, the larger the deflection.}
     \begin{tabular}{l|cc|cccc}
         \toprule
         & & & \multicolumn{4}{c}{PROPOSAL} \\
@@ -399,6 +402,7 @@ The result is presented in Figure~\ref{fig:attwood_comparison}.
 
 For current analyses, it is important to study the impact of the muon 
 deflection on the angular resolution to estimate an uncertainty on the reconstruction.
+\alexcomment{Was meinst du hier mit ''current analyses``?}
 For this purpose, four different initial energies 
 from $E_{\text{i}} = \SI{10}{\tera\electronvolt}$ to 
 $E_{\text{i}} = \SI{10}{\peta\electronvolt}$ are used and the final 
@@ -420,7 +424,7 @@ larger than the deflection in the presented region from $\SI{300}{\giga\electron
 to $\SI{200}{\tera\electronvolt}$. Here it must be noted that the kinematic angle 
 and the resolution of ARCA are presented in dependence of the neutrino energy 
 in \cite{KM3NeT_Resolution2016, KM3NeT_Resolution2021}. Hence, a rescale to 
-the muon energy is done using the energy transfer of the neutrino to 
+the muon energy is done using the \alexedit{average} energy transfer of the neutrino to 
 the nucleus \cite{GANDHI199681}. This shifts both the curves to lower energies. 
 Since all of these simulations are done 
 in ice, the same simulations are done in water. The deviations of the medians
