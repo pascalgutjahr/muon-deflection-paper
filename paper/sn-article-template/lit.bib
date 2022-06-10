@@ -1,5 +1,6 @@
 @article{IceCube_Instrumentation,
-    author = {{IceCube Collaboration} and Aartsen, M.G. and Ackermann, M. and Adams, J. and Aguilar Sánchez, Juan Antonio and Ahlers, M. and Ahrens, M. and Altmann, David and Andeen, Karen and Anderson, Travi and Ansseau, I. and Anton, G. and Archinger, M. and Arguelles Delgado, Carlos and Auer, R. and Auffenberg, J. and Axani, Spencer and Baccus, J. and Bai, Xiaoqiong and Zoll, M.},
+    author = {Aartsen, M.G. and others},
+    collaboration = "IceCube",
     year = {2017},
     title = {The IceCube Neutrino Observatory: Instrumentation and Online Systems},
     journal = {JINST},
@@ -7,7 +8,7 @@
 }
 
 @article{IceCube_Resolution2021,
-    author = "{IceCube Collaboration} and Abbasi, R. and others",
+    author = "Abbasi, R. and others",
     collaboration = "IceCube",
     title = "{A muon-track reconstruction exploiting stochastic losses for large-scale Cherenkov detectors}",
     eprint = "2103.16931",
@@ -22,14 +23,15 @@
 }
 
 @article{KM3NeT_Design,
-    author = "{KM3NeT Collaboration} and Bagley, P. and others",
+    author = "Bagley, P. and others",
     collaboration = "KM3NeT",
     title = "{KM3NeT:
         Technical Design Report for a Deep-Sea
         Research Infrastructure in the
         Mediterranean Sea Incorporating a
         Very Large Volume Neutrino Telescope}",
-    year = "2009"
+    year = "2010",
+    isbn = {978-90-6488-033-9}
 }
 
 @article{KM3NeT_Resolution2021,
@@ -46,8 +48,8 @@
 }
 
 @article{KM3NeT_Resolution2016,
-    title={KM3MeT 2.0 Letter of intent for ARCA and ORCA},
-    author={Silvia Adri{\'a}n-Mart{\'i}nez and Hans van Haren},
+    title={KM3NeT 2.0 Letter of intent for ARCA and ORCA},
+    author={Silvia Adri{\'a}n-Mart{\'i}nez and others},
     journal={J. Phys. G},
     year={2016},
     doi={10.1088/0954-3899/43/8/084001},
@@ -91,8 +93,8 @@
 @article{moliere_scattering,
     author = {Gert Moliere},
     doi = {doi:10.1515/zna-1948-0203},
-    title = {Theorie der Streuung schneller geladener Teilchen II Mehrfach-und Vielfachstreuung},
-    journal = {Z NATURFORSCH A},
+    title = {{Theorie der Streuung schneller geladener Teilchen II Mehrfach-und Vielfachstreuung}},
+    journal = {Z. Naturforsch. A},
     number = {2},
     volume = {3},
     year = {1948},
@@ -141,8 +143,8 @@
 }
 
 @manual{GEANT4,
-  author       = {GEANT4 Collaboration},
-  title        = {GEANT4 Physics Reference Manual},
+  author       = {{Geant4 Collaboration}},
+  title        = {Geant4 Physics Reference Manual},
   edition      = {11.0},
   year         = {2021}
 }
@@ -168,12 +170,14 @@
   pages           = {448-456}
 }
 
-@article{epair_kokoulin_petrukhin,
-  author          = {Kokoulin, R.P. and Petrukhin, A.A.},
-  journal         = {Proc. 12th Intern. Cosmic Ray Conf.},
-  volume          = {6},
-  year            = {1971},
-  pages            = {2436}
+@incollection{epair_kokoulin_petrukhin,
+  author = {R. P. Kokoulin and A. A. Petrukhin},
+  title = {Influence of the nuclear formfactor on the cross section of
+    electron pair production by high-energy muons},
+  booktitle = {Proc. 12th Int. Conf. on Cosmic Rays, Hobart 1971},
+  volume = 6,
+  pages = {2436-2444},
+  year = 1971
 }
 
 @article{nulcint_bugaev_Shlepin,
@@ -229,21 +233,21 @@ author = {Virgil L. Highland}
 title = {Nucleon shadowing effects in photonuclear interactions},
 author = {Bezrukov, L B and Bugaev, E V},
 url = {https://www.osti.gov/biblio/5909968}, 
-journal = {Sov. J. Nucl. Phys. (Engl. Transl.); (United States)},
+journal = {Sov. J. Nucl. Phys.},
 number = {5},
 volume = {33},
-place = {United States},
+pages = {635-641},
 year = {1981}
 }
 
 @article{bugaev_1980_defl,
-  author          = {Bezrukov, L.B. and Bugaev, Eh.V},
-  journal         = {Sov. J. of Nucl. Phys.},
+  author          = {Bezrukov, L.B. and Bugaev, E.V},
+  journal         = {Sov. J. Nucl. Phys.},
   number          = {6},
-  title           = {Inelastic scattering of muons on nucleons in diffractional region},
+  title           = {Inelastic muon-nucleon scattering in the diffraction region},
   volume          = {32},
   year            = {1980},
-  pages           = {1636-1645}
+  pages           = {847-852}
 }
 
 @article{Borog:1977_inelastic,
@@ -255,21 +259,22 @@ year = {1981}
     year = "1977"
 }
 
-@particle{Borog:1975_inelastic,
+@incollection{Borog:1975_inelastic,
   author          = {Borog V.V. and Petrukhin, A.A},
-  journal         = {14th ICRC},
+  booktitle       = {Proc. 14th ICRC, München 1975},
   pages           = {1949–1954},
   title           = {The cross-section of the nuclear interaction of high energy muons},
   volume          = {6},
   year            = {1975}
 }
 
-@techreport{KKP_1995,
-      author        = "Kelner, S R and Kokoulin, R P and Petrukhin, A A",
-      title         = "{About cross section for high-energy muon bremsstrahlung}",
-      reportNumber  = "MEPHI-95-24",
-      year          = "1995",
-      url           = "https://cds.cern.ch/record/288828",
+@booklet{KKP_1995,
+  author = {S. R. Kelner and R. P. Kokoulin and A. A. Petrukhin},
+  title = {About Cross Section for High-Energy Muon Bremsstrahlung},
+  howpublished= {Preprint MEPhI 024-95},
+  address = {Moscow},
+  url = "https://cds.cern.ch/record/288828",
+  year = {1995}
 }
 
 @article{Kelner_1998,
@@ -287,7 +292,7 @@ year = {1981}
   doi = {10.48550/ARXIV.HEP-PH/9712415},
   author = {Abramowicz, Halina and Levy, Aharon},
   keywords = {High Energy Physics - Phenomenology (hep-ph), High Energy Physics - Experiment (hep-ex), FOS: Physical sciences, FOS: Physical sciences},
-  title = {The ALLM parameterization of $\sigma_{tot}(gamma* p)$ - an update},
+  title = {The ALLM parameterization of $\sigma_{tot}(\gamma^* p)$ - an update},
   publisher = {arXiv},
   year = {1997}
 }
@@ -303,9 +308,10 @@ year = {1981}
 }
 
 
-@misc{Rossi,
+@book{Rossi,
   author         = {Rossi, B. B. },
-  publisher      = {Englewood Cliffs, N.J., Prentice-Hall},
+  publisher      = {Prentice-Hall},
+  address        = {Englewood Cliffs, N.J.},
   title          = {High-energy particles},
   year           = {1952}
 }
@@ -336,7 +342,7 @@ author = {D. Attwood and P. Bell and S. Bull and T. McMahon and J. Wilson and R.
 
 @article{GANDHI199681,
 title = {Ultrahigh-energy neutrino interactions},
-journal = {Astroparticle Physics},
+journal = {Astropart. Phys.},
 volume = {5},
 number = {2},
 pages = {81-110},
