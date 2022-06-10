@@ -116,16 +116,16 @@ muon reconstruction using PROPOSAL}
 %%                 \dgr{MSc, PhD}}\email{iauthor@gmail.com}
 %%=============================================================%%
 
-\author*[1]{\fnm{Pascal} \sur{Gutjahr}}\email{pascal.gutjahr@tu-dortmund.de}
+\author*[1]{\fnm{Pascal} \sur{Gutjahr}}\email{pascal.gutjahr@udo.edu}
 
-\author[1]{\fnm{Jean-Marco} \sur{Alameddine}}\email{jean-marco.alameddine@tu-dortmund.de}
+\author[1]{\fnm{Jean-Marco} \sur{Alameddine}}\email{jean-marco.alameddine@udo.edu}
 % \equalcont{These authors contributed equally to this work.}
 
 \author[2]{\fnm{Alexander} \sur{Sandrock}}\email{alexander.sandrock@udo.edu}
 
-\author[1]{\fnm{Jan} \sur{Soedingrekso}}\email{jan.soedingrekso@tu-dortmund.de}
+\author[1]{\fnm{Jan} \sur{Soedingrekso}}\email{jan.soedingrekso@udo.edu}
 
-\author[1]{\fnm{Wolfgang} \sur{Rhode}}\email{wolfgang.rhode@tu-dortmund.de}
+\author[1]{\fnm{Wolfgang} \sur{Rhode}}\email{wolfgang.rhode@udo.edu}
 
 
 \affil*[1]{\orgdiv{Dept. of Physics}, \orgname{TU Dortmund University}, \orgaddress{\street{Otto-Hahn-Straße~4}, \city{Dortmund}, \postcode{44227}, \state{NRW}, \country{Germany}}}
@@ -151,7 +151,7 @@ This is in the order of magnitude of
 the directional resolution of 
 present neutrino detectors. The deflection can be simply parametrized in 
 dependence of the final muon energy. Furthermore, the deflections are compared to the results 
-of the propagation tools MUSIC and \alexreplace{GEANT4}{Geant4} and all deflections are in good 
+of the propagation tools MUSIC and Geant4 and all deflections are in good 
 agreement. 
 }
 
@@ -170,12 +170,12 @@ nearly massless and not charged. On earth, neutrinos can interact
 with a nucleus and produce an electron, muon or tau in the charged current 
 via the weak interaction \cite{pdg}. These charged daughter particles are very 
 high-energetic and emit Cherenkov light, which can be detected 
-by large neutrino telescopes \alexreplace{like}{such as} IceCube \cite{IceCube_Instrumentation} or 
+by large neutrino telescopes such as IceCube \cite{IceCube_Instrumentation} or 
 KM3NeT \cite{KM3NeT_Design}. 
 By the reconstruction of the direction of the daughter particles, the direction 
 of the original neutrino can be inferred. The angular resolution is at its 
-best for muons, since they can travel up to a few \alexreplace{kilo meters}{kilometers} due to their 
-large mass, instead of the much lighter \alexreplace{electrons and taus -}{electrons, and taus} which decay almost 
+best for muons, since they can travel up to a few kilometers due to their 
+large mass, instead of the much lighter electrons, and taus which decay almost 
 instantly. Current angular resolutions are 
 $\Phi_{\text{I}} > \SI{0.1}{\degree} - \SI{0.3}{\degree}$ for energies 
 $E \in [\SI{3}{\tera\electronvolt},\,\SI{3}{\peta\electronvolt}]$ in IceCube 
@@ -183,7 +183,7 @@ $E \in [\SI{3}{\tera\electronvolt},\,\SI{3}{\peta\electronvolt}]$ in IceCube
 and 
 $\Phi_{\text{K}} < \SI{0.2}{\degree}$ for $E > \SI{10}{\tera\electronvolt}$ in 
 KM3NeT/ARCA \cite{KM3NeT_Resolution2021}.
-In general, muons \alexreplace{do}{undergo} up to several thousand interactions along their propagation, depending 
+In general, muons undergo up to several thousand interactions along their propagation, depending 
 on their energy, propagation distance and energy cuts, which are mentioned in 
 Section~\ref{sec:proposal}.
 Since they 
@@ -191,25 +191,20 @@ are deflected in each interaction, it is important to study if the accumulated
 deflection along a track impacts the angular resolution of current 
 neutrino detectors. 
 
-\alexreplace{For this purpose, the lepton propagation 
-tool PROPOSAL \cite{koehne2013proposal, dunsch_2018_proposal_improvements} is described in Section~\ref{sec:proposal} first and used to study the muon deflection per interaction in 
-Section~\ref{sec:defl_per_int}. Then, the
-accumulated deflection is compared to the results of the propagation tools MUSIC and GEANT4 in Section~\ref{sec:accum_defl}. Furthermore, the median deflection is parametrized. The 
-paper concludes with a summarized overview in Section~\ref{sec:conclusion}.}%
-{The paper is structured as follows: in section~\ref{sec:proposal},
+The paper is structured as follows: in section~\ref{sec:proposal},
 the lepton propagator PROPOSAL is briefly described. In section~\ref{sec:defl_per_int},
 PROPOSAL is used to study the muon deflection per interaction.
-The accumulated deflection is analysed and compared to the propagation codes
+The accumulated deflection is analyzed and compared to the propagation codes
 MUSIC and Geant4 in section~\ref{sec:accum_defl}. The findings of this study
-are summarized in section~\ref{sec:conclusion}.}
+are summarized in section~\ref{sec:conclusion}.
 
 \section{Overview of the Simulation Tool PROPOSAL}\label{sec:proposal}
 
-The tool PROPOSAL propagates charged leptons and photons through media und is 
+The tool PROPOSAL \cite{koehne2013proposal, dunsch_2018_proposal_improvements} propagates charged leptons and photons through media und is 
 used in this paper to simulate the deflection of muons. For this purpose, 
 muons are propagated through the media ice and water 
 to estimate the deflection for IceCube and KM3NeT/ARCA. All relevant muon interaction types 
-as bremsstrahlung \cite{KKP_1995, Karnaukhov_1999}, \alexcomment{Vgl. Telegram, Karnaukhov hat hier nichts verloren} photonuclear interaction \cite{Abramowicz_1997} with 
+as bremsstrahlung \cite{KKP_1995, Bremsstrahlung_KKP}, photonuclear interaction \cite{Abramowicz_1997} with 
 shadowing \cite{ButkevichMikheyev_2002}, electron pair production \cite{epair_kokoulin_petrukhin} with corrections for the 
 interaction with atomic electrons \cite{Kelner_1998}, 
 ionization by Bethe-Bloch formula with corrections for muons \cite{Rossi} and decay are provided. The interaction processes are sampled by their cross section. Since bremsstrahlung interactions can be 
@@ -236,7 +231,7 @@ propagation distance $d$ can be higher than the required limits.
 The deflections for stochastic interactions are parametrized by Van Ginneken 
 in \cite{Van_Ginneken} with a direct calculation of the deflection in 
 ionization using four-momentum conservation. 
-Furthermore, there are parametrizations for deflections given in GEANT4 \cite{GEANT4} 
+Furthermore, there are parametrizations for deflections given in Geant4 \cite{GEANT4} 
 for bremsstrahlung and photonuclear interaction, which 
 are available in PROPOSAL, too.
 To estimate the deflection along 
@@ -246,16 +241,15 @@ can be chosen \cite{HIGHLAND_1975}.
 The deflection angle in the plane perpendicular to the muon direction is 
 sampled uniformly between $0$ and $2\pi$.
 The latest updates with a detailed description of the whole tool can be found 
-in \cite{phd_soedingrekso}.
+in \cite{phd_soedingrekso}. 
+The stochastic deflections have been implemented into PROPOSAL recently and they are 
+described and studied in \cite{Gutjahr_2021}. A publication as Alameddine et al. is in preparation.
 All simulations are done with PROPOSAL $7.3.0$.
-\alexcomment{Die stochastischen Ablenkungen sind neu und bislang unveröffentlicht,
-du solltest vllt. einen Verweis auf einen Artikel ``in preparation'' über PROPOSAL einfügen,
-bspw. als ``Alameddine et al., in preparation''.}
 
 \section{Muon deflection per Interaction}\label{sec:defl_per_int}
 First, the stochastic deflections introduced by \cite{Van_Ginneken} implemented 
 in PROPOSAL are investigated in relation to the two multiple scattering methods. 
-For this \alexedit{purpose} muons are propagated from $E_{\text{i}} = \SI{1}{\peta\electronvolt}$ to $E_{\text{f,\,min}} = \SI{1}{\tera\electronvolt}$.
+For this purpose muons are propagated from $E_{\text{i}} = \SI{1}{\peta\electronvolt}$ to $E_{\text{f,\,min}} = \SI{1}{\tera\electronvolt}$.
 The deflections per interaction are presented 
 for each interaction type and the total amount in Figure~\ref{fig:defl_per_int}. 
 A single deflection 
@@ -300,7 +294,7 @@ muon direction is analyzed. The deflection results as a limit on the
 angular reconstruction accuracy. \alexcomment{Diesen Satz verstehe ich nicht.}
 
 \alexreplace{At first}{First}, the deflections in PROPOSAL are compared to 
-the tools MUSIC \cite{MUSIC,comparison_MUSIC_GEANT4_2009} and \alexreplace{GEANT4}{Geant4} \cite{GEANT4}.
+the tools MUSIC \cite{MUSIC,comparison_MUSIC_GEANT4_2009} and Geant4 \cite{GEANT4}.
 MUSIC (MUon SImulation Code) is a tool to simulate the propagation of muons 
 through media like rock and water considering the same energy losses as in 
 PROPOSAL. Also, the losses are divided into continuous and stochastic 
@@ -313,7 +307,7 @@ and electron pair production \cite{epair_kelner,epair_kokoulin_petrukhin},
 Also, ionization is treated as a stochastic process with the Bethe-Bloch 
 formula including knock-on electron production. As \alexedit{multiple} scattering, the gaussian 
 approximation \cite{HIGHLAND_1975} is set. 
-\alexreplace{GEANT4}{Geant4} is another common toolkit to simulate the passage of particles through 
+Geant4 is another common toolkit to simulate the passage of particles through 
 a medium with several possibilities and a focus on high-energy 
 particle accelerators \cite{GEANT4}. 
 
@@ -321,7 +315,7 @@ A comparison of all three tools is done in Figure~\ref{fig:compare_MUSIC}
 with four different settings in PROPOSAL for the 
 accumulated deflection angle $\theta_{\text{acc}}$ and the lateral displacement
 $x$. The deflection angles are very similar in all cases. The 
-displacement is dominated by \alexreplace{GEANT4}{Geant4} and PROPOSAL with Molière scattering, which 
+displacement is dominated by Geant4 and PROPOSAL with Molière scattering, which 
 leads to the largest deflections and thus to a larger displacement. 
 PROPOSAL with Highland scattering and MUSIC have less outliers, since large 
 deflections are neglected in the Gaussian approximation \cite{HIGHLAND_1975}. 
@@ -329,7 +323,7 @@ The combination of Highland and \cite{Van_Ginneken} leads to the smallest
 displacement, since in nuclear interaction, the sampling from the root mean squared angle in the 
 exponential distribution neglects outliers to larger angles.
 
-Detailed information are given in Table~\ref{tab:compare_MUSIC}. In \alexreplace{GEANT4}{Geant4}, the 
+Detailed information are given in Table~\ref{tab:compare_MUSIC}. In Geant4, the 
 largest deflections \alexreplace{result with}{are} $\overline{\theta} = \SI{0.27}{\degree}$ 
 and $\overline{x} = \SI{3.3}{\meter}$. The lowest values $\overline{\theta} = \SI{0.22}{\degree}$ and 
 $\overline{x} = \SI{2.6}{\meter}$ \alexreplace{result}{are obtained} in MUSIC. The results of PROPOSAL lay between 
@@ -339,7 +333,7 @@ Das zeigt nur Konsistenz zwischen verschiedenen Codes.}
 
 A measurement of muon deflection in low-$Z$ materials was done in \cite{attwood_2006}. 
 From this it can be seen that for $Z < 4$ the scattering angle is overestimated 
-by Molière scattering in GEANT4. Hence, the lower scattering in PROPOSAL leads 
+by Molière scattering in Geant4. Hence, the lower scattering in PROPOSAL leads 
 to a better precision especially in the region of outliers. The comparison is 
 done in liquid $\text{H}_2$ with a thickness of $\SI{109}{\milli\meter}$ and an 
 initial particle energy of $E_{\mathrm{i}} = \SI{199}{\mega\electronvolt}$, which 
@@ -354,25 +348,25 @@ gegen den wir uns in Dunsch et al. verglichen haben?}
     \caption{In total $\num{e5}$ muons with $E_{\mathrm{i}} = \SI{199}{\mega\electronvolt}$ are propagated through 
     $\SI{109}{\milli\meter}$ of liquid $\text{H}_2$. In PROPOSAL, the simulation is done 
     for two different energy cuts $\texttt{v\_cut} = \num{e-3}$ and $\texttt{v\_cut} = \num{e-5}$ using Molière scattering.
-    Measured data of Attwood and simulation data of \alexreplace{GEANT4}{Geant4} are taken from \cite{attwood_2006}. The figure presents 
+    Measured data of Attwood and simulation data of Geant4 are taken from \cite{attwood_2006}. The figure presents 
     the normalized counts in dependence of the projected scattering angle $\theta_{\mathrm{y}}$ in radians. At small deflections, PROPOSAL 
-    is underestimating, but at larger deflections the result seems to be more accurate than \alexreplace{GEANT4}{Geant4}'s.}
+    is underestimating, but at larger deflections the result seems to be more accurate than Geant4's.}
     \label{fig:attwood_comparison}
 \end{figure}
 
 \begin{figure}
     \centering 
     \includegraphics[width=0.98\textwidth]{../../deflection/plots/FINAL/2TeV_1e6events_accumulated_defl_paper_combined.pdf}
-    \caption{A comparison of the results of MUSIC, \alexreplace{GEANT4}{Geant4} and PROPOSAL is presented for $\num{1000000}$ negative charged muons propagated with 
+    \caption{A comparison of the results of MUSIC, Geant4 and PROPOSAL is presented for $\num{1000000}$ negative charged muons propagated with 
     $E_{\text{i}} = \SI{2}{\tera\electronvolt}$ over a distance of 
     $\SI{3}{\kilo\meter}$ in water. A $\texttt{v\_cut} = 0.001$ is set. In PROPOSAL, 
     bremsstrahlung and photonuclear interaction are parametrized by 
-    Van Ginneken (vG) and \alexreplace{GEANT4}{as in Geant4} and both scattering methods are checked. 
+    Van Ginneken (vG) and as in Geant4 and both scattering methods are checked. 
     Left: The accumulated deflection $\theta_{\mathrm{acc}}$ in degree is very similar in all cases.
     Right: The lateral displacement $x$ in meter depends 
     on the scattering method. Molière scattering leads to larger distances.
     Detailed information are given in 
-    Table~\ref{tab:compare_MUSIC}. The results for MUSIC and \alexreplace{GEANT4}{Geant4} are taken from 
+    Table~\ref{tab:compare_MUSIC}. The results for MUSIC and Geant4 are taken from 
     \cite{comparison_MUSIC_GEANT4_2009}.}
     \label{fig:compare_MUSIC}
 \end{figure}
@@ -384,12 +378,12 @@ gegen den wir uns in Dunsch et al. verglichen haben?}
     energy $\overline{E}_{\text{f}}$, the mean scattered angle $\overline{\theta}$ 
     and the mean displacement $\overline{x}$ are presented for all cases from 
     Figure~\ref{fig:compare_MUSIC}. For all means, the standard deviation is given.
-    The largest deflection and displacement \alexreplace{result}{is observed} in the tool \alexreplace{GEANT4}{Geant4}, which has the lowest mean survived energy. The lower the energy, the larger the deflection.}
+    The largest deflection and displacement \alexreplace{result}{is observed} in the tool Geant4, which has the lowest mean survived energy. The lower the energy, the larger the deflection.}
     \begin{tabular}{l|cc|cccc}
         \toprule
         & & & \multicolumn{4}{c}{PROPOSAL} \\
         &  & & \multicolumn{2}{c}{Molière} & \multicolumn{2}{c}{Highland} \\
-        & MUSIC & GEANT4 & vG & GEANT4 & vG & GEANT4 \\
+        & MUSIC & Geant4 & vG & Geant4 & vG & Geant4 \\
         \midrule
         $p_{\text{s}}\,/\,\si{\percent}$ & 77.9 & 79.3 &  \multicolumn{4}{c}{77.9}\\
         $\overline{E}_{\text{f}}\,/\,\si{\giga\electronvolt}$ & 323 & 317 & \multicolumn{4}{c}{331$\pm$178} \\
@@ -488,8 +482,8 @@ is dominated by multiple scattering except for a few stochastic
 outliers by bremsstrahlung. These angles are lower $\sim\SI{1}{\degree}$. 
 
 The results of PROPOSAL are tested against the common tools MUSIC and 
-GEANT4 and all are in good agreement. In low-$Z$ materials, the region of outlier 
-deflections is described better with PROPOSAL than GEANT4.
+Geant4 and all are in good agreement. In low-$Z$ materials, the region of outlier 
+deflections is described better with PROPOSAL than Geant4.
 
 The median accumulated deflection depends on the final muon energy, primarily. 
 The outcome is fit by a polynom\alexedit{ial} and can be used for 
