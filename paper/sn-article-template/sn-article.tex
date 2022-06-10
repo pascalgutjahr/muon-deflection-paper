@@ -209,7 +209,7 @@ The tool PROPOSAL propagates charged leptons and photons through media und is
 used in this paper to simulate the deflection of muons. For this purpose, 
 muons are propagated through the media ice and water 
 to estimate the deflection for IceCube and KM3NeT/ARCA. All relevant muon interaction types 
-as bremsstrahlung \cite{KKP_1995, Karnaukhov_1999}, photonuclear interaction \cite{Abramowicz_1997} with 
+as bremsstrahlung \cite{KKP_1995, Karnaukhov_1999}, \alexcomment{Vgl. Telegram, Karnaukhov hat hier nichts verloren} photonuclear interaction \cite{Abramowicz_1997} with 
 shadowing \cite{ButkevichMikheyev_2002}, electron pair production \cite{epair_kokoulin_petrukhin} with corrections for the 
 interaction with atomic electrons \cite{Kelner_1998}, 
 ionization by Bethe-Bloch formula with corrections for muons \cite{Rossi} and decay are provided. The interaction processes are sampled by their cross section. Since bremsstrahlung interactions can be 
@@ -225,7 +225,8 @@ for a relative energy cut $\texttt{v\_cut}\ll 1$, which increases the
 CPU runtime.
 A sampled energy loss 
 $E_{\text{loss}} < E_{\text{loss,\,min}}$ builds an integrated part of a 
-stochastic energy loss referred to as continuous energy loss. The 
+stochastic energy loss referred to as continuous energy loss.
+\alexcomment{Diese Erklärung der kontinuierlichen Verluste ist unverständlich, wenn man es nicht sowieso schon weiß.} The 
 propagation process is defined by an initial energy $E_{\text{i}}$ and 
 two stopping criteria - a final energy $E_{\text{f,\,min}}$ and a 
 maximum propagation distance $d_{\text{min}}$. If the last interaction of 
@@ -247,11 +248,14 @@ sampled uniformly between $0$ and $2\pi$.
 The latest updates with a detailed description of the whole tool can be found 
 in \cite{phd_soedingrekso}.
 All simulations are done with PROPOSAL $7.3.0$.
+\alexcomment{Die stochastischen Ablenkungen sind neu und bislang unveröffentlicht,
+du solltest vllt. einen Verweis auf einen Artikel ''in preparation`` über PROPOSAL einfügen,
+bspw. als ''Alameddine et al., in preparation``.}
 
 \section{Muon deflection per Interaction}\label{sec:defl_per_int}
 First, the stochastic deflections introduced by \cite{Van_Ginneken} implemented 
 in PROPOSAL are investigated in relation to the two multiple scattering methods. 
-For this muons are propagated from $E_{\text{i}} = \SI{1}{\peta\electronvolt}$ to $E_{\text{f,\,min}} = \SI{1}{\tera\electronvolt}$.
+For this \alexedit{purpose} muons are propagated from $E_{\text{i}} = \SI{1}{\peta\electronvolt}$ to $E_{\text{f,\,min}} = \SI{1}{\tera\electronvolt}$.
 The deflections per interaction are presented 
 for each interaction type and the total amount in Figure~\ref{fig:defl_per_int}. 
 A single deflection 
@@ -275,7 +279,7 @@ interval results to $16.4_{-7.3}^{+24.6}\,\si{\kilo\meter}$.
 \begin{table}
     \centering 
     \caption{The medians of deflections $\theta$ per interaction from Figure~\ref{fig:defl_per_int} are presented for each interaction type and the total distribution with the upper and lower limits of the $\SI{95}{\percent}$ 
-    central content levels.}
+    central content levels. \alexcomment{Die Tabelle wäre m.\,E. einfacher zu lesen, wenn alles in der gleichen Einheit wäre, also \num{e-5} Grad.}}
     \begin{tabular}{ccccccc}
         \toprule 
         brems & nuclint & epair & ioniz & moliere & highland & total  \vspace{6pt} \\
