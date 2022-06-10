@@ -60,7 +60,8 @@
 \usepackage{multirow}
 
 % reviewing
-% \usepackage[textsize=footnotesize]{todonotes}
+\usepackage{color-edits}
+\addauthor[Alexander]{alex}{green}
 % \newcommand{\alexander}[1]{\todo[inline,color=green!40]{\textit{Alexander:} #1}}
 % \newcommand{\jm}[1]{\todo[inline,color=orange!40]{\textit{Jean-Marco:} #1}}
 %%%%
@@ -150,7 +151,7 @@ This is in the order of magnitude of
 the directional resolution of 
 present neutrino detectors. The deflection can be simply parametrized in 
 dependence of the final muon energy. Furthermore, the deflections are compared to the results 
-of the propagation tools MUSIC and GEANT4 and all deflections are in good 
+of the propagation tools MUSIC and \alexreplace{GEANT4}{Geant4} and all deflections are in good 
 agreement. 
 }
 
@@ -169,12 +170,12 @@ nearly massless and not charged. On earth, neutrinos can interact
 with a nucleus and produce an electron, muon or tau in the charged current 
 via the weak interaction \cite{pdg}. These charged daughter particles are very 
 high-energetic and emit Cherenkov light, which can be detected 
-by large neutrino telescopes like IceCube \cite{IceCube_Instrumentation} or 
+by large neutrino telescopes \alexreplace{like}{such as} IceCube \cite{IceCube_Instrumentation} or 
 KM3NeT \cite{KM3NeT_Design}. 
 By the reconstruction of the direction of the daughter particles, the direction 
 of the original neutrino can be inferred. The angular resolution is at its 
-best for muons, since they can travel up to a few kilo meters due to their 
-large mass, instead of the much lighter electrons and taus - which decay almost 
+best for muons, since they can travel up to a few \alexreplace{kilo meters}{kilometers} due to their 
+large mass, instead of the much lighter \alexreplace{electrons and taus -}{electrons, and taus} which decay almost 
 instantly. Current angular resolutions are 
 $\Phi_{\text{I}} > \SI{0.1}{\degree} - \SI{0.3}{\degree}$ for energies 
 $E \in [\SI{3}{\tera\electronvolt},\,\SI{3}{\peta\electronvolt}]$ in IceCube 
@@ -182,7 +183,7 @@ $E \in [\SI{3}{\tera\electronvolt},\,\SI{3}{\peta\electronvolt}]$ in IceCube
 and 
 $\Phi_{\text{K}} < \SI{0.2}{\degree}$ for $E > \SI{10}{\tera\electronvolt}$ in 
 KM3NeT/ARCA \cite{KM3NeT_Resolution2021}.
-In general, muons do up to several thousand interactions along their propagation, depending 
+In general, muons \alexreplace{do}{undergo} up to several thousand interactions along their propagation, depending 
 on their energy, propagation distance and energy cuts, which are mentioned in 
 Section~\ref{sec:proposal}.
 Since they 
@@ -190,11 +191,17 @@ are deflected in each interaction, it is important to study if the accumulated
 deflection along a track impacts the angular resolution of current 
 neutrino detectors. 
 
-For this purpose, the lepton propagation 
+\alexreplace{For this purpose, the lepton propagation 
 tool PROPOSAL \cite{koehne2013proposal, dunsch_2018_proposal_improvements} is described in Section~\ref{sec:proposal} first and used to study the muon deflection per interaction in 
 Section~\ref{sec:defl_per_int}. Then, the
 accumulated deflection is compared to the results of the propagation tools MUSIC and GEANT4 in Section~\ref{sec:accum_defl}. Furthermore, the median deflection is parametrized. The 
-paper concludes with a summarized overview in Section~\ref{sec:conclusion}.
+paper concludes with a summarized overview in Section~\ref{sec:conclusion}.}%
+{The paper is structured as follows: in section~\ref{sec:proposal},
+the lepton propagator PROPOSAL is briefly described. In section~\ref{sec:defl_per_int},
+PROPOSAL is used to study the muon deflection per interaction.
+The accumulated deflection is analysed and compared to the propagation codes
+MUSIC and Geant4 in section~\ref{sec:accum_defl}. The findings of this study
+are summarized in section~\ref{sec:conclusion}.}
 
 \section{Overview of the Simulation Tool PROPOSAL}\label{sec:proposal}
 
