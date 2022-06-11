@@ -221,10 +221,13 @@ The cut is applied with a minimum energy loss
 \end{equation}
 using two parameters - a total and a relative energy cut denoted as 
 $\texttt{e\_cut}$ and $\texttt{v\_cut}$ with \pascalreplace{particle energy $E$.}{the energy $E$ of the particle directly before the interaction.} 
-A sampled energy loss 
+\pascalreplace{A sampled energy loss 
 $E_{\text{loss}} < E_{\text{loss,\,min}}$ builds an integrated part of a 
-stochastic energy loss referred to as continuous energy loss.
-\alexcomment{Diese Erklärung der kontinuierlichen Verluste ist unverständlich, wenn man es nicht sowieso schon weiß.} 
+stochastic energy loss referred to as continuous energy loss.}{By the introduction of 
+this energy cut, in the propagation the next significant energy loss with $E_{\mathrm{loss}} > E_{\text{loss,min}}$ 
+is treated as a stochastic energy loss. An energy loss $E_{\mathrm{loss}} < E_{\text{loss,min}}$ forms an integrated 
+part of the stochastic losses and is denoted as continuous energy loss.}
+\pascalcomment{Was passiert bei $E_{\mathrm{loss}} < E_{\text{loss,min}}$? stoch oder cont?} 
 The methodical uncertainties are small 
 for a relative energy cut $\texttt{v\_cut}\ll 1$, which increases the 
 CPU runtime.
@@ -363,6 +366,7 @@ of $p = \SI[per-mode=symbol]{168.9}{\mega\electronvolt\per\clight}$.
 The result is presented in Figure~\ref{fig:attwood_comparison}.
 \alexcomment{Was ist mit Akimenko (bei höheren Energien und in Kupfer),
 gegen den wir uns in Dunsch et al. verglichen haben?}
+\pascalcomment{Den Vgl. werde ich Montag noch durchführen.}
 \begin{figure}
     \centering 
     \includegraphics[width=0.98\textwidth]{../../deflection/plots/FINAL/attwood_comparison_moliere_E199MeV_final.pdf}
@@ -370,8 +374,8 @@ gegen den wir uns in Dunsch et al. verglichen haben?}
     $\SI{109}{\milli\meter}$ of liquid $\text{H}_2$. In PROPOSAL, the simulation is done 
     for two different energy cuts $\texttt{v\_cut} = \num{e-3}$ and $\texttt{v\_cut} = \num{e-5}$ using Molière scattering.
     Measured data of Attwood and simulation data of Geant4 are taken from \cite{attwood_2006}. The figure presents 
-    the normalized counts in dependence of the projected scattering angle $\theta_{\mathrm{y}}$ in radians. At small angles, deflections are  
-    are underestimated in PROPOSAL, except at $\theta_{\mathrm{y}} \approx 0$. At larger deflections, the result seems to be more accurate than Geant4's.
+    the normalized counts in dependence of the projected scattering angle $\theta_{\mathrm{y}}$ in radians. \pascaledit{At small angles, deflections are  
+    are underestimated in PROPOSAL, except at $\theta_{\mathrm{y}} \approx 0$.} At larger deflections, the result seems to be more accurate than Geant4's.
     \pascaledit{There is no significant difference between the two energy cuts.}}
     \label{fig:attwood_comparison}
 \end{figure}
@@ -379,11 +383,11 @@ gegen den wir uns in Dunsch et al. verglichen haben?}
 \begin{figure}
     \centering 
     \includegraphics[width=0.98\textwidth]{../../deflection/plots/FINAL/2TeV_1e6events_accumulated_defl_paper_combined.pdf}
-    \caption{A comparison of the results of MUSIC, Geant4 and PROPOSAL is presented for $\num{1000000}$ negative charged muons propagated with 
+    \caption{A comparison of the results of MUSIC, Geant4 and PROPOSAL is presented for $\num{1000000}$ muons propagated with 
     $E_{\text{i}} = \SI{2}{\tera\electronvolt}$ over a distance of 
     $\SI{3}{\kilo\meter}$ in water. A $\texttt{v\_cut} = 0.001$ is set. In PROPOSAL, 
-    bremsstrahlung and photonuclear interaction are parametrized by 
-    Van Ginneken (vG) and as in Geant4 and both scattering methods are checked. 
+    bremsstrahlung and photonuclear interaction are parametrized either by 
+    Van Ginneken (vG) or as in Geant4. Both scattering methods are checked. 
     Left: The accumulated deflection $\theta_{\mathrm{acc}}$ in degree is very similar in all cases.
     Right: The lateral displacement $x$ in meter depends 
     on the scattering method. Molière scattering leads to larger distances.
@@ -403,9 +407,9 @@ gegen den wir uns in Dunsch et al. verglichen haben?}
     The largest deflection and displacement is observed in the tool Geant4, which has the lowest mean survived energy. The lower the energy, the larger the deflection.}
     \begin{tabular}{l|cc|cccc}
         \toprule
-        & & & \multicolumn{4}{c}{PROPOSAL} \\
+        & MUSIC & Geant4 & \multicolumn{4}{c}{PROPOSAL} \\
         &  & & \multicolumn{2}{c}{Molière} & \multicolumn{2}{c}{Highland} \\
-        & MUSIC & Geant4 & vG & Geant4 & vG & Geant4 \\
+        &  &  & vG & Geant4 & vG & Geant4 \\
         \midrule
         $p_{\text{s}}\,/\,\si{\percent}$ & 77.9 & 79.3 &  \multicolumn{4}{c}{77.9}\\
         $\overline{E}_{\text{f}}\,/\,\si{\giga\electronvolt}$ & 323 & 317 & \multicolumn{4}{c}{331$\pm$178} \\
@@ -428,11 +432,11 @@ with a $\SI{95}{\percent}$ central interval is presented in
 Figure~\ref{fig:fit_median}.
 The lower the final muon energy, the larger the accumulated deflection. 
 For energies $E_{\text{f}} = \SI{1}{\peta\electronvolt}$, the median deflection 
-is lower than $\SI{e-3}{\degree}$. For energies $E_{\text{f}} = \SI{10}{\giga\electronvolt}$, 
+is $\SI{e-4}{\degree}$. For energies $E_{\text{f}} = \SI{10}{\giga\electronvolt}$, 
 angles larger than $\SI{1}{\degree}$ are possible. For energies  
 $E_{\text{f}} \approx \SI{100}{\giga\electronvolt}$, 
-there is a small overlap of the deflection with the angular resolution of KM3NeT 
-\cite{KM3NeT_Resolution2016}. The resolution of IceCube is a bit worse and 
+there is a small overlap of the deflection with the angular resolution of KM3NeT/ARCA 
+\cite{KM3NeT_Resolution2016, KM3NeT_Resolution2021}. The resolution of IceCube is a bit worse and 
 therefore not affected \cite{IceCube_Resolution2021}. 
 The kinematic angle between the incident neutrino and the produced muon is 
 larger than the deflection in the presented region from $\SI{300}{\giga\electronvolt}$
@@ -442,7 +446,8 @@ in \cite{KM3NeT_Resolution2016, KM3NeT_Resolution2021}. Hence, a rescale to
 the muon energy is done using the average energy transfer of the neutrino to 
 the nucleus \cite{GANDHI199681}. This shifts both the curves to lower energies. 
 Since all of these simulations are done 
-in ice, the same simulations are done in water. The deviations of the medians
+in ice, the same simulations are done in water \pascaledit{to compare the results for 
+water-based experiments}. The deviations of the medians
 are less than $\SI{1}{\percent}$ for all energies.
 
 Furthermore, in Figure~\ref{fig:fit_median} there are only $12$ medians visible, 
@@ -451,8 +456,8 @@ out that the total deflection of a muon
 primarily depends on the final muon energy.
 The initial muon energy is negligible. 
 Hence, the reconstructed muon 
-energy in a detector can be used to estimate a theoretical deflection. For this 
-purpose, the following fit-function 
+energy in a detector can be used to estimate \pascalreplace{a theoretical}{the} deflection. For this 
+purpose, the following fit function 
 \begin{equation}
      f(x) = a \cdot x^3 + b \cdot x^2 + c \cdot x + d \,,
     \label{eqn:fit_median}
@@ -466,6 +471,9 @@ in the logarithmic space via
 \begin{align}
     g(x) =& 10^{f(x)}\,, & x =& \log_{10}\left(\frac{E_{\text{f}}}{\si{\giga\electronvolt}}\right)\,.
 \end{align}
+\pascaledit{In general, the function $f(x)$ in Eq.~\eqref{eqn:fit_median} describes the median 
+deflection of a muon after a propagated distance in ice for a given, respectively measured energy 
+to estimate the deflection before the detector entry.}
 
 \begin{figure}
     \centering 
@@ -477,12 +485,12 @@ in the logarithmic space via
     that the true final particle energy $E_{\text{f}}$ is maximum 
     $\SI{10}{\percent}$ below the set final energy $E_{\text{f,\,min}}$,   
     $E_{\text{f}} > E_{\text{f,\,min}} \cdot 0.9$. The energy cuts are $\texttt{e\_cut} = \SI{500}{\mega\electronvolt}$ and $\texttt{v\_cut} = 0.05$ and 
-    Molière scattering is chosen. Simulations are done in ice, the deviation 
-    of the medians in a water based simulation are less than $\SI{1}{\percent}$.
+    Molière scattering is chosen. Simulations are performed in ice, the deviations 
+    of the medians in a water-based simulation are smaller than $\SI{1}{\percent}$.
     Since the medians overlap for different initial energies, there is no 
     strong impact of the initial energy on the median deflection. These 
     medians can be fit by a third degree polynomial in the log-space as 
-    shown in Equation~\eqref{eqn:fit_median}. The kinematic angle between the muon and 
+    shown in Eq.~\eqref{eqn:fit_median}. The kinematic angle between the muon and 
     neutrino is taken from \cite{KM3NeT_Resolution2016}. Since the kinematic angle and 
     the angular resolution of ARCA taken from \cite{KM3NeT_Resolution2016, KM3NeT_Resolution2021} are 
     presented in dependence of the neutrino energy, a rescale to the muon energy is done 
@@ -501,11 +509,11 @@ used to study the muon deflection per interaction. Mainly, the deflection
 is dominated by multiple scattering except for a few stochastic 
 outliers by bremsstrahlung. These angles are lower $\sim\SI{1}{\degree}$. 
 
-The results of PROPOSAL are tested against the common tools MUSIC and 
-Geant4 and all are in good agreement. In low-$Z$ materials, the region of outlier 
+The results of PROPOSAL are compared with the common tools MUSIC and 
+Geant4 and \pascalreplace{all}{they} are in good agreement. In low-$Z$ materials, the region of outlier 
 deflections is described better with PROPOSAL than Geant4.
 
-The median accumulated deflection depends on the final muon energy, primarily. 
+The median accumulated deflection depends primarily on the final muon energy. 
 The outcome is fit by a polynomial and can be used for 
 a theoretical estimation of the muon deflection in water and ice.
 This final energy can be interpreted as the muon energy at detector entry 
