@@ -103,7 +103,7 @@
 \begin{document}
 
 \title[Muon Deflection]{\pascalreplace{Simulation of theoretical deflection uncertainty on directional 
-muon reconstructions using PROPOSAL}{Simulation of theoretical deflection uncertainties on directional recontrcution of muons using PROPOSAL}}
+muon reconstructions using PROPOSAL}{Simulation of theoretical deflection uncertainties on directional reconstrcution of muons using PROPOSAL}}
 
 %%=============================================================%%
 %% Prefix	-> \pfx{Dr}
@@ -138,16 +138,14 @@ muon reconstructions using PROPOSAL}{Simulation of theoretical deflection uncert
 %%==================================%%
 
 \abstract{
-\pascalreplace{For uncertainty estimation of reconstruction of the muon direction, the 
-deflection of muons along a propagated path in ice and water is simulated using 
-the tool PROPOSAL (Propagator with optimal precision and optimized speed for all leptons), which considers multiple scattering and stochastic deflection.}{To estimate the uncertainty in the reconstruction of the muon direction, the 
+To estimate the uncertainty in the reconstruction of the muon direction, the 
 deflection of muons along a propagation path in ice and water is simulated with the 
-tool PROPOSAL (Propagator with Optimal Precision and Optimized Speed for All Leptons), which accounts for multiple scattering and stochastic deflection.} 
-\pascalcomment{Muss ``stochastic deflection'' noch weitergehend erklärt werden?}
-The deflection per interaction \pascalreplace{spans}{extends over} several 
+tool PROPOSAL, which accounts for multiple scattering and deflection on stochastic interactions. 
+The deflection per interaction extends over several 
 orders of magnitude with $\theta \in [\SI{e-9}{\degree},\, \SI{1}{\degree}]$ 
-for energies $E < \SI{1}{\peta\electronvolt}$ 
-and is rather negligible \pascaledit{for the directional reconstruction}. The median accumulated 
+for muon energies $\SI{1}{\tera\electronvolt} < E < \SI{1}{\peta\electronvolt}$ 
+and is rather negligible for the directional reconstruction. \pascaledit{The deflection increases as 
+the energy decreases and it depends on the energy loss.} The median accumulated 
 deflection of a muon with an energy $E_{\mathrm{\mu}} = \SI{500}{\giga\electronvolt}$ 
 after a propagated track is about $\theta_{\text{acc}} = 0.10_{-0.02}^{+0.27}\,\si{\degree}$ 
 with a $\SI{95}{\percent}$ central interval, 
@@ -155,9 +153,9 @@ for propagation distances of $d = 17.5_{-8.0}^{+26.5}\,\si{\kilo\meter}$.
 This is in the order of magnitude of 
 the directional resolution of 
 present neutrino detectors. The deflection can be simply parametrized in 
-dependence of the final muon energy. Furthermore, the deflections are compared to the results 
+dependence of the final muon energy. Furthermore, \pascalreplace{the deflections are compared to the results 
 of the propagation tools MUSIC and Geant4 and all deflections are in good 
-agreement. 
+agreement.}{an agreement is obtained in comparison with the simulation tools MUSIC and Geant4.} 
 }
 
 \keywords{neutrino astronomy, point-source analysis, angular resolution}
@@ -212,9 +210,9 @@ to estimate the deflection for IceCube and KM3NeT/ARCA. All relevant muon intera
 as bremsstrahlung \cite{KKP_1995, Bremsstrahlung_KKP}, photonuclear interaction \cite{Abramowicz_1997} with 
 shadowing \cite{ButkevichMikheyev_2002}, electron pair production \cite{epair_kokoulin_petrukhin} with corrections for the 
 interaction with atomic electrons \cite{Kelner_1998}, 
-ionization described by the Bethe-Bloch formula with corrections for muons \cite{Rossi} and the decay are provided by PROPOSAL. The interaction processes are sampled by their cross section. Since bremsstrahlung interactions can be 
-arbitrarily small due to a massless exchange particle, the photon, an energy cut is introduced to avoid an infinite number of bremsstrahlung interactions 
-and furthermore to speed up the propagation process. 
+ionization described by the Bethe-Bloch formula with corrections for muons \cite{Rossi} and the decay are provided by PROPOSAL. The interaction processes are sampled by their cross section. Since \pascalreplace{bremsstrahlung interactions can be 
+arbitrarily small due to a massless exchange particle, the photon,}{interactions can be arbitrarily small with the massless photon as secondary particle,} an energy cut is introduced to avoid an infinite number of bremsstrahlung interactions 
+and furthermore to \pascalreplace{speed up the propagation process}{increase the runtime performance}. 
 The cut is applied with a minimum energy loss
 \begin{equation}
     E_{\text{loss,min}} = \min{(\texttt{e\_cut}, E \cdot \texttt{v\_cut})}\,,
@@ -227,17 +225,19 @@ stochastic energy loss referred to as continuous energy loss.}{By the introducti
 this energy cut, in the propagation the next significant energy loss with $E_{\mathrm{loss}} > E_{\text{loss,min}}$ 
 is treated as a stochastic energy loss. An energy loss $E_{\mathrm{loss}} < E_{\text{loss,min}}$ forms an integrated 
 part of the stochastic losses and is denoted as continuous energy loss.}
-\pascalcomment{Was passiert bei $E_{\mathrm{loss}} < E_{\text{loss,min}}$? stoch oder cont?} 
+\pascalcomment{Was passiert bei $E_{\mathrm{loss}} = E_{\text{loss,min}}$? stoch oder cont?} 
 The methodical uncertainties are small 
-for a relative energy cut $\texttt{v\_cut}\ll 1$, which increases the 
-CPU runtime.
+for a relative energy cut $\texttt{v\_cut}\ll 1$, which increases \pascalreplace{the 
+CPU runtime}{the runtime}.
 The 
-propagation process is defined by an initial energy $E_{\text{i}}$ and 
+propagation process is defined by an initial muon energy $E_{\text{i}}$ and 
 two stopping criteria - a final energy $E_{\text{f,\,min}}$ and a 
 maximum propagation distance $d_{\text{min}}$. If the last interaction of 
 a propagation is sampled by a stochastic interaction, the true final energy 
 $E_{\text{f}}$ can become lower and the 
 propagation distance $d$ can be higher than the required limits. 
+\pascaledit{Since muons are unstable, a decay leads to a premature 
+stop, which is negligible for high energies \cite{phd_soedingrekso}.}
 
 The deflections for stochastic interactions are parametrized by Van Ginneken 
 in \cite{Van_Ginneken} with a direct calculation of the deflection in 
@@ -255,7 +255,8 @@ The latest updates with a detailed description of the whole tool can be found
 in \cite{phd_soedingrekso}. 
 \pascaledit{The stochastic deflections have been implemented in PROPOSAL recently and they are 
 described and studied in \cite{Gutjahr_2021}.} 
-A publication as Alameddine et al. is in preparation.
+A publication \pascalreplace{as Alameddine et al. is in preparation.}{describing the 
+updates in PROPOSAL is in preparation \cite{Alameddine_2022}.}
 All simulations are done with PROPOSAL $7.3.1$.
 
 \section{Muon Deflection per Interaction}\label{sec:defl_per_int}
@@ -276,17 +277,21 @@ central interval results to $16.4_{-7.3}^{+24.6}\,\si{\kilo\meter}$.
 \begin{figure}
     \centering 
     \includegraphics[width=0.98\textwidth]{../../deflection/plots/FINAL/1PeV_1TeV_1000events_deflection_along_sampling.pdf}
-    \caption{The deflection $\theta$ per interaction is shown in degree for different mechanisms. The propagation is done for $\num{1000}$ 
-    muons from $E_{\text{i}} = \SI{1}{\peta\electronvolt}$ to $E_{\text{f,\,min}} = \SI{1}{\tera\electronvolt}$ using $\texttt{e\_cut} = \SI{500}{\mega\electronvolt}$ and $\texttt{v\_cut} = 0.05$ in ice. Two simulations 
-    are done to check both multiple scattering methods Molière and Highland. The total distribution includes all stochastic processes and Molière's. Multiple scattering dominates the deflection. Details are presented in 
+    \caption{The muon deflection $\theta$ per interaction is shown in degree for different mechanisms. The propagation is done for $\num{1000}$ 
+    muons from $E_{\text{i}} = \SI{1}{\peta\electronvolt}$ to $E_{\text{f,\,min}} = \SI{1}{\tera\electronvolt}$ using $\texttt{e\_cut} = \SI{500}{\mega\electronvolt}$ and $\texttt{v\_cut} = 0.05$ in ice. 
+    \pascaledit{The stochastic interactions 
+    are stated as Bremsstrahlung (Brems), photonuclear interaction (Nuclint), electron pair produciton (Epair) and ionization (Ioniz).}
+    Two simulations 
+    are done to check both multiple scattering methods Molière and Highland. \pascalreplace{The total distribution includes all stochastic processes and Molière's.} 
+    {The total distribution is presented only for all stochastic processes including Molière's.} Multiple scattering dominates the deflection. Details are presented in 
     Table~\ref{tab:defl_per_int}.}
     \label{fig:defl_per_int}
 \end{figure}
-\pascalcomment{Can we use the abbreviations brems, nuclint etc. wihtout any explanation?!}
+
 \begin{table}
     \centering 
     \caption{The medians of deflections $\theta$ per interaction from Figure~\ref{fig:defl_per_int} are presented for each stochastic interaction type, the two multiple scattering methods and the total distribution including Molière with the upper and lower limits of the $\SI{95}{\percent}$ 
-    central content levels. \pascalcomment{is \num{e-5} better? the old version is still in the code as a comment}}
+    central content levels.}
     \begin{tabular}{ccccccc}
         \toprule 
         brems & nuclint & epair & ioniz & moliere & highland & total  \vspace{6pt} \\
@@ -320,7 +325,7 @@ PROPOSAL. Also, the losses are divided into continuous and stochastic
 energy losses by a relative energy cut. Several cross sections, multiple scattering 
 methods and parametrizations for stochastic deflections are 
 available. For these studies, the chosen cross section parametrizations are for bremsstrahlung \cite{Bremsstrahlung_KKP}, 
-nuclear interaction \cite{nulcint_bugaev_Shlepin, bugaev_1980_defl,bugaev_1981_defl} 
+photonuclear interaction \cite{nulcint_bugaev_Shlepin, bugaev_1980_defl,bugaev_1981_defl} 
 and electron pair production \cite{epair_kelner,epair_kokoulin_petrukhin}, 
 with stochastic deflections as parametrized by \cite{Van_Ginneken}. 
 Also, ionization is treated as a stochastic process with the Bethe-Bloch 
@@ -341,11 +346,11 @@ leads to the largest deflections and thus to a larger displacement.
 PROPOSAL with Highland scattering and MUSIC have less outliers, since large 
 deflections are neglected in the Gaussian approximation \cite{HIGHLAND_1975}. 
 The combination of Highland and \pascalreplace{\cite{Van_Ginneken} leads to the smallest 
-displacement, since in nuclear interaction, the sampling from the root mean squared angle in the 
+displacement, since in photonuclear interaction, the sampling from the root mean squared angle in the 
 exponential distribution neglects outliers to larger angles.}
-{Van Ginneken's nuclear interaction parametrization leads to the smallest 
+{Van Ginneken's photonuclear interaction parametrization leads to the smallest 
 displacement. This is due to the fact that the angle is sampled from the root mean squared in the exponential distribution
-in the parameterization for nuclear interaction by Van Ginneken, which neglects 
+in the parameterization for photonuclear interaction by Van Ginneken, which neglects 
 outliers to larger angles.}
 
 Detailed information are given in Table~\ref{tab:compare_MUSIC}. In Geant4, the 
@@ -530,6 +535,7 @@ resolution of KM3NeT.
 \bmhead{Acknowledgments}
 
 MISSING \alexcomment{Unbedingt Wolfgang Rhode fragen, was hier hinkommen muß. Von meiner Seite aus ist das die DFG mit der Projektnummer SA~3867/2-1.}
+\pascalcomment{SFB 876 and SFB 1491}
 
 
 % \begin{appendices}
