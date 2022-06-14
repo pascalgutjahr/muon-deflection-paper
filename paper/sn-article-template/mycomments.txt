@@ -1,0 +1,1 @@
+- Attwood: data with uncertainty are given in paper -> no digitizer necessary
