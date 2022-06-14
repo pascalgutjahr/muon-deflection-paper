@@ -162,7 +162,7 @@ of the propagation tools MUSIC and Geant4 and all deflections are in good
 agreement.}{an agreement is obtained in comparison with the simulation tools MUSIC and Geant4.} 
 }
 
-\keywords{neutrino astronomy, \pascalreplace{point-source analysis}{neutrino-source search}, angular resolution}
+\keywords{neutrino astronomy, \pascalreplace{point-source analysis}{neutrino source search}, angular resolution}
 
 %%\pacs[JEL Classification]{D8, H51}
 
@@ -210,7 +210,7 @@ are summarized in section~\ref{sec:conclusion}.
 The tool PROPOSAL \cite{koehne2013proposal, dunsch_2018_proposal_improvements} propagates charged leptons and photons through media and is 
 used in this paper to simulate the deflection of muons. For this purpose, 
 muons are propagated through the media ice and water 
-to estimate the deflection for IceCube and KM3NeT/ARCA. All relevant muon interaction types 
+to estimate the deflection for \pascaledit{neutrino telescopes such as} IceCube and KM3NeT/ARCA. All relevant muon interaction types 
 as bremsstrahlung \cite{KKP_1995, Bremsstrahlung_KKP}, photonuclear interaction \cite{Abramowicz_1997} with 
 shadowing \cite{ButkevichMikheyev_2002}, electron pair production \cite{epair_kokoulin_petrukhin} with corrections for the 
 interaction with atomic electrons \cite{Kelner_1998}, 
@@ -227,8 +227,12 @@ $\texttt{e\_cut}$ and $\texttt{v\_cut}$ with \pascalreplace{particle energy $E$.
 $E_{\text{loss}} < E_{\text{loss,\,min}}$ builds an integrated part of a 
 stochastic energy loss referred to as continuous energy loss.}{By the introduction of 
 this energy cut, in the propagation the next significant energy loss with $E_{\mathrm{loss}} \geq E_{\text{loss,min}}$ 
-is treated as a stochastic energy loss. An energy loss $E_{\mathrm{loss}} < E_{\text{loss,min}}$ forms an integrated 
-part of the stochastic losses and is denoted as continuous energy loss.}
+is treated as a stochastic energy loss. 
+All energy losses with $E_{\mathrm{loss}} < E_{\text{loss,min}}$ between 
+two stochastic losses are accumulated and being lost continuously, denoted 
+as continuous energy loss.}
+% An energy loss $E_{\mathrm{loss}} < E_{\text{loss,min}}$ forms an integrated 
+% part of the stochastic losses and is denoted as continuous energy loss.
 The methodical uncertainties are small 
 for a relative energy cut $\texttt{v\_cut}\ll 1$, which increases \pascalreplace{the 
 CPU runtime}{the runtime}.
@@ -335,15 +339,17 @@ Also, ionization is treated as a stochastic process with the Bethe-Bloch
 formula including knock-on electron production. As multiple scattering, the gaussian 
 approximation \cite{HIGHLAND_1975} is set. 
 Geant4 is another common toolkit to simulate the passage of particles through 
-a medium with several possibilities and a focus on high-energy 
-particle accelerators \cite{GEANT4}. 
+\pascalreplace{a medium with several possibilities and a focus on high-energy 
+particle accelerators}{matter. The simulation is very precise and especially 
+made for simulations in particle detectors, but it is slow} \cite{GEANT4}. 
 
 A comparison of all three tools is shown in Figure~\ref{fig:compare_MUSIC} 
 \pascalreplace{with four different settings in PROPOSAL for the 
 accumulated deflection angle $\theta_{\text{acc}}$ and the lateral displacement
 $x$.}{for the 
 accumulated deflection angle $\theta_{\text{acc}}$ and the lateral displacement
-$x$. Four different settings are studied in PROPOSAL.} The deflection angles are 
+$x$. Four different settings are studied in PROPOSAL to compare the results with 
+the two multiple scattering methods and the different stochastic deflection parametrizations.} The deflection angles are 
 similar in all cases. The 
 largest displacements are dominated by Geant4 and PROPOSAL with Molière scattering, which 
 leads to the largest deflections and thus to a larger displacement. 
@@ -429,8 +435,8 @@ gegen den wir uns in Dunsch et al. verglichen haben?}
     \label{tab:compare_MUSIC}
 \end{table}
 
-For \pascalreplace{current analyses}{point-source analyses}, it is important to study the impact of the muon 
-deflection on the angular resolution to estimate an uncertainty on the reconstruction.
+For \pascalreplace{current analyses}{neutrino source searches (based on entering muons)}, it is important to study the impact of the muon 
+deflection on the angular resolution to estimate \pascalreplace{an uncertainty on the reconstruction.}{whether or not this needs to be taken into account as an additional source of uncertainty.}
 For this purpose, four different initial energies 
 from $E_{\text{i}} = \SI{10}{\tera\electronvolt}$ to 
 $E_{\text{i}} = \SI{10}{\peta\electronvolt}$ are used and the final 
@@ -451,19 +457,19 @@ The kinematic angle between the incident neutrino and the produced muon is
 larger than the deflection in the presented region from $\SI{300}{\giga\electronvolt}$
 to $\SI{200}{\tera\electronvolt}$. Here it must be noted that the kinematic angle 
 and the resolution of ARCA are presented in dependence of the neutrino energy 
-in \cite{KM3NeT_Resolution2016, KM3NeT_Resolution2021}. Hence, a rescale to 
-the muon energy is done using the average energy transfer of the neutrino to 
+in \cite{KM3NeT_Resolution2016, KM3NeT_Resolution2021}. Hence, a \pascalreplace{rescale to 
+the muon energy is done}{a rescaling to the muon energy is applied using the} using the average energy transfer of the neutrino to 
 the nucleus \cite{GANDHI199681}. This shifts both the curves to lower energies. 
 Since all of these simulations are done 
 in ice, the same simulations are done in water \pascaledit{to compare the results for 
 water-based experiments}. The deviations of the medians
 are less than $\SI{1}{\percent}$ for all energies.
 
-Furthermore, in Figure~\ref{fig:fit_median} there are only $12$ medians visible, 
+\pascalreplace{Furthermore, in Figure~\ref{fig:fit_median} there are only $12$ medians visible, 
 instead of $36$ which is the total amount of all simulations. This result points 
-out that the total deflection of a muon 
+out}{Note that the distribution of deflection angles at a given final energy $E_{\mathrm{f}}$ in Figure~\ref{fig:fit_median} overlap for differing initial energies. This result indicates} that the total deflection of a muon 
 primarily depends on the final muon energy.
-The initial muon energy is negligible. 
+The initial muon energy is \pascalreplace{negligible}{irrelevant}. 
 Hence, the reconstructed muon 
 energy in a detector can be used to estimate \pascalreplace{a theoretical}{the} deflection. For this 
 purpose, the following fit function 
@@ -491,7 +497,7 @@ to estimate the deflection before the detector entry.}
     with a $\SI{95}{\percent}$ 
     central interval is shown for four different initial energies $E_{\text{i}}$. 
     Each data set includes more than $\num{50000}$ events with the requirement 
-    that the true final particle energy $E_{\text{f}}$ is maximum 
+    that the true final particle energy $E_{\text{f}}$ is \pascalreplace{maximum}{at most} 
     $\SI{10}{\percent}$ below the set final energy $E_{\text{f,\,min}}$,   
     $E_{\text{f}} > E_{\text{f,\,min}} \cdot 0.9$. The energy cuts are $\texttt{e\_cut} = \SI{500}{\mega\electronvolt}$ and $\texttt{v\_cut} = 0.05$ and 
     Molière scattering is chosen. Simulations are performed in ice, the deviations 
@@ -520,7 +526,7 @@ outliers by bremsstrahlung. These angles are lower $\sim\SI{1}{\degree}$.
 
 The results of PROPOSAL are compared with the common tools MUSIC and 
 Geant4 and \pascalreplace{all}{they} are in good agreement. In low-$Z$ materials, the region of outlier 
-deflections is described better with PROPOSAL than Geant4.
+deflections \pascalreplace{is described}{fits the measured data} better with PROPOSAL, than Geant4.
 
 The median accumulated deflection depends primarily on the final muon energy. 
 The outcome is fit by a polynomial and can be used for 
@@ -538,9 +544,11 @@ resolution of KM3NeT.
 
 \bmhead{Acknowledgments}
 
-MISSING \alexcomment{Unbedingt Wolfgang Rhode fragen, was hier hinkommen muß. Von meiner Seite aus ist das die DFG mit der Projektnummer SA~3867/2-1.}
-\pascalcomment{SFB 876 and SFB 1491}
-
+\pascaledit{
+We would like to thank you for the cooperation at our chair at the TU Dortmund
+University and the opportunity to advance the research.We also acknowledge the
+financial support from the SFB $876$, the SFB $1491$ 
+and the DFG project SA~$3867/$2-1.}
 
 % \begin{appendices}
 
