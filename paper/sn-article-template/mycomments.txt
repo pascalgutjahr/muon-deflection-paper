@@ -1,0 +1,12 @@
+- title??
+- Attwood: data with uncertainty are given in paper -> no digitizer necessary
+- Attwood/Akimenko comparsion: run simulation n times with different seeds and plot median with 68% interval as uncertainty band
+
+
+@mirco:
+- ?? Do we have values that extend to lower energies? I think the kinematic angle is always large, right?
+- swap table?
+- introduction: focus on muons necessary?
+
+@jan:
+- sind Quellen 26 und 13 identisch?!
