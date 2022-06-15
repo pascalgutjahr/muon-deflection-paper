@@ -53,7 +53,9 @@ def propagate_deflected_muons_custom_settings_multi(
     
     media = {
         "ice": pp.medium.Ice(),
-        "water": pp.medium.Water()
+        "water": pp.medium.Water(),
+        "copper":pp.medium.Copper(),
+        "hydrogen":pp.medium.Hydrogen()
     }
     
     pp.RandomGenerator.get().set_seed(rnd_seed)
@@ -197,6 +199,9 @@ def muon_propagation_custom_multi(args):
     x_f_l = []
     y_f_l = []
     z_f_l = []
+    x_dir_f = []
+    y_dir_f = []
+    z_dir_f = []
     for i in range(n_events):
         init_state.energy = E_i # initial energy in MeV
         track = prop.propagate(init_state, max_distance = max_dist, min_energy = E_min) # max_dist=1e9
@@ -211,6 +216,9 @@ def muon_propagation_custom_multi(args):
         x_f_l.append(track.track_positions()[-1].x)
         y_f_l.append(track.track_positions()[-1].y)
         z_f_l.append(track.track_positions()[-1].z)
+        x_dir_f.append(track.track_directions()[-1].x)
+        y_dir_f.append(track.track_directions()[-1].y)
+        z_dir_f.append(track.track_directions()[-1].z)
     
     # Save data
     df = pd.DataFrame()
@@ -221,12 +229,16 @@ def muon_propagation_custom_multi(args):
     df['x_dir_i'] = init_state.direction.x * np.ones(n_events)
     df['y_dir_i'] = init_state.direction.y * np.ones(n_events)
     df['z_dir_i'] = init_state.direction.z * np.ones(n_events)
+    df['x_dir_f'] = x_dir_f
+    df['y_dir_f'] = y_dir_f
+    df['z_dir_f'] = z_dir_f
     df['x_i'] = init_state.position.x * np.ones(n_events) # position in cm
     df['y_i'] = init_state.position.y * np.ones(n_events)
     df['z_i'] = init_state.position.z * np.ones(n_events)
     df['x_f'] = x_f_l
     df['y_f'] = y_f_l
     df['z_f'] = z_f_l
+    df['rnd_seed'] = args['rnd_seed'] * np.ones(n_events)
         
     print('-- job done --')
 
@@ -251,6 +263,9 @@ def muon_propagation_custom_multi_along(args):
     x_f_l = []
     y_f_l = []
     z_f_l = []
+    x_dir_f = []
+    y_dir_f = []
+    z_dir_f = []
     dicts_along = [] # for data along track
     for i in range(n_events):
         init_state.energy = E_i # initial energy in MeV
@@ -266,6 +281,9 @@ def muon_propagation_custom_multi_along(args):
         x_f_l.append(track.track_positions()[-1].x)
         y_f_l.append(track.track_positions()[-1].y)
         z_f_l.append(track.track_positions()[-1].z)
+        x_dir_f.append(track.track_directions()[-1].x)
+        y_dir_f.append(track.track_directions()[-1].y)
+        z_dir_f.append(track.track_directions()[-1].z)
         # Get data along track
         if args['get_data_along_track'] == True:
             dict_data_along_track = get_data_along_track(track)
@@ -283,6 +301,9 @@ def muon_propagation_custom_multi_along(args):
     df['x_dir_i'] = init_state.direction.x * np.ones(n_events)
     df['y_dir_i'] = init_state.direction.y * np.ones(n_events)
     df['z_dir_i'] = init_state.direction.z * np.ones(n_events)
+    df['x_dir_f'] = x_dir_f
+    df['y_dir_f'] = y_dir_f
+    df['z_dir_f'] = z_dir_f
     df['x_i'] = init_state.position.x * np.ones(n_events) # position in cm
     df['y_i'] = init_state.position.y * np.ones(n_events)
     df['z_i'] = init_state.position.z * np.ones(n_events)
