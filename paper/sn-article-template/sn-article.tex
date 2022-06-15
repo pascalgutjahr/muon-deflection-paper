@@ -102,8 +102,7 @@
 
 \begin{document}
 
-\title[Muon Deflection]{\pascalreplace{Simulation of theoretical deflection uncertainty on directional 
-muon reconstructions using PROPOSAL}{Simulation of theoretical deflection uncertainties on directional reconstrcution of muons using PROPOSAL}}
+\title[Muon Deflection]{Simulation of deflection uncertainties on directional reconstructions of muons using PROPOSAL}
 
 %%=============================================================%%
 %% Prefix	-> \pfx{Dr}
@@ -141,14 +140,14 @@ muon reconstructions using PROPOSAL}{Simulation of theoretical deflection uncert
 
 \abstract{
 To estimate the uncertainty in the reconstruction of the muon direction, the 
-deflection of muons along a propagation path in \pascalreplace{ice and water}{dense media} is simulated with the 
+deflection of muons along a propagation path in dense media is simulated with the 
 tool PROPOSAL, which accounts for multiple scattering and deflection on stochastic interactions. 
 The deflection angle per muon interaction $\theta$ extends over several 
 orders of magnitude with $\theta \in [\SI{e-9}{\degree},\, \SI{1}{\degree}]$ 
 for muon energies 
 $\SI{1}{\tera\electronvolt} < E_{\mu} < \SI{1}{\peta\electronvolt}$. 
-\pascaldelete{and is negligible for the directional reconstruction.} \pascaledit{The deflection increases as 
-the energy decreases and it depends on the energy loss.} The median accumulated 
+The deflection increases as 
+the energy decreases and it depends on the energy loss. The median accumulated 
 deflection of a muon with a final energy $E_{\mathrm{f}} = \SI{500}{\giga\electronvolt}$ 
 after a propagated track is about $\theta_{\text{acc}} = 0.10_{-0.02}^{+0.27}\,\si{\degree}$ 
 with a $\SI{95}{\percent}$ central interval, 
@@ -157,12 +156,10 @@ This is in the order of magnitude of
 the directional resolution of 
 present neutrino detectors. The accumulated deflection angle can be parametrized in 
 dependence of the final muon energies independent of the initial 
-muon energy for the energy range studied here. Furthermore, \pascalreplace{the deflections are compared to the results 
-of the propagation tools MUSIC and Geant4 and all deflections are in good 
-agreement.}{an agreement is obtained in comparison with the simulation tools MUSIC and Geant4.} 
-}
+muon energy for the energy range studied here. 
+Furthermore, an agreement is obtained in comparison with the simulation tools MUSIC and Geant4.}
 
-\keywords{neutrino astronomy, \pascalreplace{point-source analysis}{neutrino source search}, angular resolution}
+\keywords{neutrino astronomy, neutrino source search, angular resolution}
 
 %%\pacs[JEL Classification]{D8, H51}
 
@@ -175,7 +172,7 @@ agreement.}{an agreement is obtained in comparison with the simulation tools MUS
 Neutrinos can cross the universe all the way to Earth, since they are 
 nearly massless and not charged. On Earth, neutrinos can interact 
 with a nucleus and produce an electron, muon or tau in the charged current 
-via the weak interaction \cite{pdg}. These charged daughter particles are very 
+via the weak interaction. These charged daughter particles are very 
 high-energetic and emit Cherenkov light, which can be detected 
 by large neutrino telescopes such as IceCube \cite{IceCube_Instrumentation} or 
 KM3NeT \cite{KM3NeT_Design}. 
@@ -210,32 +207,31 @@ are summarized in section~\ref{sec:conclusion}.
 The tool PROPOSAL \cite{koehne2013proposal, dunsch_2018_proposal_improvements} propagates charged leptons and photons through media and is 
 used in this paper to simulate the deflection of muons. For this purpose, 
 muons are propagated through the media ice and water 
-to estimate the deflection for \pascaledit{neutrino telescopes such as} IceCube and KM3NeT/ARCA. All relevant muon interaction types 
+to estimate the deflection for neutrino telescopes such as IceCube and KM3NeT/ARCA. All relevant muon interaction types 
 as bremsstrahlung \cite{KKP_1995, Bremsstrahlung_KKP}, photonuclear interaction \cite{Abramowicz_1997} with 
 shadowing \cite{ButkevichMikheyev_2002}, electron pair production \cite{epair_kokoulin_petrukhin} with corrections for the 
-interaction with atomic electrons \cite{Kelner_1998}, 
-ionization described by the Bethe-Bloch formula with corrections for muons \cite{Rossi} and the decay are provided by PROPOSAL. The interaction processes are sampled by their cross section. Since \pascalreplace{bremsstrahlung interactions can be 
-arbitrarily small due to a massless exchange particle, the photon,}{interactions can be arbitrarily small with the massless photon as secondary particle,} an energy cut is introduced to avoid an infinite number of bremsstrahlung interactions 
-and furthermore to \pascalreplace{speed up the propagation process}{increase the runtime performance}. 
+interaction with atomic electrons \cite{epair_kelner}, 
+ionization described by the Bethe-Bloch formula with corrections for muons \cite{Rossi} 
+and the decay are provided by PROPOSAL. The interaction processes are sampled by their cross section.
+Since interactions 
+with the massless photon as secondary particle can be arbitrarily small, an energy cut is introduced to avoid an infinite number of bremsstrahlung interactions 
+and furthermore to increase the runtime performance. 
 The cut is applied with a minimum energy loss
 \begin{equation}
     E_{\text{loss,min}} = \min{(\texttt{e\_cut}, E \cdot \texttt{v\_cut})}\,,
 \end{equation}
 using two parameters -- a total and a relative energy cut denoted as 
-$\texttt{e\_cut}$ and $\texttt{v\_cut}$ with \pascalreplace{particle energy $E$.}{the energy $E$ of the particle directly before the interaction.} 
-\pascalreplace{A sampled energy loss 
-$E_{\text{loss}} < E_{\text{loss,\,min}}$ builds an integrated part of a 
-stochastic energy loss referred to as continuous energy loss.}{By the introduction of 
-this energy cut, in the propagation the next significant energy loss with $E_{\mathrm{loss}} \geq E_{\text{loss,min}}$ 
+$\texttt{e\_cut}$ and $\texttt{v\_cut}$ with the energy $E$ of the particle 
+directly before the interaction. 
+By the introduction of 
+this energy cut, in the propagation the next significant energy loss with 
+$E_{\mathrm{loss}} \geq E_{\text{loss,min}}$ 
 is treated as a stochastic energy loss. 
 All energy losses with $E_{\mathrm{loss}} < E_{\text{loss,min}}$ between 
 two stochastic losses are accumulated and being lost continuously, denoted 
-as continuous energy loss.}
-% An energy loss $E_{\mathrm{loss}} < E_{\text{loss,min}}$ forms an integrated 
-% part of the stochastic losses and is denoted as continuous energy loss.
+as continuous energy loss.
 The methodical uncertainties are small 
-for a relative energy cut $\texttt{v\_cut}\ll 1$, which increases \pascalreplace{the 
-CPU runtime}{the runtime}.
+for a relative energy cut $\texttt{v\_cut}\ll 1$, which increases the runtime.
 The 
 propagation process is defined by an initial muon energy $E_{\text{i}}$ and 
 two stopping criteria - a final energy $E_{\text{f,\,min}}$ and a 
@@ -243,8 +239,8 @@ maximum propagation distance $d_{\text{max}}$. If the last interaction of
 a propagation is sampled by a stochastic interaction, the true final energy 
 $E_{\text{f}}$ can become lower and the 
 propagation distance $d$ can be higher than the required limits. 
-\pascaledit{Since muons are unstable, a decay leads to a premature 
-stop, which is negligible for high energies \cite{phd_soedingrekso}.}
+Since muons are unstable, a decay leads to a premature 
+stop, which is negligible for high energies \cite{phd_soedingrekso}.
 
 The deflections for stochastic interactions are parametrized by Van Ginneken 
 in \cite{Van_Ginneken} with a direct calculation of the deflection in 
@@ -256,24 +252,24 @@ To estimate the deflection along
 a continuous energy loss, multiple scattering described by Molière 
 \cite{moliere_scattering} and the gaussian approximation by Highland 
 can be chosen \cite{HIGHLAND_1975}. 
-\pascalreplace{The deflection angle}{The orientation of the deflection} in the plane perpendicular to the muon direction is 
+The orientation of the deflection in the plane perpendicular to the muon direction is 
 sampled uniformly between $0$ and $2\pi$.
 The latest updates with a detailed description of the whole tool can be found 
 in \cite{phd_soedingrekso}. 
-\pascaledit{The stochastic deflections have been implemented in PROPOSAL recently and they are 
-described and studied in \cite{Gutjahr_2021}.} 
-A publication \pascalreplace{as Alameddine et al. is in preparation.}{describing the 
-updates in PROPOSAL is in preparation \cite{Alameddine_2022}.}
+The stochastic deflections have been implemented in PROPOSAL recently and they are 
+described and studied in \cite{Gutjahr_2021}.
+A publication describing the 
+updates in PROPOSAL is in preparation \cite{Alameddine_2022}.
 All simulations are done with PROPOSAL $7.3.1$.
 
 \section{Muon Deflection per Interaction}\label{sec:defl_per_int}
 First, the stochastic deflections described by Van Ginneken \cite{Van_Ginneken} 
 and implemented 
-in PROPOSAL are investigated \pascalreplace{in relation to}{with respect to // in combination with} the two multiple scattering methods. 
+in PROPOSAL are investigated in combination with the two multiple scattering methods. 
 For this purpose, $\num{1000}$ muons are propagated from $E_{\text{i}} = \SI{1}{\peta\electronvolt}$ to $E_{\text{f,\,min}} = \SI{1}{\tera\electronvolt}$.
 The deflections per interaction are presented 
-for each interaction type and the \pascalreplace{total amount}{sum over all types} in Figure~\ref{fig:defl_per_int}. 
-\pascalreplace{A single deflection}{The size of individual deflections} 
+for each interaction type and the sum over all types in Figure~\ref{fig:defl_per_int}. 
+The size of individual deflections 
 extend over several orders of magnitude with a median of $\SI{3.9e-6}{\degree}$
 and a $\SI{95}{\percent}$ central interval of $[\SI{4.9e-7}{\degree}, \,\SI{1.3e-3}{\degree}]$. 
 It follows that the deflections are primarily dominated by multiple scattering, except for a few outliers caused by bremsstrahlung, which 
@@ -286,11 +282,11 @@ central interval results to $16.4_{-7.3}^{+24.6}\,\si{\kilo\meter}$.
     \includegraphics[width=0.98\textwidth]{../../deflection/plots/FINAL/1PeV_1TeV_1000events_deflection_along_sampling.pdf}
     \caption{The muon deflection $\theta$ per interaction is shown in degree for different mechanisms. The propagation is done for $\num{1000}$ 
     muons from $E_{\text{i}} = \SI{1}{\peta\electronvolt}$ to $E_{\text{f,\,min}} = \SI{1}{\tera\electronvolt}$ using $\texttt{e\_cut} = \SI{500}{\mega\electronvolt}$ and $\texttt{v\_cut} = 0.05$ in ice. 
-    \pascaledit{The stochastic interactions 
-    are stated as Bremsstrahlung (Brems), photonuclear interaction (Nuclint), electron pair produciton (Epair) and ionization (Ioniz).}
+    The stochastic interactions 
+    are stated as Bremsstrahlung (Brems), photonuclear interaction (Nuclint), electron pair produciton (Epair) and ionization (Ioniz).
     Two simulations 
-    are done to check both multiple scattering methods Molière and Highland. \pascalreplace{The total distribution includes all stochastic processes and Molière's.} 
-    {The total distribution is presented only for all stochastic processes including Molière's.} Multiple scattering dominates the deflection. Details are presented in 
+    are done to check both multiple scattering methods Molière and Highland.  
+    The total distribution is presented only for all stochastic processes including Molière's.Multiple scattering dominates the deflection. Details are presented in 
     Table~\ref{tab:defl_per_int}.}
     \label{fig:defl_per_int}
 \end{figure}
@@ -319,10 +315,9 @@ central interval results to $16.4_{-7.3}^{+24.6}\,\si{\kilo\meter}$.
 As shown in Section~\ref{sec:defl_per_int}, in general the deflection per interaction 
 is lower than $\sim\SI{1}{\degree}$. Since these deflections accumulate along the 
 propagation path, the angle between the incoming muon direction and the outgoing 
-muon direction is analyzed. \pascalreplace{The deflection results as a limit on the 
-angular reconstruction accuracy.}{This angle limits the angular resolution 
+muon direction is analyzed. This angle limits the angular resolution 
 for neutrino source searches utilizing incoming muons, since there is no information 
-about the muon before the detector entry.}
+about the muon before the detector entry.
 
 First, the deflections in PROPOSAL are compared to 
 the tools MUSIC \cite{MUSIC,comparison_MUSIC_GEANT4_2009} and Geant4 \cite{GEANT4}.
@@ -339,36 +334,31 @@ Also, ionization is treated as a stochastic process with the Bethe-Bloch
 formula including knock-on electron production. As multiple scattering, the gaussian 
 approximation \cite{HIGHLAND_1975} is set. 
 Geant4 is another common toolkit to simulate the passage of particles through 
-\pascalreplace{a medium with several possibilities and a focus on high-energy 
-particle accelerators}{matter. The simulation is very precise and especially 
-made for simulations in particle detectors, but it is slow} \cite{GEANT4}. 
+matter. The simulation is very precise and especially 
+made for simulations in particle detectors, but it is slow \cite{GEANT4}. 
 
 A comparison of all three tools is shown in Figure~\ref{fig:compare_MUSIC} 
-\pascalreplace{with four different settings in PROPOSAL for the 
-accumulated deflection angle $\theta_{\text{acc}}$ and the lateral displacement
-$x$.}{for the 
+for the 
 accumulated deflection angle $\theta_{\text{acc}}$ and the lateral displacement
 $x$. Four different settings are studied in PROPOSAL to compare the results with 
-the two multiple scattering methods and the different stochastic deflection parametrizations.} The deflection angles are 
+the two multiple scattering methods and the different stochastic deflection parametrizations.
+The deflection angles are 
 similar in all cases. The 
 largest displacements are dominated by Geant4 and PROPOSAL with Molière scattering, which 
 leads to the largest deflections and thus to a larger displacement. 
 PROPOSAL with Highland scattering and MUSIC have less outliers, since large 
 deflections are neglected in the Gaussian approximation \cite{HIGHLAND_1975}. 
-The combination of Highland and \pascalreplace{\cite{Van_Ginneken} leads to the smallest 
-displacement, since in photonuclear interaction, the sampling from the root mean squared angle in the 
-exponential distribution neglects outliers to larger angles.}
-{Van Ginneken's photonuclear interaction parametrization leads to the smallest 
+The combination of Highland and 
+Van Ginneken's photonuclear interaction parametrization leads to the smallest 
 displacement. This is due to the fact that the angle is sampled from the root mean squared in the exponential distribution
 in the parameterization for photonuclear interaction by Van Ginneken, which neglects 
-outliers to larger angles.}
+outliers to larger angles.
 
 Detailed information are given in Table~\ref{tab:compare_MUSIC}. In Geant4, the 
 largest deflections are $\overline{\theta} = \SI{0.27}{\degree}$ 
 and $\overline{x} = \SI{3.3}{\meter}$. The lowest average values $\overline{\theta} = \SI{0.22}{\degree}$ and 
 $\overline{x} = \SI{2.6}{\meter}$ are obtained in MUSIC. The results of PROPOSAL lie between 
-these two tools for all four settings \pascalreplace{which approves the 
-correctness of PROPOSAL.}{and are therefore consistent.} 
+these two tools for all four settings and are therefore consistent. 
 
 A measurement of muon deflections in low-$Z$ materials was done in \cite{attwood_2006}. 
 From this it can be seen that for $Z < 4$ the scattering angle is overestimated 
@@ -379,9 +369,7 @@ initial particle energy of $E_{\mathrm{i}} = \SI{199}{\mega\electronvolt}$, whic
 results via the energy-momentum relation of an in \cite{attwood_2006} used beam momentum 
 of $p = \SI[per-mode=symbol]{168.9}{\mega\electronvolt\per\clight}$. 
 The result is presented in Figure~\ref{fig:attwood_comparison}.
-\alexcomment{Was ist mit Akimenko (bei höheren Energien und in Kupfer),
-gegen den wir uns in Dunsch et al. verglichen haben?}
-\pascalcomment{Den Vgl. werde ich Montag noch durchführen.}
+
 \begin{figure}
     \centering 
     \includegraphics[width=0.98\textwidth]{../../deflection/plots/FINAL/2TeV_1e6events_accumulated_defl_paper_combined.pdf}
@@ -405,9 +393,9 @@ gegen den wir uns in Dunsch et al. verglichen haben?}
     $\SI{109}{\milli\meter}$ of liquid $\text{H}_2$. In PROPOSAL, the simulation is done 
     for two different energy cuts $\texttt{v\_cut} = \num{e-3}$ and $\texttt{v\_cut} = \num{e-5}$ using Molière scattering.
     Measured data of Attwood and simulation data of Geant4 are taken from \cite{attwood_2006}. The figure presents 
-    the normalized counts in dependence of the projected scattering angle $\theta_{\mathrm{y}}$ in radians. \pascaledit{At small angles, deflections are  
-    are underestimated in PROPOSAL, except at $\theta_{\mathrm{y}} \approx 0$.} At larger deflections, the result seems to be more accurate than Geant4's.
-    \pascaledit{There is no significant difference between the two energy cuts.}}
+    the normalized counts in dependence of the projected scattering angle $\theta_{\mathrm{y}}$ in radians. At small angles, deflections are  
+    are underestimated in PROPOSAL, except at $\theta_{\mathrm{y}} \approx 0$. At larger deflections, the result seems to be more accurate than Geant4's.
+    There is no significant difference between the two energy cuts.}
     \label{fig:attwood_comparison}
 \end{figure}
 
@@ -415,7 +403,7 @@ gegen den wir uns in Dunsch et al. verglichen haben?}
 \begin{table}
     \small
     \centering
-    \caption{The survival probability $p_{\text{s}}$ \pascalreplace{- otherwise the muon decays before}{that depends on the muon decay}, the mean survived muon 
+    \caption{The survival probability $p_{\text{s}}$ that depends on the muon decay, the mean survived muon 
     energy $\overline{E}_{\text{f}}$, the mean scattered angle $\overline{\theta}$ 
     and the mean displacement $\overline{x}$ are presented for all cases from 
     Figure~\ref{fig:compare_MUSIC}. For all means, the standard deviation is given.
@@ -435,8 +423,9 @@ gegen den wir uns in Dunsch et al. verglichen haben?}
     \label{tab:compare_MUSIC}
 \end{table}
 
-For \pascalreplace{current analyses}{neutrino source searches (based on entering muons)}, it is important to study the impact of the muon 
-deflection on the angular resolution to estimate \pascalreplace{an uncertainty on the reconstruction.}{whether or not this needs to be taken into account as an additional source of uncertainty.}
+For neutrino source searches based on entering muons, it is important to study the impact of the muon 
+deflection on the angular resolution to estimate whether or not this needs to be 
+taken into account as an additional source of uncertainty.
 For this purpose, four different initial energies 
 from $E_{\text{i}} = \SI{10}{\tera\electronvolt}$ to 
 $E_{\text{i}} = \SI{10}{\peta\electronvolt}$ are used and the final 
@@ -457,21 +446,18 @@ The kinematic angle between the incident neutrino and the produced muon is
 larger than the deflection in the presented region from $\SI{300}{\giga\electronvolt}$
 to $\SI{200}{\tera\electronvolt}$. Here it must be noted that the kinematic angle 
 and the resolution of ARCA are presented in dependence of the neutrino energy 
-in \cite{KM3NeT_Resolution2016, KM3NeT_Resolution2021}. Hence, a \pascalreplace{rescale to 
-the muon energy is done}{a rescaling to the muon energy is applied using the} using the average energy transfer of the neutrino to 
+in \cite{KM3NeT_Resolution2016, KM3NeT_Resolution2021}. Hence, a rescaling to the muon energy is applied using the average energy transfer of the neutrino to 
 the nucleus \cite{GANDHI199681}. This shifts both the curves to lower energies. 
 Since all of these simulations are done 
-in ice, the same simulations are done in water \pascaledit{to compare the results for 
-water-based experiments}. The deviations of the medians
+in ice, the same simulations are done in water to compare the results for 
+water-based experiments. The deviations of the medians
 are less than $\SI{1}{\percent}$ for all energies.
 
-\pascalreplace{Furthermore, in Figure~\ref{fig:fit_median} there are only $12$ medians visible, 
-instead of $36$ which is the total amount of all simulations. This result points 
-out}{Note that the distribution of deflection angles at a given final energy $E_{\mathrm{f}}$ in Figure~\ref{fig:fit_median} overlap for differing initial energies. This result indicates} that the total deflection of a muon 
+Note that the distribution of deflection angles at a given final energy $E_{\mathrm{f}}$ in Figure~\ref{fig:fit_median} overlap for differing initial energies. This result indicates that the total deflection of a muon 
 primarily depends on the final muon energy.
-The initial muon energy is \pascalreplace{negligible}{irrelevant}. 
+The initial muon energy is irrelevant. 
 Hence, the reconstructed muon 
-energy in a detector can be used to estimate \pascalreplace{a theoretical}{the} deflection. For this 
+energy in a detector can be used to estimate the deflection. For this 
 purpose, the following fit function 
 \begin{equation}
      f(x) = a \cdot x^3 + b \cdot x^2 + c \cdot x + d \,,
@@ -486,9 +472,9 @@ in the logarithmic space via
 \begin{align}
     g(x) =& 10^{f(x)}\,, & x =& \log_{10}\left(\frac{E_{\text{f}}}{\si{\giga\electronvolt}}\right)\,.
 \end{align}
-\pascaledit{In general, the function $f(x)$ in Eq.~\eqref{eqn:fit_median} describes the median 
+In general, the function $f(x)$ in Eq.~\eqref{eqn:fit_median} describes the median 
 deflection of a muon after a propagated distance in ice for a given, respectively measured energy 
-to estimate the deflection before the detector entry.}
+to estimate the deflection before the detector entry.
 
 \begin{figure}
     \centering 
@@ -497,7 +483,7 @@ to estimate the deflection before the detector entry.}
     with a $\SI{95}{\percent}$ 
     central interval is shown for four different initial energies $E_{\text{i}}$. 
     Each data set includes more than $\num{50000}$ events with the requirement 
-    that the true final particle energy $E_{\text{f}}$ is \pascalreplace{maximum}{at most} 
+    that the true final particle energy $E_{\text{f}}$ is at most 
     $\SI{10}{\percent}$ below the set final energy $E_{\text{f,\,min}}$,   
     $E_{\text{f}} > E_{\text{f,\,min}} \cdot 0.9$. The energy cuts are $\texttt{e\_cut} = \SI{500}{\mega\electronvolt}$ and $\texttt{v\_cut} = 0.05$ and 
     Molière scattering is chosen. Simulations are performed in ice, the deviations 
@@ -525,8 +511,8 @@ is dominated by multiple scattering except for a few stochastic
 outliers by bremsstrahlung. These angles are lower $\sim\SI{1}{\degree}$. 
 
 The results of PROPOSAL are compared with the common tools MUSIC and 
-Geant4 and \pascalreplace{all}{they} are in good agreement. In low-$Z$ materials, the region of outlier 
-deflections \pascalreplace{is described}{fits the measured data} better with PROPOSAL, than Geant4.
+Geant4 and they are in good agreement. In low-$Z$ materials, the region of outlier 
+deflections fits the measured data better with PROPOSAL, than Geant4.
 
 The median accumulated deflection depends primarily on the final muon energy. 
 The outcome is fit by a polynomial and can be used for 
@@ -544,11 +530,8 @@ resolution of KM3NeT.
 
 \bmhead{Acknowledgments}
 
-\pascaledit{
-We would like to thank you for the cooperation at our chair at the TU Dortmund
-University and the opportunity to advance the research.We also acknowledge the
-financial support from the SFB $876$, the SFB $1491$ 
-and the DFG project SA~$3867/$2-1.}
+We acknowledge the funding by the Collaborative Research Center SFB $876$, SFB $1491$ 
+and the Deutsche Forschungsgemeinschaft by the project SA~$3867/$2-1.
 
 % \begin{appendices}
 
