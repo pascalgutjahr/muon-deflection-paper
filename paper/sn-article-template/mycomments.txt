@@ -1,11 +1,13 @@
 - title??
 - Attwood/Akimenko comparsion: run simulation n times with different seeds and plot median with 68% interval as uncertainty band
-- music: nur moliere 
+- music: nur moliere kurve hinzufügen
 - unterschied x und winkel nicht trivial -> in vgl.
 - abstract: si zahlen sind nicht fett gedruckt
 - update attwood plot and description
 - add akimenko plot and description
 - soll in den plots mean+std gezeigt werden? oder median+68%?
+- sollten irgendwelche werte noch in tabellen geschrieben werden?
+
 
 
 @mirco:
@@ -14,3 +16,4 @@
 - introduction: focus on muons necessary?
 
 @jan:
+- 
