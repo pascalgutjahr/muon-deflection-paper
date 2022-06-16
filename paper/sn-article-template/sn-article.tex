@@ -352,7 +352,10 @@ The combination of Highland and
 Van Ginneken's photonuclear interaction parametrization leads to the smallest 
 displacement. This is due to the fact that the angle is sampled from the root mean squared in the exponential distribution
 in the parameterization for photonuclear interaction by Van Ginneken, which neglects 
-outliers to larger angles.
+outliers to larger angles. 
+In general, the lateral displacements differ, although the angles look very similar in all simulations. 
+This can be explained by the location of the deflection. If larger deflections occur sooner, 
+they lead to further displacements during propagation, although the angle remains the same.
 
 Detailed information are given in Table~\ref{tab:compare_MUSIC}. In Geant4, the 
 largest deflections are $\overline{\theta} = \SI{0.27}{\degree}$ 
@@ -363,14 +366,16 @@ these two tools for all four settings and are therefore consistent.
 \begin{figure}
     \centering 
     \includegraphics[width=0.98\textwidth]{../../deflection/plots/FINAL/2TeV_1e6events_accumulated_defl_paper_combined_zoom.pdf}
-    \caption{A comparison of the results of MUSIC, Geant4 and PROPOSAL is presented for $\num{1000000}$ muons propagated with 
+    \caption{A comparison of the results of MUSIC, Geant4 and PROPOSAL is presented for $\num{e6}$ muons propagated with 
     $E_{\text{i}} = \SI{2}{\tera\electronvolt}$ over a distance of 
-    $\SI{3}{\kilo\meter}$ in water. A $\texttt{v\_cut} = 0.001$ is set. In PROPOSAL, 
+    $\SI{3}{\kilo\meter}$ in water. A $\texttt{v\_cut} = \num{e-3}$ is set. In PROPOSAL, 
     bremsstrahlung and photonuclear interaction are parametrized either by 
     Van Ginneken (vG) or as in Geant4. Both scattering methods are checked. 
     Left: The accumulated deflection $\theta_{\mathrm{acc}}$ in degree is very similar in all cases.
     Right: The lateral displacement $x$ in meter depends 
     on the scattering method. Molière scattering leads to larger distances.
+    In the zoomed-in figure, the modes of the distributions are presented. 
+    The mode of Geant is shifted to larger deflections.
     Detailed information are given in 
     Table~\ref{tab:compare_MUSIC}. The results for MUSIC and Geant4 are taken from 
     \cite{comparison_MUSIC_GEANT4_2009}.}
