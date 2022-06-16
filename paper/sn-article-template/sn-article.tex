@@ -352,7 +352,10 @@ The combination of Highland and
 Van Ginneken's photonuclear interaction parametrization leads to the smallest 
 displacement. This is due to the fact that the angle is sampled from the root mean squared in the exponential distribution
 in the parameterization for photonuclear interaction by Van Ginneken, which neglects 
-outliers to larger angles.
+outliers to larger angles. 
+In general, the lateral displacements differ, although the angles look very similar in all simulations. 
+This can be explained by the location of the deflection. If larger deflections occur sooner, 
+they lead to further displacements during propagation, although the angle remains the same.
 
 Detailed information are given in Table~\ref{tab:compare_MUSIC}. In Geant4, the 
 largest deflections are $\overline{\theta} = \SI{0.27}{\degree}$ 
@@ -360,46 +363,24 @@ and $\overline{x} = \SI{3.3}{\meter}$. The lowest average values $\overline{\the
 $\overline{x} = \SI{2.6}{\meter}$ are obtained in MUSIC. The results of PROPOSAL lie between 
 these two tools for all four settings and are therefore consistent. 
 
-A measurement of muon deflections in low-$Z$ materials was done in \cite{attwood_2006}. 
-From this it can be seen that for $Z < 4$ the scattering angle is overestimated 
-by Molière scattering in Geant4. Hence, the lower scattering in PROPOSAL leads 
-to a better precision especially in the region of outliers. The comparison is 
-done in liquid $\text{H}_2$ with a thickness of $\SI{109}{\milli\meter}$ and an 
-initial particle energy of $E_{\mathrm{i}} = \SI{199}{\mega\electronvolt}$, which 
-results via the energy-momentum relation of an in \cite{attwood_2006} used beam momentum 
-of $p = \SI[per-mode=symbol]{168.9}{\mega\electronvolt\per\clight}$. 
-The result is presented in Figure~\ref{fig:attwood_comparison}.
-
 \begin{figure}
     \centering 
-    \includegraphics[width=0.98\textwidth]{../../deflection/plots/FINAL/2TeV_1e6events_accumulated_defl_paper_combined.pdf}
-    \caption{A comparison of the results of MUSIC, Geant4 and PROPOSAL is presented for $\num{1000000}$ muons propagated with 
+    \includegraphics[width=0.98\textwidth]{../../deflection/plots/FINAL/2TeV_1e6events_accumulated_defl_paper_combined_zoom.pdf}
+    \caption{A comparison of the results of MUSIC, Geant4 and PROPOSAL is presented for $\num{e6}$ muons propagated with 
     $E_{\text{i}} = \SI{2}{\tera\electronvolt}$ over a distance of 
-    $\SI{3}{\kilo\meter}$ in water. A $\texttt{v\_cut} = 0.001$ is set. In PROPOSAL, 
+    $\SI{3}{\kilo\meter}$ in water. A $\texttt{v\_cut} = \num{e-3}$ is set. In PROPOSAL, 
     bremsstrahlung and photonuclear interaction are parametrized either by 
     Van Ginneken (vG) or as in Geant4. Both scattering methods are checked. 
     Left: The accumulated deflection $\theta_{\mathrm{acc}}$ in degree is very similar in all cases.
     Right: The lateral displacement $x$ in meter depends 
     on the scattering method. Molière scattering leads to larger distances.
+    In the zoomed-in figure, the modes of the distributions are presented. 
+    The mode of Geant is shifted to larger deflections.
     Detailed information are given in 
     Table~\ref{tab:compare_MUSIC}. The results for MUSIC and Geant4 are taken from 
     \cite{comparison_MUSIC_GEANT4_2009}.}
     \label{fig:compare_MUSIC}
 \end{figure}
-\begin{figure}
-    \centering 
-    \includegraphics[width=0.98\textwidth]{../../deflection/plots/FINAL/attwood_comparison_moliere_E199MeV_final.pdf}
-    \caption{In total $\num{e5}$ muons with $E_{\mathrm{i}} = \SI{199}{\mega\electronvolt}$ are propagated through 
-    $\SI{109}{\milli\meter}$ of liquid $\text{H}_2$. In PROPOSAL, the simulation is done 
-    for two different energy cuts $\texttt{v\_cut} = \num{e-3}$ and $\texttt{v\_cut} = \num{e-5}$ using Molière scattering.
-    Measured data of Attwood and simulation data of Geant4 are taken from \cite{attwood_2006}. The figure presents 
-    the normalized counts in dependence of the projected scattering angle $\theta_{\mathrm{y}}$ in radians. At small angles, deflections are  
-    are underestimated in PROPOSAL, except at $\theta_{\mathrm{y}} \approx 0$. At larger deflections, the result seems to be more accurate than Geant4's.
-    There is no significant difference between the two energy cuts.}
-    \label{fig:attwood_comparison}
-\end{figure}
-
-
 \begin{table}
     \small
     \centering
@@ -422,6 +403,62 @@ The result is presented in Figure~\ref{fig:attwood_comparison}.
     \end{tabular}
     \label{tab:compare_MUSIC}
 \end{table}
+
+I the following, two comparisons are performed with measured data for 
+different energies und media.
+A measurement of muon deflections in low-$Z$ materials was done by Attwood et al. \cite{attwood_2006}. 
+From this it can be seen that for $Z < 4$ the scattering angle is overestimated 
+by Molière scattering in Geant4. Hence, the lower scattering in PROPOSAL leads 
+to a better precision especially in the region of outliers. The comparison is 
+done in liquid $\text{H}_2$ with a thickness of $\SI{109}{\milli\meter}$ and an 
+initial particle energy of $E_{\mathrm{i}} = \SI{199}{\mega\electronvolt}$, which 
+results via the energy-momentum relation of an in \cite{attwood_2006} used beam momentum 
+of $p = \SI[per-mode=symbol]{168.9}{\mega\electronvolt\per\clight}$. 
+In PROPOSAL, the simulations are done with two different energy cuts $\texttt{v\_cut} = \num{e-3}$ and $\texttt{v\_cut} = \num{e-5}$, 
+but there is no significant difference between the resulting deflections.
+The comparison is presented in Figure~\ref{fig:attwood_comparison}.
+
+\begin{figure}
+    \centering 
+    \includegraphics[width=0.98\textwidth]{../../deflection/plots/FINAL/attwood_comparison_moliere_199MeV_final_multi_mean_deg.pdf}
+    \caption{
+    Muons are 
+    propagated with $E_{\mathrm{i}} = \SI{199}{\mega\electronvolt}$ through 
+    $\SI{109}{\milli\meter}$ of liquid $\text{H}_2$.
+    Measured data of Attwood et al. and simulation data of Geant4 are taken from \cite{attwood_2006}.    
+    The figure presents 
+    the normalized counts in dependence of the projected scattering angle $\theta_{\mathrm{y}}$ in degree.
+    In PROPOSAL, $100$ simulations each with $\num{e5}$ muons are performed for two different settings using the energy cut 
+    $\texttt{v\_cut} = \num{e-5}$. The blue points present the mean considering stochastic deflections and Molière scattering, the orange points
+    present the mean taking into account only Molière scattering.   
+    The uncertainties on the $x$--axis result due to the measured bin widths. The $y$--uncertainties are the standard deviations.   
+    The deflections are  
+    are underestimated in PROPOSAL, except at $\theta_{\mathrm{y}} \approx \SI{0}{\degree}$. At deflections $\SI{2}{\degree} < \theta_{\mathrm{y}} < \SI{5}{\degree}$, 
+    the result seems to be more accurate than Geant4's. The consideration of the stochastic deflections shows no significant influence.}
+    \label{fig:attwood_comparison}
+\end{figure}
+
+The second measurement of muon deflections is done for higher energetic muons 
+of $p = \SI[per-mode=symbol]{7.3}{\giga\electronvolt\per\clight}$ by Akimenko et al. \cite{akimenko_1984}.
+In total, $\num{31125}$ muons are propagated through a $\SI{1.44}{\centi\meter}$ thick 
+copper layer. Again, the two energy cuts mentioned before and the effect of stochastic deflections 
+in comparison with Molière scattering are checked. 
+Neither between the two energy cuts, nor when using the stochastic deflection a significant difference occurs. 
+PROPOSAL overestimates the angles for larger deflections. This observation differs from the comparison with Attwood, 
+in which higher deflections are underestimated. In general, the higher muon energy 
+leads to smaller deflections. The result is presented in Figure~\ref{fig:akimenko_comparison}.
+\begin{figure}
+    \centering 
+    \includegraphics[width=0.98\textwidth]{../../deflection/plots/FINAL/akimenko_comparison_moliere_E7301MeV_final_multi_mean_deg.pdf}
+    \caption{A comparison between two PROPOSAL settings and measured data by Akimenko et al. \cite{akimenko_1984} 
+    is presented. $\num{100}$ simulations each with $\num{31125}$ muons with 
+    $E_{\mathrm{i}} = \SI{7.301}{\giga\electronvolt}$ are propagated through a $\SI{1.44}{\centi\meter}$ 
+    copper layer. The blue points present the mean considering stochastic deflections and Molière scattering, the orange points
+    present the mean taking into account only Molière scattering. The uncertainties on the $x$--axis result due to the measured bin widths. The $y$--uncertainties are the standard deviations for PROPOSAL and the Poisson errors with $\sqrt{N}$ for Attwood, with $N$ as number of counts. Larger deflections are overestimated by PROPOSAL.
+    Considering stochastic deflections has no significant impact.}
+    \label{fig:akimenko_comparison}
+\end{figure}
+
 
 For neutrino source searches based on entering muons, it is important to study the impact of the muon 
 deflection on the angular resolution to estimate whether or not this needs to be 
