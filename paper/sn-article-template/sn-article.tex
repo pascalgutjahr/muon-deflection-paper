@@ -157,7 +157,8 @@ the directional resolution of
 present neutrino detectors. The accumulated deflection angle can be parametrized in 
 dependence of the final muon energies independent of the initial 
 muon energy for the energy range studied here. 
-Furthermore, an agreement is obtained in comparison with the simulation tools MUSIC and Geant4.}
+Furthermore, an agreement is obtained in comparison with the simulation tools MUSIC and Geant4 and the results are compared to two 
+different muon deflection measurements.}
 
 \keywords{neutrino astronomy, neutrino source search, angular resolution}
 
@@ -199,7 +200,7 @@ The paper is structured as follows: in section~\ref{sec:proposal},
 the lepton propagator PROPOSAL is briefly described. In section~\ref{sec:defl_per_int},
 PROPOSAL is used to study the muon deflection per interaction.
 The accumulated deflection is analyzed and compared to the propagation codes
-MUSIC and Geant4 in section~\ref{sec:accum_defl}. The findings of this study
+MUSIC and Geant4 and two measured data in section~\ref{sec:accum_defl}. The findings of this study
 are summarized in section~\ref{sec:conclusion}.
 
 \section{Overview of the Simulation Tool PROPOSAL}\label{sec:proposal}
@@ -459,7 +460,6 @@ leads to smaller deflections. The result is presented in Figure~\ref{fig:akimenk
     \label{fig:akimenko_comparison}
 \end{figure}
 
-
 For neutrino source searches based on entering muons, it is important to study the impact of the muon 
 deflection on the angular resolution to estimate whether or not this needs to be 
 taken into account as an additional source of uncertainty.
@@ -469,8 +469,8 @@ $E_{\text{i}} = \SI{10}{\peta\electronvolt}$ are used and the final
 energy is set to $E_{\text{f,\,min}} \geq \SI{10}{\giga\electronvolt}$ with 
 $E_{\text{f,\,min}} < E_{\text{i}}$ for each simulation. 
 In total $\num{36}$ simulations are performed. 
-To compare the results these simulations, the median of the deflection distribution 
-with a $\SI{95}{\percent}$ central interval is presented in 
+To compare the results of these simulations, the medians of the deflection distributions 
+with a $\SI{95}{\percent}$ central interval are presented in 
 Figure~\ref{fig:fit_median}.
 The lower the final muon energy, the larger the accumulated deflection. 
 For energies $E_{\text{f}} = \SI{1}{\peta\electronvolt}$, the median deflection 
@@ -546,11 +546,15 @@ to estimate the deflection before the detector entry.
 At first, stochastic deflection recently implemented in PROPOSAL is 
 used to study the muon deflection per interaction. Mainly, the deflection 
 is dominated by multiple scattering except for a few stochastic 
-outliers by bremsstrahlung. These angles are lower $\sim\SI{1}{\degree}$. 
+outliers by bremsstrahlung. These angles are lower 
+$\sim\SI{1}{\degree}$. 
 
 The results of PROPOSAL are compared with the common tools MUSIC and 
 Geant4 and they are in good agreement. In low-$Z$ materials, the region of outlier 
-deflections fits the measured data better with PROPOSAL, than Geant4.
+deflections fits the measured data better with PROPOSAL, than Geant4. 
+A second data comparison points out that PROPOSAL overestimates 
+larger deflections at higher muon energies and underestimates at lower 
+energies.
 
 The median accumulated deflection depends primarily on the final muon energy. 
 The outcome is fit by a polynomial and can be used for 

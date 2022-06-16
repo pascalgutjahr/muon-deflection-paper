@@ -1,10 +1,12 @@
 - title??
 - music: nur moliere kurve hinzufügen-> simulation ist bereits fertig
-- unterschied x und winkel nicht trivial -> in vgl.
 - abstract: si zahlen sind nicht fett gedruckt
 - sollten irgendwelche werte noch in tabellen geschrieben werden?
-- data comparison in abstract, introduction and conclusion erwähnen!
+- cross sections in PROPOSAL Kapitel drin lassen und by vG rausnehmen!
 
+- bremsstrahlung: gleich
+- epair: gleich 
+- bethe bloch: 
 
 
 @mirco:
@@ -13,4 +15,5 @@
 - introduction: focus on muons necessary?
 
 @jan:
-- 
+- Tab2: 0.24 \pm 0.45??? negativ? 
+- es gibt noch P-One und GVD, die beide auch PROPOSAL verwenden
