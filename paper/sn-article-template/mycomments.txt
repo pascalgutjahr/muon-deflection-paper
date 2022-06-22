@@ -5,11 +5,8 @@
 
 
 @mirco:
-- abstract neu 
-- introduction umschreiben 
 - bei 10^-1 bleiben oder 1e-6 schöner?
 - conclusion, kinematischen winkel in bezug auf die ablenkugn setzen -> was passiert bei ~100GeV??
--e_cut, v_cut in plots ändern
 
 @jan:
 - es gibt noch P-One und GVD, die beide auch PROPOSAL verwenden
