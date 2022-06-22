@@ -8,7 +8,6 @@
 - abstract neu 
 - introduction umschreiben 
 - bei 10^-1 bleiben oder 1e-6 schöner?
-- fig3 caption: einfluss von stochastic interaction or cuts?! -> wird denn klar, was die unterschiedlichen labels mit und ohne moliere meinen??
 - conclusion, kinematischen winkel in bezug auf die ablenkugn setzen -> was passiert bei ~100GeV??
 -e_cut, v_cut in plots ändern
 
