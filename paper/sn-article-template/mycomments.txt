@@ -5,10 +5,12 @@
 
 
 @mirco:
-- ?? Do we have values that extend to lower energies? I think the kinematic angle is always large, right?
-- swap table?
-- introduction: focus on muons necessary?
+- abstract neu 
+- introduction umschreiben 
+- bei 10^-1 bleiben oder 1e-6 schöner?
+- fig3 caption: einfluss von stochastic interaction or cuts?! -> wird denn klar, was die unterschiedlichen labels mit und ohne moliere meinen??
+- conclusion, kinematischen winkel in bezug auf die ablenkugn setzen -> was passiert bei ~100GeV??
+-e_cut, v_cut in plots ändern
 
 @jan:
-- Tab2: 0.24 \pm 0.45??? negativ? 
 - es gibt noch P-One und GVD, die beide auch PROPOSAL verwenden
