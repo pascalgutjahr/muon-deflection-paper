@@ -5,10 +5,8 @@
 
 
 @mirco:
-- ?? Do we have values that extend to lower energies? I think the kinematic angle is always large, right?
-- swap table?
-- introduction: focus on muons necessary?
+- bei 10^-1 bleiben oder 1e-6 schöner?
+- conclusion, kinematischen winkel in bezug auf die ablenkugn setzen -> was passiert bei ~100GeV??
 
 @jan:
-- Tab2: 0.24 \pm 0.45??? negativ? 
 - es gibt noch P-One und GVD, die beide auch PROPOSAL verwenden
