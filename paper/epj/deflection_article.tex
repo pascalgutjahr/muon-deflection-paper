@@ -49,6 +49,8 @@
 \usepackage{hyperref}
 \usepackage[
 backend=biber,
+style=numeric,
+sorting=none,
 natbib
 ]{biblatex}
 \addbibresource{lit.bib}
@@ -61,12 +63,12 @@ natbib
 %
 \begin{document}
 %
-\title{Simulation of deflection uncertainties on directional reconstructions of muons using PROPOSAL}
+\title{Simulation of Deflection Uncertainties on Directional Reconstructions of Muons Using PROPOSAL}
 % \subtitle{Do you have a subtitle?\\ If so, write it here}
 \author{Pascal Gutjahr\inst{1}\fnmsep\thanks{\email{pascal.gutjahr@udo.edu} (corresponding author)} \and Jean-Marco Alameddine\inst{1} \and Alexander Sandrock\inst{2} \and Jan Soedingrekso\inst{1} \and Mirco Hünnefeld\inst{1} \and Wolfgang Rhode\inst{1}  
 }
 %
-\institute{Dept. of Physics, TU Dortmund University, Otto-Hahn-Straße~4, Dortmund 44227, Germany \and 
+\institute{Department of Physics, TU Dortmund University, Otto-Hahn-Straße~4, Dortmund 44227, Germany \and 
           Faculty of Mathematics and Natural Sciences, University of Wuppertal, Gaußstraße~20, Wuppertal 42119, Germany}
 %
 \date{Received: date / Revised version: date}
@@ -75,7 +77,7 @@ natbib
 \abstract{
   Large scale neutrino detectors and muon tomography rely on the muon direction in the detector to infer the muon's or parent neutrino's origin. However, muons accumulate deflections along their propagation path prior to entering the detector, which may need to be accounted for as an additional source of uncertainty. 
   In this paper, the deflection of muons is studied with the simulation tool PROPOSAL, which accounts for multiple scattering and deflection on stochastic interactions. Deflections along individual interactions depend on the muon energy and the interaction type and can reach up to the order of degrees -- even at TeV to PeV energies. The accumulated deflection angle can be parametrized in dependence of the final muon energy, independent of the initial muon energy. The median accumulated deflection of a propagated muon with a final energy of $\SI{500}{\giga\electronvolt}$ is $\theta_{\text{acc}} = 0.10_{-0.02}^{+0.27}\,\si{\degree}$ 
-  with a $\SI{95}{\percent}$ central interval. This is on the order of magnitude of the directional resolution of present neutrino detectors. Furthermore, a comparison with the simulation tools MUSIC and Geant4 as well as two different muon deflection measurements are performed.
+  with a $\SI{95}{\percent}$ central interval. This is on the order of magnitude of the directional resolution of present neutrino detectors. Furthermore, comparisons with the simulation tools MUSIC and Geant4 as well as two different muon deflection measurements are performed.
   \keywords{Neutrino Astronomy -- Neutrino Source Search -- Angular Resolution -- Muon Tomography}
 %
 \PACS{
@@ -90,26 +92,26 @@ natbib
 \section{Introduction}\label{sec:introduction}
 
 The directional reconstruction of muons is an essential task for muon tomography or large scale neutrino detectors such as IceCube 
-\cite{IceCube_Instrumentation} or KM3NeT \cite{KM3NeT_Design}. In both cases, the muon's direction is measured at its crossing through the instrumented volume, which is then utilized to infer its origin or the origin of the parent neutrino. 
+\cite{IceCube_Instrumentation} or KM3NeT \cite{KM3NeT_Design}. In both cases, the muon direction is measured at its crossing through the instrumented volume, which is then utilized to infer its origin or the origin of the parent neutrino. 
 However, muons may propagate many kilometers prior to entering the detector while interacting with the surrounding medium. 
 Along their propagation, muons can undergo many of thousands 
 of interactions, depending on their energy and propagation distance. 
 These interactions can lead to a deflection of the muon that may need to be accounted for as an additional source of uncertainty in these measurements. 
-Current angular resolutions are 
-$> \SI{0.1}{\degree}$ for  
+Current angular resolutions are above
+$\SI{0.1}{\degree}$ for  
 $\si{\tera\electronvolt}$ to $\si{\peta\electronvolt}$ energies in IceCube 
 \cite{IceCube_Resolution2021} 
-and 
-$< \SI{0.2}{\degree}$ for energies $> \SI{10}{\tera\electronvolt}$ in 
+and below 
+$\SI{0.2}{\degree}$ for energies greater than $\SI{10}{\tera\electronvolt}$ in 
 KM3NeT \cite{KM3NeT_Resolution2021}.
 
 To study the impact of the muon deflection on the angular resolution 
 of current neutrino detectors, 
 the paper is structured as follows: in section~\ref{sec:proposal},
 the lepton propagator PROPOSAL is briefly described. In section~\ref{sec:defl_per_int},
-PROPOSAL is used to study the muon deflection per interaction.
+PROPOSAL \cite{koehne2013proposal, dunsch_2018_proposal_improvements} is used to study the muon deflection per interaction.
 The accumulated deflection is analyzed and compared to the propagation codes
-MUSIC and Geant4 and two measured data in section~\ref{sec:accum_defl}. The findings of this study
+MUSIC \cite{MUSIC} and Geant4 \cite{GEANT4} and two measured data in section~\ref{sec:accum_defl}. The findings of this study
 are summarized in section~\ref{sec:conclusion}.
 
 \section{Overview of the Simulation Tool PROPOSAL}\label{sec:proposal}
@@ -134,9 +136,9 @@ using two parameters -- a total and a relative energy cut denoted as
 $e_{\mathrm{cut}}$ and $v_{\mathrm{cut}}$ with the energy $E$ of the particle 
 directly before the interaction. 
 By the introduction of 
-this energy cut, in the propagation the next significant energy loss with 
+this energy cut, the next significant energy loss with 
 $E_{\mathrm{loss}} \geq E_{\text{loss,min}}$ 
-is treated as a stochastic energy loss. 
+is treated as a stochastic energy loss in the propagation. 
 All energy losses with $E_{\mathrm{loss}} < E_{\text{loss,min}}$ between 
 two stochastic losses are accumulated and lost continuously, denoted 
 as continuous energy loss.
@@ -144,7 +146,7 @@ The methodical uncertainties are small
 for a relative energy cut $v_{\mathrm{cut}}\ll 1$, which increases the runtime.
 The 
 propagation process is defined by an initial muon energy $E_{\text{i}}$ and 
-two stopping criteria - a final energy $E_{\text{f,\,min}}$ and a 
+two stopping criteria -- a final energy $E_{\text{f,\,min}}$ and a 
 maximum propagation distance $d_{\text{max}}$. If the last interaction of 
 a propagation is sampled by a stochastic interaction, the true final energy 
 $E_{\text{f}}$ can become lower and the 
@@ -153,7 +155,7 @@ Since muons are unstable, a decay leads to a premature
 stop, which is negligible for high energies \cite{phd_soedingrekso}.
 
 The deflections for stochastic interactions are parametrized by Van Ginneken 
-in \cite{Van_Ginneken} with a direct calculation of the deflection in 
+in Ref.~\cite{Van_Ginneken} with a direct calculation of the deflection in 
 ionization using four-momentum conservation. 
 Furthermore, there are parametrizations for stochastic deflections given in Geant4 \cite{GEANT4} 
 for bremsstrahlung and photonuclear interaction, which 
@@ -163,17 +165,17 @@ a continuous energy loss, multiple scattering described by Molière
 \cite{moliere_scattering} and the Gaussian approximation by Highland 
 can be chosen \cite{HIGHLAND_1975}. 
 The orientation of the deflection in the plane perpendicular to the muon direction is 
-sampled uniformly between $0$ and $2\pi$.
+sampled uniformly between $0$ and $2\mathrm{\pi}$.
 The latest updates with a detailed description of the whole tool can be found 
-in \cite{phd_soedingrekso}. 
+in Ref.~\cite{phd_soedingrekso}. 
 The stochastic deflections have been implemented in PROPOSAL recently and they are 
-described and studied in \cite{Gutjahr_2021}.
+described and studied in Ref.~\cite{Gutjahr_2021}.
 A publication describing the 
 updates in PROPOSAL is in preparation as Alameddine et al.
 All simulations are done with PROPOSAL $7.3.1$.
 
 \section{Muon Deflection per Interaction}\label{sec:defl_per_int}
-First, the stochastic deflections described by Van Ginneken \cite{Van_Ginneken} 
+First, the stochastic deflections described by Van Ginneken~\cite{Van_Ginneken} 
 and implemented 
 in PROPOSAL are investigated in combination with the two multiple scattering methods. 
 For this purpose, $\num{1000}$ muons are propagated from $E_{\text{i}} = \SI{1}{\peta\electronvolt}$ to $E_{\text{f,\,min}} = \SI{1}{\tera\electronvolt}$.
@@ -181,9 +183,10 @@ The deflections per interaction are presented
 for each interaction type and the sum over all types in Figure~\ref{fig:defl_per_int}. 
 The size of individual deflections 
 extend over several orders of magnitude with a median of $\SI{3.9e-6}{\degree}$
-and a $\SI{95}{\percent}$ central interval of $[\SI{4.9e-7}{\degree}, \,\SI{1.3e-3}{\degree}]$. 
+and a $\SI{95}{\percent}$ central interval of $[\SI{2.2e-7}{\degree}, \,\SI{1.3e-3}{\degree}]$. 
 It follows that the deflections are primarily dominated by multiple scattering, except for a few outliers caused by bremsstrahlung, which 
-allows very large energy losses and thus the largest deflections.
+allows very large energy losses and thus the largest deflections. 
+The largest median deflections with the highest $\SI{95}{\percent}$ interval result due to photonuclear interaction.
 The median propagation distance with the lower and upper $\SI{95}{\percent}$ 
 central interval results to $16.4_{-7.3}^{+24.6}\,\si{\kilo\meter}$.
 Detailed values for each interaction type can be found in Table~\ref{tab:defl_per_int}.
@@ -191,7 +194,7 @@ Detailed values for each interaction type can be found in Table~\ref{tab:defl_pe
 \begin{figure*}
     \centering 
     \includegraphics{../../deflection/plots/FINAL/1PeV_1TeV_1000events_deflection_along_sampling.pdf}
-    \caption{The muon deflection $\theta$ per interaction is shown in degree for different mechanisms. The propagation is done for $\num{1000}$ 
+    \caption{The muon deflection $\theta$ per interaction in degree is shown for different mechanisms. The propagation is done for $\num{1000}$ 
     muons from $E_{\text{i}} = \SI{1}{\peta\electronvolt}$ to $E_{\text{f,\,min}} = \SI{1}{\tera\electronvolt}$ using $e_{\mathrm{cut}} = \SI{500}{\mega\electronvolt}$ and $v_{\mathrm{cut}} = 0.05$ in ice. 
     The stochastic interactions 
     are stated as Bremsstrahlung (Brems), photonuclear interaction (Nuclint), electron pair produciton (Epair) and ionization (Ioniz).
@@ -205,10 +208,10 @@ Detailed values for each interaction type can be found in Table~\ref{tab:defl_pe
 \begin{table*}
     \centering 
     \caption{The medians of deflections $\theta$ per interaction from Figure~\ref{fig:defl_per_int} are presented for each stochastic interaction type, the two multiple scattering methods and the total distribution including Molière with the upper and lower limits of the $\SI{95}{\percent}$ 
-    central content levels.}
+    central intervals. The largest median deflection is caused by photonuclear interaction.}
     \begin{tabular}{ccccccc}
         \toprule 
-        brems & nuclint & epair & ioniz & moliere & highland & total  \vspace{6pt} \\
+        Brems & Nuclint & Epair & Ioniz & Molière & Highland & Total  \vspace{6pt} \\
         $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-5}{\degree}$\\
         \midrule 
         $3.8_{-0.1}^{+297}$ & $11.7_{-4.2}^{+963}$ & $0.1_{-0.02}^{+4.2}$ & $4.4_{-0.1}^{+181}$& $1.2_{-0.05}^{+222}$ & $1.2_{-0.05}^{+225}$ & $0.4_{-0.02}^{+129}$\\ 
@@ -219,9 +222,9 @@ Detailed values for each interaction type can be found in Table~\ref{tab:defl_pe
 
 \section{Accumulated Muon Deflection}\label{sec:accum_defl}
 
-As shown in Section~\ref{sec:defl_per_int}, in general the deflection per interaction 
-is lower than $\sim\SI{1}{\degree}$. Since these deflections accumulate along the 
-propagation path, the angle between the incoming muon direction and the outgoing 
+As shown in Section~\ref{sec:defl_per_int}, the deflection per interaction 
+is lower than $\sim\SI{1}{\degree}$ in general. Since these deflections accumulate along the 
+propagation path, the angle between the incoming and the outgoing 
 muon direction is analyzed. This angle limits the angular resolution 
 for neutrino source searches utilizing incoming muons, since there is no information 
 about the muon before the detector entry.
@@ -236,9 +239,9 @@ methods and parametrizations for stochastic deflections are
 available. For these studies, the same cross section parametrizations 
 as in PROPOSAL are chosen, except those for 
 photonuclear interaction \cite{nulcint_bugaev_Shlepin, bugaev_1980_defl,bugaev_1981_defl}. The stochastic deflections are also parametrized by 
-Van Ginneken \cite{Van_Ginneken}. 
-As multiple scattering, the Gaussian 
-approximation \cite{HIGHLAND_1975} is set. 
+Van Ginneken~\cite{Van_Ginneken}. 
+The Gaussian 
+approximation \cite{HIGHLAND_1975} is set as multiple scattering. 
 Geant4 is another common toolkit to simulate the passage of particles through 
 matter. The simulation is very precise and especially 
 made for simulations in particle detectors, but the computing is 
@@ -284,11 +287,11 @@ these two tools for all four settings and are therefore consistent.
     Left: The accumulated deflection $\theta_{\mathrm{acc}}$ in degree is very similar in all cases.
     Right: The lateral displacement $x$ in meter depends 
     on the scattering method. Molière scattering leads to larger distances.
-    In the zoomed-in figure, the modes of the distributions are presented. 
+    In the zoomed-in figure, the region around the mode of the distributions are presented. 
     The mode of Geant4 is shifted to larger deflections.
     Detailed information are given in 
     Table~\ref{tab:compare_MUSIC}. The results for MUSIC and Geant4 are taken from 
-    \cite{comparison_MUSIC_GEANT4_2009}.}
+    Ref.~\cite{comparison_MUSIC_GEANT4_2009}.}
     \label{fig:compare_MUSIC}
 \end{figure*}
 \begin{table*}
@@ -322,7 +325,7 @@ by Molière scattering in Geant4. Hence, the lower scattering in PROPOSAL leads
 to a better precision especially in the region of outliers. The comparison is 
 done in liquid $\text{H}_2$ with a thickness of $\SI{109}{\milli\meter}$ and an 
 initial particle energy of $E_{\mathrm{i}} = \SI{199}{\mega\electronvolt}$, which 
-results via the energy-momentum relation of an in \cite{attwood_2006} used beam momentum 
+results via the energy-momentum relation of an in Ref.~\cite{attwood_2006} used beam momentum 
 of $p = \SI[per-mode=symbol]{168.9}{\mega\electronvolt\per\clight}$. 
 In PROPOSAL, the simulations are done with two different energy cuts $v_{\mathrm{cut}} = \num{e-3}$ and $v_{\mathrm{cut}} = \num{e-5}$, 
 but there is no significant difference between the resulting deflections.
@@ -335,7 +338,7 @@ The comparison is presented in Figure~\ref{fig:attwood_comparison}.
     Muons are 
     propagated with $E_{\mathrm{i}} = \SI{199}{\mega\electronvolt}$ through 
     $\SI{109}{\milli\meter}$ of liquid $\text{H}_2$.
-    Measured data of Attwood et al. and simulation data of Geant4 are taken from \cite{attwood_2006}.    
+    Measured data of Attwood et al. and simulation data of Geant4 are taken from Ref.~\cite{attwood_2006}.    
     The figure presents 
     the normalized counts in dependence of the projected scattering angle $\theta_{\mathrm{y}}$ in degree.
     In PROPOSAL, $100$ simulations each with $\num{e5}$ muons are performed for two different settings using the energy cut 
@@ -389,12 +392,12 @@ $E_{\text{f}} \approx \SI{100}{\giga\electronvolt}$,
 there is a small overlap of the deflection with the angular resolution of KM3NeT 
 \cite{KM3NeT_Resolution2016, KM3NeT_Resolution2021}. The resolution of IceCube is a bit worse and 
 therefore not affected \cite{IceCube_Resolution2021}. 
-The kinematic angle between the incident neutrino and the produced muon is 
+The kinematic scattering angle between the incident neutrino and the produced muon is 
 larger than the deflection in the presented region from $\SI{300}{\giga\electronvolt}$
 to $\SI{200}{\tera\electronvolt}$. Here it must be noted that the kinematic angle 
 and the resolution of ARCA (part of KM3NeT dedicated to search for very high-energetic neutrinos) are presented in dependence of the neutrino energy 
 in \cite{KM3NeT_Resolution2016, KM3NeT_Resolution2021}. Hence, a rescaling to the muon energy is applied using the average energy transfer of the neutrino to 
-the nucleus \cite{GANDHI199681}. This shifts both the curves to lower energies. 
+the nucleus \cite{GANDHI199681}. This shifts both curves to lower energies. 
 Since all of these simulations are done 
 in ice, the same simulations are done in water to compare the results for 
 water-based experiments. The deviations of the medians
@@ -402,19 +405,19 @@ are less than $\SI{1}{\percent}$ for all energies.
 
 Note that the distribution of deflection angles at a given final energy $E_{\mathrm{f}}$ in Figure~\ref{fig:fit_median} overlap for differing initial energies. This result indicates that the total deflection of a muon 
 primarily depends on the final muon energy.
-The initial muon energy is irrelevant. 
+The initial muon energy is nearly irrelevant. 
 Hence, the reconstructed muon 
 energy in a detector can be used to estimate the deflection. For this 
-purpose, the following fit function 
+purpose, a polynomial of degree three as 
 \begin{equation}
      f(x) = a \cdot x^3 + b \cdot x^2 + c \cdot x + d \,,
     \label{eqn:fit_median}
-\end{equation}
-can be applied with the parameters 
-\begin{align}
+\end{equation} 
+can be used with the parameters 
+\begin{align*}
     a =& +0.024 \pm 0.001\,,  & c =& +0.379 \pm 0.057\,,\\
     b =& -0.312 \pm 0.016\,,  & d =& -0.216 \pm 0.058\,,
-\end{align}
+\end{align*}
 in the logarithmic space via 
 \begin{align}
     g(x) =& 10^{f(x)}\,, & x =& \log_{10}\left(\frac{E_{\text{f}}}{\si{\giga\electronvolt}}\right)\,.
@@ -439,8 +442,8 @@ to estimate the deflection before the detector entry.
     strong impact of the initial energy on the median deflection. These 
     medians can be fit by a third degree polynomial in the log-space as 
     shown in Eq.~\eqref{eqn:fit_median}. The kinematic angle between the muon and 
-    neutrino is taken from \cite{KM3NeT_Resolution2016}. Since the kinematic angle and 
-    the angular resolution of ARCA (part of KM3NeT designed for high-energetic neutrino search) taken from \cite{KM3NeT_Resolution2016, KM3NeT_Resolution2021} are 
+    neutrino is taken from Ref.~\cite{KM3NeT_Resolution2016}. Since the kinematic angle and 
+    the angular resolution of ARCA (part of KM3NeT designed for high-energetic neutrino search) taken from Ref.~\cite{KM3NeT_Resolution2016, KM3NeT_Resolution2021} are 
     presented in dependence of the neutrino energy, a rescaling to the muon energy is performed 
     using the average energy transfer to the nucleus \cite{GANDHI199681}. 
     For energies 
@@ -452,10 +455,10 @@ to estimate the deflection before the detector entry.
 
 \section{Conclusion}\label{sec:conclusion}
 
-Stochastic deflection, recently implemented in PROPOSAL, is 
+Stochastic deflection, recently implemented in PROPOSAL 7.3.0, is 
 used to study the muon deflection per interaction. The deflection 
 is dominated by multiple scattering except for a few stochastic 
-outliers by bremsstrahlung. These angles are lower 
+outliers by bremsstrahlung. These angles are lower than
 $\sim\SI{1}{\degree}$. 
 
 The results of PROPOSAL are compared with the common tools MUSIC and 
