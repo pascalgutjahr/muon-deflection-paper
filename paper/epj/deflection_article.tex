@@ -81,10 +81,10 @@ natbib
   This is on the order of magnitude of the directional resolution of present neutrino detectors. Furthermore, comparisons with the simulation tools MUSIC and Geant4 as well as two different muon deflection measurements are performed.
   \keywords{Neutrino Astronomy -- Neutrino Source Search -- Angular Resolution -- Muon Tomography}
 %
-\PACS{
-      {PACS-key}{discribing text of that key}   \and
-      {PACS-key}{discribing text of that key}
-     } % end of PACS codes
+% \PACS{
+%       {PACS-key}{discribing text of that key}   \and
+%       {PACS-key}{discribing text of that key}
+%      } % end of PACS codes
 } %end of abstract
 %
 
@@ -194,7 +194,7 @@ Detailed values for each interaction type can be found in Table~\ref{tab:defl_pe
 
 \begin{figure*}
     \centering 
-    \includegraphics{../../deflection/plots/FINAL/1PeV_1TeV_1000events_deflection_along_sampling.pdf}
+    \includegraphics{../../deflection/plots/FINAL/1PeV_1TeV_1000events_deflection_along_sampling_minorticks.pdf}
     \caption{The muon deflection $\theta$ per interaction in degree is shown for different mechanisms. The propagation is done for $\num{1000}$ 
     muons from $E_{\text{i}} = \SI{1}{\peta\electronvolt}$ to $E_{\text{f,\,min}} = \SI{1}{\tera\electronvolt}$ using $e_{\mathrm{cut}} = \SI{500}{\mega\electronvolt}$ and $v_{\mathrm{cut}} = 0.05$ in ice. 
     The stochastic interactions 
@@ -365,7 +365,8 @@ leads to smaller deflections. The result is presented in Figure~\ref{fig:akimenk
     \centering 
     \includegraphics{../../deflection/plots/FINAL/akimenko_comparison_moliere_E7301MeV_final_multi_mean_deg.pdf}
     \caption{A comparison between two PROPOSAL settings and measured data by Akimenko et al. \cite{akimenko_1984} 
-    is presented. $\num{100}$ simulations each with $\num{31125}$ muons with 
+    is presented for the normalized counts in dependence of the projected scattering angle $\theta_{\mathrm{y}}$ in degree.
+    $\num{100}$ simulations each with $\num{31125}$ muons with 
     $E_{\mathrm{i}} = \SI{7.301}{\giga\electronvolt}$ are propagated through a $\SI{1.44}{\centi\meter}$ 
     copper layer. The blue points present the mean considering stochastic deflections and Molière scattering, the orange points
     present the mean taking into account only Molière scattering. The uncertainties on the $x$--axis result due to the measured bin widths. The $y$--uncertainties are the standard deviations for PROPOSAL and the Poisson errors with $\sqrt{N}$ for Attwood, with $N$ as number of counts. Larger deflections are overestimated by PROPOSAL.
