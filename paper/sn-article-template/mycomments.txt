@@ -1,6 +1,5 @@
 - title??
 - music: nur moliere kurve hinzufügen-> simulation ist bereits fertig
-- abstract: si zahlen sind nicht fett gedruckt
 - sollten irgendwelche werte noch in tabellen geschrieben werden?
 
 
