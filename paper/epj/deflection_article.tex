@@ -77,7 +77,7 @@ natbib
 \abstract{
   Large scale neutrino detectors and muon tomography rely on the muon direction in the detector to infer the muon's or parent neutrino's origin. However, muons accumulate deflections along their propagation path prior to entering the detector, which may need to be accounted for as an additional source of uncertainty. 
   In this paper, the deflection of muons is studied with the simulation tool PROPOSAL, which accounts for multiple scattering and deflection on stochastic interactions. Deflections along individual interactions depend on the muon energy and the interaction type, and can reach up to the order of degrees -- even at TeV to PeV energies. The accumulated deflection angle can be parametrized in dependence of the final muon energy, independent of the initial muon energy. The median accumulated deflection of a propagated muon with a final energy of $\SI{500}{\giga\electronvolt}$ is $\theta_{\text{acc}} = \SI{0.10}{\degree}$ 
-  with a $\SI{95}{\percent}$ central interval of $[\SI{0.02}{\degree}, \,\SI{0.27}{\degree}]$. 
+  with a $\SI{99}{\percent}$ central interval of $[\SI{0.01}{\degree}, \,\SI{0.39}{\degree}]$. 
   This is on the order of magnitude of the directional resolution of present neutrino detectors. Furthermore, comparisons with the simulation tools MUSIC and Geant4 as well as two different muon deflection measurements are performed.
   \keywords{Neutrino Astronomy -- Neutrino Source Search -- Angular Resolution -- Muon Tomography}
 %
@@ -104,7 +104,7 @@ $\si{\tera\electronvolt}$ to $\si{\peta\electronvolt}$ energies in IceCube
 \cite{IceCube_Resolution2021} 
 and below 
 $\SI{0.2}{\degree}$ for energies greater than $\SI{10}{\tera\electronvolt}$ in 
-KM3NeT \cite{KM3NeT_Resolution2021}.
+KM3NeT/ARCA (part of KM3NeT dedicated to search for very high-energetic neutrinos) \cite{KM3NeT_Resolution2021}.
 
 To study the impact of the muon deflection on the angular resolution 
 of current neutrino detectors, 
@@ -381,30 +381,33 @@ taken into account as an additional source of uncertainty.
 For this purpose, four different initial energies 
 from $E_{\text{i}} = \SI{10}{\tera\electronvolt}$ to 
 $E_{\text{i}} = \SI{10}{\peta\electronvolt}$ are used and the final 
-energy is set to $E_{\text{f,\,min}} \geq \SI{10}{\giga\electronvolt}$ with 
+energy is set to $E_{\text{f,\,min}} \geq \SI{1}{\giga\electronvolt}$ with 
 $E_{\text{f,\,min}} < E_{\text{i}}$ for each simulation. 
-In total $\num{36}$ simulations are performed. 
+In total $\num{44}$ simulations are performed. 
 To compare the results of these simulations, the medians of the deflection distributions 
-with a $\SI{95}{\percent}$ central interval are presented in 
+with a $\SI{99}{\percent}$ central interval are presented in 
 Figure~\ref{fig:fit_median}.
 The lower the final muon energy, the larger the accumulated deflection. 
 For energies $E_{\text{f}} = \SI{1}{\peta\electronvolt}$, the median deflection 
-is $\SI{e-4}{\degree}$. For energies $E_{\text{f}} = \SI{10}{\giga\electronvolt}$, 
-angles larger than $\SI{1}{\degree}$ are possible. For energies  
-$E_{\text{f}} \approx \SI{100}{\giga\electronvolt}$, 
-there is a small overlap of the deflection with the angular resolution of KM3NeT 
-\cite{KM3NeT_Resolution2021, KM3NeT_Resolution2016}. The resolution of IceCube is a bit worse and 
-therefore not affected \cite{IceCube_Resolution2021}. 
+is $\SI{e-4}{\degree}$. For energies $E_{\text{f}} = \SI{100}{\giga\electronvolt}$, 
+angles larger than $\SI{1}{\degree}$ are possible. 
+For energies  
+$E_{\text{f}} \leq \SI{1}{\tera\electronvolt}$, 
+there is a small overlap of the deflection with the angular resolution of KM3NeT/ARCA 
+\cite{KM3NeT_Resolution2021, KM3NeT_Resolution2016}. 
+At low energies of $E_{\mathrm{f}} = \SI{5}{\giga\electronvolt}$, the upper limit of the 
+deflections affects resolution of SuperKamiokande~\cite{SuperKamiokande_Resolution2008}. 
 The kinematic scattering angle between the incident neutrino and the produced muon is 
 larger than the deflection in the presented region from $\SI{300}{\giga\electronvolt}$
 to $\SI{200}{\tera\electronvolt}$. Here it must be noted that the kinematic angle 
-and the resolution of ARCA (part of KM3NeT dedicated to search for very high-energetic neutrinos) are presented in dependence of the neutrino energy 
-in Ref.~\cite{KM3NeT_Resolution2021}. Hence, a rescaling to the muon energy is applied using the average energy transfer of the neutrino to 
-the nucleus \cite{GANDHI199681}. This shifts both curves to lower energies. 
+and the resolution of ARCA in Ref.~\cite{KM3NeT_Resolution2021} as well as 
+the resolutions of ORCA~\cite{ORCA_Resolution2021} and ANTARES~\cite{ANTARES_Resolution2019} are presented in dependence of the neutrino energy. 
+Hence, a rescaling to the muon energy is applied using the average energy transfer of the neutrino to 
+the nucleus \cite{GANDHI199681}. This shifts the curves to lower energies. 
 Since all of these simulations are done 
 in ice, the same simulations are done in water to compare the results for 
 water-based experiments. The deviations of the medians
-are less than $\SI{1}{\percent}$ for all energies.
+are less than $\SI{1}{\percent}$ for all energies and therefore not shown.
 
 Note that the distribution of deflection angles at a given final energy $E_{\mathrm{f}}$ in Figure~\ref{fig:fit_median} overlap for differing initial energies. This result indicates that the total deflection of a muon 
 primarily depends on the final muon energy.
@@ -431,9 +434,9 @@ to estimate the deflection before the detector entry.
 
 \begin{figure*}
     \centering 
-    \includegraphics{../../deflection/plots/FINAL/fit_median_defl_cut_10percent_only_poly_new_resolution_rescale_no_icecube_paper_final.pdf}
+    \includegraphics{../../deflection/plots/FINAL/fit_median_defl_cut_10percent_only_poly_new_resolution_rescale_no_icecube_paper_final_all.pdf}
     \caption{The median of the accumulated deflection $\theta_{\text{acc}}$ in degree 
-    with a $\SI{95}{\percent}$ 
+    with a $\SI{99}{\percent}$ 
     central interval is shown for four different initial energies $E_{\text{i}}$. 
     Each data set includes more than $\num{50000}$ events with the requirement 
     that the true final particle energy $E_{\text{f}}$ is at most 
@@ -450,9 +453,10 @@ to estimate the deflection before the detector entry.
     presented in dependence of the neutrino energy, a rescaling to the muon energy is performed 
     using the average energy transfer to the nucleus \cite{GANDHI199681}. 
     For energies 
-    $E_{\text{f}} \approx \SI{100}{\giga\electronvolt}$, there is a minimal influence of deflection on the angular resolution of 
-    KM3NeT \cite{KM3NeT_Resolution2021}. The resolution shown by IceCube is not 
-    impacted \cite{IceCube_Resolution2021}.}
+    $E_{\text{f}} \approx \SI{100}{\giga\electronvolt}$, there is a minimal influence of the deflection on the angular resolution of 
+    KM3NeT~\cite{KM3NeT_Resolution2021} and at $E_{\mathrm{f}} = \SI{5}{\giga\electronvolt}$ the upper limit of the deflections affects the resolution 
+    of SuperKamiokande~\cite{SuperKamiokande_Resolution2008}. The resolutions shown by IceCube~\cite{IceCube_Resolution2021}, ORCA~\cite{ORCA_Resolution2021}, 
+    Baikal~\cite{Baikal_Resolution2021} and ANTARES~\cite{ANTARES_Resolution2019} are not impacted, but no uncertainty bands are given for these either.}
     \label{fig:fit_median}
 \end{figure*}
 
@@ -476,7 +480,7 @@ in neutrino telescopes or other muon detectors.
 The outcome is fit by a polynomial and can be used for 
 a theoretical estimation of the muon deflection in water and ice.
 Since the result can be interpreted as the deflection before the detector entry, it defines a lower limit on the directional resolution.
-At energies of $\SI{100}{\giga\electronvolt}$, there is potentially a small impact of the muon deflection on the angular 
+At energies lower $\SI{1}{\tera\electronvolt}$, there is potentially a small impact of the muon deflection on the angular 
 resolution of KM3NeT.
 
 
