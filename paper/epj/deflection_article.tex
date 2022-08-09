@@ -37,7 +37,7 @@
     locale=US,
     separate-uncertainty=true,
     per-mode=fraction,    
-%    print-unity-mantissa = false,
+   print-unity-mantissa = false,
 ]{siunitx}
 \DeclareSIUnit\clight{\text{\ensuremath{c}}}
 \sisetup{math-micro=\text{µ},text-micro=µ}
@@ -232,7 +232,7 @@ about the muon before the detector entry.
 
 First, the deflections in PROPOSAL are compared to 
 the tools MUSIC \cite{MUSIC,comparison_MUSIC_GEANT4_2009} and Geant4 \cite{GEANT4}.
-MUSIC (MUon SImulation Code) is a tool to simulate the propagation of muons 
+MUSIC is a tool to simulate the propagation of muons 
 through media like rock and water considering the same energy losses as in 
 PROPOSAL. Also, the losses are divided into continuous and stochastic 
 energy losses by a relative energy cut. Several cross sections, multiple scattering 
@@ -288,7 +288,7 @@ these two tools for all four settings and are therefore consistent.
     Left: The accumulated deflection $\theta_{\mathrm{acc}}$ in degree is very similar in all cases.
     Right: The lateral displacement $x$ in meter depends 
     on the scattering method. Molière scattering leads to larger distances.
-    In the zoomed-in figure, the region around the mode of the distributions are presented. 
+    In the zoomed-in figure, the region around the mode of the distributions is presented. 
     The mode of Geant4 is shifted to larger deflections.
     Detailed information are given in 
     Table~\ref{tab:compare_MUSIC}. The results for MUSIC and Geant4 are taken from 
@@ -298,7 +298,10 @@ these two tools for all four settings and are therefore consistent.
 \begin{table*}
     \small
     \centering
-    \caption{The survival probability $p_{\text{s}}$ that depends on the muon decay, the mean survived muon 
+    \caption{The survival probability $p_{\text{s}}$ defined by the ratio of all 
+    muons that reach the propagation distance of $\SI{3}{\kilo\meter}$ and the 
+    amount of muons stopping before due to large energy losses and muon decays,
+    the mean survived muon 
     energy $\overline{E}_{\text{f}}$, the mean scattered angle $\overline{\theta}$,
     and the mean displacement $\overline{x}$ are presented for all cases from 
     Figure~\ref{fig:compare_MUSIC}. For all means, the standard deviation is given.
@@ -396,7 +399,7 @@ $E_{\text{f}} \leq \SI{1}{\tera\electronvolt}$,
 there is a small overlap of the deflection with the angular resolution of KM3NeT/ARCA 
 \cite{KM3NeT_Resolution2021, KM3NeT_Resolution2016}. 
 At low energies of $E_{\mathrm{f}} = \SI{5}{\giga\electronvolt}$, the upper limit of the 
-deflections affects resolution of SuperKamiokande~\cite{SuperKamiokande_Resolution2008}. 
+deflections affects the resolution of SuperKamiokande~\cite{SuperKamiokande_Resolution2008}. 
 The kinematic scattering angle between the incident neutrino and the produced muon is 
 larger than the deflection in the presented region from $\SI{300}{\giga\electronvolt}$
 to $\SI{200}{\tera\electronvolt}$. Here it must be noted that the kinematic angle 
@@ -421,8 +424,8 @@ purpose, a polynomial of degree three as
 \end{equation} 
 can be used with the parameters 
 \begin{align*}
-    a =& +0.024 \pm 0.001\,,  & c =& +0.379 \pm 0.057\,,\\
-    b =& -0.312 \pm 0.016\,,  & d =& -0.216 \pm 0.058\,,
+    a =& +0.018\pm 0.002\,,  & c =& +0.093\pm 0.053\,,\\
+    b =& -0.003\pm 0.019\,,  & d =& +0.073\pm 0.040\,,
 \end{align*}
 in the logarithmic space via 
 \begin{align}
@@ -449,11 +452,12 @@ to estimate the deflection before the detector entry.
     medians can be fit by a third degree polynomial in the log-space as 
     shown in Eq.~\eqref{eqn:fit_median}. The kinematic angle between the muon and 
     neutrino is taken from Ref.~\cite{KM3NeT_Resolution2021}. Since the kinematic angle and 
-    the angular resolution of ARCA (part of KM3NeT designed for high-energetic neutrino searches) taken from Ref.~\cite{KM3NeT_Resolution2021} are 
-    presented in dependence of the neutrino energy, a rescaling to the muon energy is performed 
+    the angular resolution of ARCA taken from Ref.~\cite{KM3NeT_Resolution2021} are 
+    presented in dependence of the neutrino energy as well as the resolutions of ORCA~\cite{ORCA_Resolution2021} 
+    and ANTARES~\cite{ANTARES_Resolution2019}, a rescaling to the muon energy is performed 
     using the average energy transfer to the nucleus \cite{GANDHI199681}. 
     For energies 
-    $E_{\text{f}} \approx \SI{100}{\giga\electronvolt}$, there is a minimal influence of the deflection on the angular resolution of 
+    $E_{\text{f}} \leq \SI{1}{\tera\electronvolt}$, there is a minimal influence of the deflection on the angular resolution of 
     KM3NeT~\cite{KM3NeT_Resolution2021} and at $E_{\mathrm{f}} = \SI{5}{\giga\electronvolt}$ the upper limit of the deflections affects the resolution 
     of SuperKamiokande~\cite{SuperKamiokande_Resolution2008}. The resolutions shown by IceCube~\cite{IceCube_Resolution2021}, ORCA~\cite{ORCA_Resolution2021}, 
     Baikal~\cite{Baikal_Resolution2021} and ANTARES~\cite{ANTARES_Resolution2019} are not impacted, but no uncertainty bands are given for these either.}
