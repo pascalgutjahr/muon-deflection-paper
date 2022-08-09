@@ -335,9 +335,11 @@ In PROPOSAL, the simulations are done with two different energy cuts $v_{\mathrm
 but there is no significant difference between the resulting deflections.
 The comparison is presented in Figure~\ref{fig:attwood_comparison}.
 
-\begin{figure*}
+\begin{figure}
     \centering 
+    \resizebox{0.48\textwidth}{!}{%
     \includegraphics{../../deflection/plots/FINAL/attwood_comparison_moliere_199MeV_final_multi_mean_deg.pdf}
+    }
     \caption{
     Muons are 
     propagated with $E_{\mathrm{i}} = \SI{199}{\mega\electronvolt}$ through 
@@ -353,7 +355,7 @@ The comparison is presented in Figure~\ref{fig:attwood_comparison}.
     underestimated in PROPOSAL, except at $\theta_{\mathrm{y}} \approx \SI{0}{\degree}$. At deflections $\SI{2}{\degree} < \theta_{\mathrm{y}} < \SI{5}{\degree}$, 
     the result seems to be more accurate than Geant4's. The consideration of the stochastic deflections shows no significant influence.}
     \label{fig:attwood_comparison}
-\end{figure*}
+\end{figure}
 
 The second measurement of muon deflections is done for higher energetic muons 
 of $p = \SI[per-mode=symbol]{7.3}{\giga\electronvolt\per\clight}$ by Akimenko et al. \cite{akimenko_1984}.
@@ -364,9 +366,11 @@ Neither between the two energy cuts, nor when using the stochastic deflection a 
 PROPOSAL simulates more large deflections than observed in these data. This observation differs from the comparison with Attwood, 
 in which less higher deflections are simulated. In general, the higher muon energy 
 leads to smaller deflections. The result is presented in Figure~\ref{fig:akimenko_comparison}.
-\begin{figure*}
+\begin{figure}
     \centering 
+    \resizebox{0.48\textwidth}{!}{%
     \includegraphics{../../deflection/plots/FINAL/akimenko_comparison_moliere_E7301MeV_final_multi_mean_deg.pdf}
+    }
     \caption{A comparison between two PROPOSAL settings and measured data by Akimenko et al. \cite{akimenko_1984} 
     is presented for the normalized counts in dependence of the projected scattering angle $\theta_{\mathrm{y}}$ in degree.
     $\num{100}$ simulations each with $\num{31125}$ muons with 
@@ -376,7 +380,7 @@ leads to smaller deflections. The result is presented in Figure~\ref{fig:akimenk
     present the mean taking into account only Molière scattering. The uncertainties on the $x$--axis result due to the measured bin widths. The $y$--uncertainties are the standard deviations for PROPOSAL and the Poisson errors with $\sqrt{N}$ for Akimenko, with $N$ as number of counts. More large deflections are simulated by PROPOSAL.
     Considering stochastic deflections has no significant impact.}
     \label{fig:akimenko_comparison}
-\end{figure*}
+\end{figure}
 
 For neutrino source searches based on entering muons, it is important to study the impact of the muon 
 deflection on the angular resolution to estimate whether or not this needs to be 
