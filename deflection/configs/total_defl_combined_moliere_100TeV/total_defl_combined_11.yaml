@@ -1,0 +1,28 @@
+E_i: !!float 1e8 
+E_f: !!float 1e3 
+    
+deflection: [
+    'bremsginneken', 
+    'ioniznaive',
+    'photoginneken',
+    'epairginneken']
+interpol_nodes: 200
+    
+e_cut: 500
+v_cut: 0.05
+cont_rand: False
+scattering_method: "moliere"
+deflection_type: "m_scat+stochastic"
+    
+# table_path: "/Users/pgutjahr/.cache/PROPOSAL" # mac mini
+# table_path: "/Users/pascalgutjahr/.cache/PROPOSAL" # lehrstuhl macbook
+table_path: "/net/nfshome/home/pgutjahr/.cache/PROPOSAL" # vollmond
+
+file_name: "total_defl"
+output_folder:  "data/total_defl_combined_moliere_100TeV"
+    
+n_CPU:  10
+n_jobs:  50
+n_events_per_job: 1750  
+### total_events = n_jobs * n_events_per_job
+rnd_state_seed: 3
