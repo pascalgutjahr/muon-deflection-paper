@@ -1,0 +1,128 @@
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+\usepackage[intlimits]{amsmath}
+\usepackage{cmupint,amssymb,booktabs}
+\usepackage[separate-uncertainty=true]{siunitx}
+
+\usepackage{natbib}
+
+\begin{document}
+\bibliographystyle{plainnat}
+\title{Calculation of the kinematic angle in charged current $\nu_\mu$
+  interactions}
+\author{Alexander Sandrock}
+\date{August 11, 2022}
+\maketitle
+
+\section{Charged current $\nu N$ cross section}
+The cross section for charged current neutrino-nucleon interaction is given by 
+\citep{block2013b}
+\begin{multline}
+  \frac{d^2\sigma_\text{CC}^{\nu (\overline \nu)}}{dx\ dQ^2} (E_\nu, Q^2, x)
+    = \frac{G_F^2}{4 \pi} \left(\frac{M_W^2}{Q^2 + M_W^2}\right)^2 \\
+  \times \frac{1}{x} \left[ F_2^{\nu (\overline \nu)}
+    \pm x F_3^{\nu (\overline \nu)} + (F_2^{\nu (\overline \nu)} \mp
+    F_3^{\nu (\overline \nu)}) \left(1 - \frac{Q^2}{2 m x E_\nu}\right)^2
+    - \left(\frac{Q^2}{2 m x E_\nu}\right)^2 \right];
+\end{multline}
+at high energies $E_\nu$, the dominant contributions to the cross section come
+from small values of $x$, where $F_3$ is subdominant to $F_2$. In addition, to
+leading order in the strong coupling, the longitudinal structure function $F_L$
+vanishes. The structure function $F_2^{\nu (\overline{\nu})}$ is given in terms
+of the structure function $F_2^{\gamma p}$ known from deep inelastic scattering
+experiments as \citep{block2013a,block2013b}
+\begin{equation}
+  F_2^{\nu (\overline \nu)} = \frac{45}{11} F_2^{\gamma p}
+\end{equation}
+plus small non-singlet combinations; here, only the result for $n_f = 5$ active
+flavors is given, as small values of $Q^2$ are suppressed by the mass of the $W$
+boson and $m_b \ll M_W$.
+
+For the purposes of this document, we use the Froissart-bounded fit of the
+structure function $F_2^{\gamma p}$ from \citet{block2014}
+\begin{equation}
+  F_2^{\gamma p} (x, Q^2) = D(Q^2) (1 - x)^n \left[ C(Q^2)
+    + A(Q^2) \ln \frac{Q^2/x}{Q^2 + \mu^2}
+    + B(Q^2) \ln^2 \frac{Q^2/x}{Q^2 + \mu^2} \right],
+\end{equation}
+where
+\begin{align}
+  A(Q^2) &= a_0 + a_1 \ln \left(1 + \frac{Q^2}{\mu^2} \right)
+    + a_2 \ln^2 \left(1 + \frac{Q^2}{\mu^2} \right), \\
+  B(Q^2) &= b_0 + b_1 \ln \left(1 + \frac{Q^2}{\mu^2} \right)
+    + b_2 \ln^2 \left(1 + \frac{Q^2}{\mu^2} \right), \\
+  C(Q^2) &= c_0 + c_1 \ln \left(1 + \frac{Q^2}{\mu^2} \right), \\
+  D(Q^2) &= \frac{Q^2 (Q^2 + \lambda M^2)}{(Q^2 + M^2)^2},
+\end{align}
+and the values of the fit parameters are given in Table~\ref{table:fit}.
+\begin{table}
+  \caption{Fit values for the parameter of the structure function
+    $F_2^{\gamma p}$ from \citet{block2014}.}
+  \begin{center}
+    \begin{tabular}{lc}
+      \toprule
+      Parameters & Values \\
+      \midrule
+      $M^2$ & \SI{0.753(068)}{GeV^2} \\
+      $\mu^2$ & \SI{2.82(029)}{GeV^2} \\
+      $a_0$ & \num{8.205(4620)e-4} \\
+      $a_1$ & \num{-5.148(0819)e-2} \\
+      $a_2$ & \num{-4.725(1010)e-3} \\
+      $b_0$ & \num{2.217(0142)e-3} \\
+      $b_1$ & \num{1.244(0086)e-2} \\
+      $b_2$ & \num{5.958(2320)e-4} \\
+      $c_0$ & \num{0.255(0016)} \\
+      $c_1$ & \num{1.475(303)e-1} \\
+      $n$ & \num{11.49(099)} \\
+      $\lambda$ & \num{2.430(0153)} \\
+     \bottomrule
+    \end{tabular}
+  \end{center}
+  \label{table:fit}
+\end{table}
+
+\section{Kinematic relations of Bjorken $x$, inelasticity $y$ and momentum
+  transfer $Q^2$ with the angle $\theta$ between neutrino and charged lepton}
+The Bjorken scaling variable can be expressed as
+\begin{equation}
+  x = \frac{Q^2}{2 m y E_\nu},
+\end{equation}
+where $m$ is the nucleon mass and $y = (E - E')/E$ is the inelasticity, i.\,e.
+the relative energy transfer from the neutrino to the nucleon. The change of
+variables from $x, Q^2$ to $y, Q^2$ is therefore performed as
+\begin{equation}
+  \frac{d^2 \sigma_\text{CC}^{\nu (\overline \nu)}}{dy\ dQ^2} =
+  \frac{x}{y} \frac{d^2 \sigma_\text{CC}^{\nu (\overline \nu)}}{dx\ dQ^2}.
+\end{equation}
+The angle $\theta$ enters into the momentum transfer
+ $Q^2 = -(k - k')^2$, where $k, k'$ denote the 4-momenta of the neutrino and
+charged lepton, respectively, such that
+\begin{equation}
+  \cos \theta (E_\nu, y, Q^2) = 1 - \frac{Q^2}{2 E_\nu^2 (1 - y)}
+\end{equation}
+for lepton masses $m_l^2 \ll Q^2$.
+
+To determine the average scattering angle $\theta$ between neutrino and charged
+lepton as a function of neutrino energy, we have to calculate
+\begin{equation}
+  \langle \cos\theta\rangle = \frac{\int dy\ dQ^2\ \cos \theta
+    [d^2\sigma/(dy\ dQ^2)]}{\int dy\ dQ^2\ [d^2\sigma/(dy\ dQ^2)]};
+\end{equation}
+by analogously calculating $\langle \cos^2 \theta\rangle$, the scatter of the
+scattering angle can be determined as $\delta \cos \theta = \sqrt{\langle \cos^2
+\theta\rangle - \langle \cos \theta\rangle^2}$.
+
+To determine the average scattering angle as a function of the final muon
+energy, one has to introduce a prior on the neutrino energy and express the
+inelasticity via $y = (E_\nu - E_\mu)/E_\nu$; an obvious choice for the prior
+would be a power law $N(E_\nu) \propto E^{-\gamma}$ with spectral index $2 \geq
+\gamma < 4$.
+
+\section{Numerical results}
+
+\bibliography{kinematic}
+\end{document}
