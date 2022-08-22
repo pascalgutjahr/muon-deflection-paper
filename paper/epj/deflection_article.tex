@@ -87,7 +87,8 @@ natbib
 %      } % end of PACS codes
 } %end of abstract
 %
-
+\authorrunning{P. Gutjahr et al.}
+\titlerunning{Muon Deflection Simulation Using PROPOSAL}
 \maketitle
 %
 \section{Introduction}\label{sec:introduction}
@@ -153,12 +154,12 @@ $E_{\text{f}}$ can become lower.
 Since muons are unstable, a decay leads to a premature 
 stop, which is negligible for high energies \cite{phd_soedingrekso}.
 
-The deflections for stochastic interactions are parametrized by Van Ginneken 
+In PROPOSAL, the deflections for stochastic interactions are parametrized by Van Ginneken 
 in Ref.~\cite{Van_Ginneken} with a direct calculation of the deflection in 
 ionization using four-momentum conservation. 
 Furthermore, there are parametrizations for stochastic deflections given in Geant4 \cite{GEANT4} 
 for bremsstrahlung and photonuclear interaction, which 
-are also available in PROPOSAL.
+are also available.
 To estimate the deflection along 
 a continuous energy loss, multiple scattering described by Molière 
 \cite{moliere_scattering} and the Gaussian approximation by Highland 
@@ -243,7 +244,7 @@ Van Ginneken~\cite{Van_Ginneken}.
 The Gaussian 
 approximation \cite{HIGHLAND_1975} is set as multiple scattering. 
 Geant4 is another common toolkit to simulate the passage of particles through 
-matter. The simulation is very precise and especially 
+matter using the same cross section parametrizations except for photonuclear interaction~\cite{Borog:1975_inelastic}. The simulation is very precise and especially 
 made for simulations in particle detectors, but the computing is 
 intensive \cite{GEANT4}. 
 
@@ -254,7 +255,7 @@ $x$. Four different settings are studied in PROPOSAL to compare the results with
 the two multiple scattering methods and the different stochastic deflection parametrizations.
 The deflection angles are 
 similar in all cases. The 
-largest displacements are dominated by Geant4 and PROPOSAL with Molière scattering, which 
+largest displacements are exhibited by Geant4 and PROPOSAL with Molière scattering, which 
 leads to the largest deflections and thus to a larger displacement. 
 PROPOSAL with Highland scattering and MUSIC have less outliers, since large 
 deflections are neglected in the Gaussian approximation \cite{HIGHLAND_1975}. 
@@ -282,7 +283,7 @@ these two tools for all four settings and are therefore consistent.
     \caption{A comparison of the results of MUSIC, Geant4, and PROPOSAL is presented for $\num{e6}$ muons propagated with 
     $E_{\text{i}} = \SI{2}{\tera\electronvolt}$ over a distance of 
     $\SI{3}{\kilo\meter}$ in water. A $v_{\mathrm{cut}} = \num{e-3}$ is set. In PROPOSAL, 
-    bremsstrahlung and photonuclear interaction are parametrized either by 
+    bremsstrahlung and photonuclear interaction deflections are parametrized either by 
     Van Ginneken (vG) or as in Geant4. Both scattering methods are checked. 
     Left: The accumulated deflection $\theta_{\mathrm{acc}}$ in degree is very similar in all cases.
     Right: The lateral displacement $x$ in meter depends 
@@ -383,7 +384,8 @@ leads to smaller deflections. The result is presented in Figure~\ref{fig:akimenk
 \end{figure*}
 
 \subsection{Muon Deflection Impact on Angular Resolutions}
-For neutrino source searches based on entering muons, it is important to study the impact of the muon 
+For neutrino source searches based on muons entering the detector, 
+it is important to study the impact of the muon 
 deflection on the angular resolution to estimate whether or not this needs to be 
 taken into account as an additional source of uncertainty.
 For this purpose, four different initial energies 
@@ -494,8 +496,10 @@ resolution of KM3NeT.
 
 
 \begin{acknowledgement}
-  We acknowledge the funding by the Collaborative Research Center SFB $876$, SFB $1491$, 
-  and the Deutsche Forschungsgemeinschaft by the project SA~$3867/$2-1.
+  This work has been supported by the DFG, Collaborative Research Center SFB $876$
+  under the project C3 
+  (https://sfb876.tu-dortmund.de) and the SFB $1491$ (https://www.sfb1491.ruhr-uni-bochum.de).
+  We also acknowledge the funding by the DFG under the project number SA~$3867/$2-1.
 \end{acknowledgement}
 
 
