@@ -7,12 +7,13 @@ Using PROPOSAL" to the European Physics Journal C.
 We confirm that this work is original and has not been published in any other 
 journal. 
 
-
+This article will be of interest to astroparticle physicists and physicists 
+working at underground laboratories. 
 In this manuscript, the lepton propagator PROPOSAL is used to simulate 
-deflections of muons to estimate whether or not these deflections have to 
+deflections of muons to estimate whether these deflections have to 
 be taken into account as a systematic uncertainty on the angular 
-resolution of very large neutrino telescopes. To study this in more detail, 
-deflections on stochastic interactions are implemented in PROPOSAL recently. 
+resolution of very large volume neutrino telescopes. To study this in more detail, 
+deflections on stochastic interactions have been implemented in PROPOSAL recently. 
 The paper shows consistency with two other common simulation tools MUSIC 
 and Geant4 and two data-MC comparisons are performed with good agreement.
 Finally, an overview with angular resolutions 
@@ -21,11 +22,11 @@ muon deflections in dependency of the energy.
 On the one hand, it shows which experiments are already affected today, on the 
 other hand, it becomes clear how much the angular resolution can be improved in the 
 future without being affected by the muon deflections.
-Additionally, it has been found that the muon deflection primarily depend 
-on the final muon energy after the propagation - the initial muon energy is 
-negligible. The median muon deflection is fit by a polynomial and can be used to 
-estimate the deflection in dependency of the muon energy before the detector entry. 
-
+Additionally, it has been found that the muon deflection primarily depends 
+on the final muon energy after the propagation - the dependency of the initial 
+muon energy is negligible. The median muon deflection is fitted by a polynomial which 
+can be used to 
+estimate the deflection before the detector entry as a function of the muon energy. 
 
 Please address all correspondence to this paper to pascal.gutjahr@tu-dortmund.de.
 
