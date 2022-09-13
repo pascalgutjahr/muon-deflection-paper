@@ -11,6 +11,7 @@
 *.out
 *.synctex(busy)
 
+*.zip
 plots/
 data/
 
