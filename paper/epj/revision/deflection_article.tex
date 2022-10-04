@@ -54,6 +54,8 @@ sorting=none,
 natbib
 ]{biblatex}
 \addbibresource{lit.bib}
+
+\usepackage[T1]{fontenc}
 \usepackage{microtype}
 \usepackage{booktabs}
 
@@ -115,7 +117,7 @@ the paper is structured as follows: in section~\ref{sec:proposal},
 the lepton propagator PROPOSAL is briefly described. In section~\ref{sec:defl_per_int},
 PROPOSAL \cite{koehne2013proposal, dunsch_2018_proposal_improvements} is used to study the muon deflection per interaction.
 The accumulated deflection is analyzed and compared to the propagation codes
-MUSIC \cite{MUSIC} and \pascaledit{\textsc{Geant4}} \cite{GEANT4} and data from two experiments in section~\ref{sec:accum_defl}. The findings of this study
+MUSIC \pascaledit{\cite{MUSIC, comparison_MUSIC_GEANT4_2009}} and \pascaledit{\textsc{Geant4}} \pascaledit{\cite{GEANT4_standard, GEANT4}} and data from two experiments in section~\ref{sec:accum_defl}. The findings of this study
 are summarized in section~\ref{sec:conclusion}.
 
 \section{Overview of the Simulation Tool PROPOSAL}\label{sec:proposal}
@@ -154,18 +156,20 @@ maximum propagation distance $d_{\text{max}}$. If the last interaction of
 a propagation is sampled by a stochastic interaction, the true final energy 
 $E_{\text{f}}$ can become lower. 
 Since muons are unstable, a decay leads to a premature 
-stop, which is negligible for high energies \cite{phd_soedingrekso}.
+stop, which is negligible for high energies 
+\pascaldelete{\cite{phd_soedingrekso}}.
 
 In PROPOSAL, the deflections for stochastic interactions are parametrized by Van Ginneken 
 in Ref.~\cite{Van_Ginneken} with a direct calculation of the deflection in 
 ionization using four-momentum conservation. 
-Furthermore, there are parametrizations for stochastic deflections given in \pascaledit{\textsc{Geant4}} \cite{GEANT4} 
+Furthermore, there are parametrizations for stochastic deflections given in \pascaledit{\textsc{Geant4}} \pascaledit{\cite{GEANT4_standard, GEANT4}} 
 for bremsstrahlung and photonuclear interaction, which 
 are also available.
 To estimate the deflection along 
 a continuous energy loss, multiple scattering described by Molière 
-\cite{moliere_scattering} and the Gaussian approximation by Highland 
-can be chosen \cite{HIGHLAND_1975}. 
+\pascaledit{(MSM)} \cite{moliere_scattering} and the Gaussian approximation by 
+Highland \pascaledit{(MSH) \cite{HIGHLAND_1975}}
+can be chosen. 
 The orientation of the deflection in the plane perpendicular to the muon direction is 
 sampled uniformly between $0$ and $2\mathrm{\pi}$.
 The latest updates with a detailed description of the whole tool can be found 
@@ -201,19 +205,21 @@ Detailed values for each interaction type can be found in Table~\ref{tab:defl_pe
     The stochastic interactions 
     are stated as Bremsstrahlung (Brems), photonuclear interaction (Nuclint), electron pair production (Epair), and ionization (Ioniz).
     Two simulations 
-    are done to check both multiple scattering methods Molière and Highland.  
-    The total distribution is presented only for all stochastic processes including Molière's. Multiple scattering dominates the deflection. Details are presented in 
+    are done to check both multiple scattering methods Molière \pascaledit{(MSM)} 
+    and Highland \pascaledit{(MSH)}.  
+    The total distribution is presented only for all stochastic processes including \pascalreplace{Molière's}{MSM}. Multiple scattering dominates the deflection. Details are presented in 
     Table~\ref{tab:defl_per_int}.}
     \label{fig:defl_per_int}
 \end{figure*}
 
 \begin{table*}
     \centering 
-    \caption{The medians of deflections $\theta$ per interaction from Figure~\ref{fig:defl_per_int} are presented for each stochastic interaction type, the two multiple scattering methods, and the total distribution including Molière with the upper and lower limits of the $\SI{95}{\percent}$ 
+    \caption{The medians of deflections $\theta$ per interaction from Figure~\ref{fig:defl_per_int} are presented for each stochastic interaction type, the two multiple scattering methods, and the total distribution including 
+    \pascalreplace{Molière's}{MSM} with the upper and lower limits of the $\SI{95}{\percent}$ 
     central intervals. The largest median deflection is caused by photonuclear interaction.}
     \begin{tabular}{ccccccc}
         \toprule 
-        Brems & Nuclint & Epair & Ioniz & Molière & Highland & Total  \vspace{6pt} \\
+        Brems & Nuclint & Epair & Ioniz & \pascalreplace{Molière}{MSM} & \pascalreplace{Highland}{MSH} & Total  \vspace{6pt} \\
         $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-5}{\degree}$\\
         \midrule 
         $3.8_{-0.1}^{+297}$ & $11.7_{-4.2}^{+963}$ & $0.1_{-0.02}^{+4.2}$ & $4.4_{-0.1}^{+181}$& $1.2_{-0.05}^{+222}$ & $1.2_{-0.05}^{+225}$ & $0.4_{-0.02}^{+129}$\\ 
@@ -233,7 +239,7 @@ about the muon before the detector entry.
 
 \subsection{Comparison with MUSIC and \pascaledit{\textsc{Geant4}}}
 First, the deflections in PROPOSAL are compared to 
-the tools MUSIC \cite{MUSIC,comparison_MUSIC_GEANT4_2009} and \pascaledit{\textsc{Geant4}} \cite{GEANT4}.
+the tools MUSIC \pascaldelete{\cite{MUSIC,comparison_MUSIC_GEANT4_2009}} and \pascaledit{\textsc{Geant4}} \pascaldelete{\cite{GEANT4}}.
 MUSIC is a tool to simulate the propagation of muons 
 through media like rock and water considering the same energy losses as in 
 PROPOSAL. Also, the losses are divided into continuous and stochastic 
@@ -248,7 +254,7 @@ approximation \cite{HIGHLAND_1975} is set as multiple scattering.
 \pascaledit{\textsc{Geant4}} is another common toolkit to simulate the passage of particles through 
 matter using the same cross section parametrizations except for photonuclear interaction~\cite{Borog:1975_inelastic}. The simulation is very precise and especially 
 made for simulations in particle detectors, but the computing is 
-intensive \cite{GEANT4}. 
+intensive \pascaledit{\cite{GEANT4_standard, GEANT4}}. 
 
 A comparison of all three tools is shown in Figure~\ref{fig:compare_MUSIC} 
 for the 
@@ -286,10 +292,10 @@ these two tools for all four settings and are therefore consistent.
     $E_{\text{i}} = \SI{2}{\tera\electronvolt}$ over a distance of 
     $\SI{3}{\kilo\meter}$ in water. A $v_{\mathrm{cut}} = \num{e-3}$ is set. In PROPOSAL, 
     bremsstrahlung and photonuclear interaction deflections are parametrized either by 
-    Van Ginneken (vG) or as in \pascaledit{\textsc{Geant4}}. Both scattering methods are checked. 
+    Van Ginneken (vG) or as in \pascaledit{\textsc{Geant4}}. Both \pascalreplace{scattering methods}{multiple scattering by Molière (MSM) and Highland (MSH)} are checked. 
     Left: The accumulated deflection $\theta_{\mathrm{acc}}$ in degree is very similar in all cases.
     Right: The lateral displacement $x$ in meter depends 
-    on the scattering method. Molière scattering leads to larger distances.
+    on the scattering method. \pascalreplace{Molière scattering}{MSM} leads to larger distances.
     In the zoomed-in figure, the region around the mode of the distributions is presented. 
     The mode of \pascaledit{\textsc{Geant4}} is shifted to larger deflections.
     Detailed information are given in 
@@ -311,7 +317,8 @@ these two tools for all four settings and are therefore consistent.
     \begin{tabular}{l|cc|cccc}
         \toprule
         & MUSIC & \pascaledit{\textsc{Geant4}} & \multicolumn{4}{c}{PROPOSAL} \\
-        &  & & \multicolumn{2}{c}{Molière} & \multicolumn{2}{c}{Highland} \\
+        &  & & \multicolumn{2}{c}{\pascalreplace{Molière}{MSM}} & 
+        \multicolumn{2}{c}{\pascalreplace{Highland}{MSH}} \\
         &  &  & vG & \pascaledit{\textsc{Geant4}} & vG & \pascaledit{\textsc{Geant4}} \\
         \midrule
         $p_{\text{s}}\,/\,\si{\percent}$ & 77.9 & 79.3 &  \multicolumn{4}{c}{77.9}\\
@@ -351,7 +358,9 @@ The comparison is presented in Figure~\ref{fig:attwood_comparison}.
     The figure presents 
     the normalized counts in dependence of the projected scattering angle $\theta_{\mathrm{y}}$ in degree.
     In PROPOSAL, $100$ simulations each with $\num{e5}$ muons are performed for two different settings using the energy cut 
-    $v_{\mathrm{cut}} = \num{e-5}$. The blue points present the mean considering stochastic deflections and Molière scattering, the orange points
+    $v_{\mathrm{cut}} = \num{e-5}$. The blue points present the mean considering
+    stochastic deflections and Molière scattering \pascaledit{(MSM)}, the orange 
+    points
     present the mean taking into account only Molière scattering.   
     The uncertainties on the $x$--axis result due to the measured bin widths. The $y$--uncertainties are the standard deviations.   
     The deflections are  
@@ -379,7 +388,8 @@ leads to smaller deflections. The result is presented in Figure~\ref{fig:akimenk
     $\num{100}$ simulations each with $\num{31125}$ muons with 
     $E_{\mathrm{i}} = \SI{7.301}{\giga\electronvolt}$ are propagated through a $\SI{1.44}{\centi\meter}$ 
     copper layer using the energy cut 
-    $v_{\mathrm{cut}} = \num{e-5}$. The blue points present the mean considering stochastic deflections and Molière scattering, the orange points
+    $v_{\mathrm{cut}} = \num{e-5}$. The blue points present the mean considering stochastic deflections and Molière scattering \pascaledit{(MSM)}, 
+    the orange points
     present the mean taking into account only Molière scattering. The uncertainties on the $x$--axis result due to the measured bin widths. The $y$--uncertainties are the standard deviations for PROPOSAL and the Poisson errors with $\sqrt{N}$ for Akimenko, with $N$ as number of counts. More large deflections are simulated by PROPOSAL.
     Considering stochastic deflections has no significant impact.}
     \label{fig:akimenko_comparison}

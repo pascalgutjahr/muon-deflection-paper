@@ -13,7 +13,36 @@ Referee 1:
 
 Referee 2:
 Introduction:
+    - added link and standard reference
+    - use \textsc{Geant4}
 2. Overview of the Simulation Tool PROPOSAL 
+    - TODO: which energy cuts are chosen and why?!
+    - Ref. 16 (Soedingrekso) for muon decay -> semi-trivial -> removed Ref.
+    - TODO: Alameddine et al, this way is unusual
 3. Muon Deflection per Interaction 
+    - TODO: use deg instead of °
+    - I don't use [unit] because of the style guide in: https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf, Section 5.4
+    - Multiple Scattering (MS) - Multiple Scattering Molière (MSM) - 
+        Multiple Scattering Highland (MSH)
 4.1 Comparison with MUSIC and Geant4 
+    - moved [21] to introduction and removed references at the beginning of this    
+        subsection
+    - Detailed information in Table 2: 
+        1) There are no standard deviations given in Ref. [21]
+        2) TODO: The mean values of the angles and the deflections are very similar, 
+            which leads to the result, that all three simulations tools 
+            have a similar output referred to the deflection angle 
+            and the lateral displacement. Thus the results of PROPOSAL are 
+            consistent with the results of MUSIC and Geant4. In general, I mean 
+            the results of PROPOSAL are consistent with the mean values and 
+            the distributions.
+            ???Is this fine as an explanation???
 4.2 Data-MC Agreements and 4.3 Muon Deflection Impact on Angular Resolutions
+    - TODO: add Data-MC ratio plots
+    - TODO: add Geant4 comparison for Akimenko et al?
+    - TODO: add statement in discussion of Figure 5, that the presented data-MC 
+        agreements are very different to the used energy of the user's case
+    - TODO: Figure 5: explain, why energy range from 1 GeV to 10 PeV is chosen 
+    - TODO: parameter b seems to be compatible with 0 -> exclude or discuss this 
+    - TODO: Eq. (2) and (3). Mention explicitly, in which energy range this 
+        equation is valid
