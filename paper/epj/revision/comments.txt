@@ -1,15 +1,39 @@
 Author's comments
 
 Referee 1:
-1.
+1. 
+    - TODO: Muon tomography: mentioned only twice: remove it from the abstract 
+        or add 
+        discussion section for muon tomography.
 2.
+    - TODO: Figure 5 is not clear. What is not clear?
+    - TODO: Figure 5: add propagated distances (average)
+    - TODO: mention, that muons with a fixed final energy propagate various 
+        distances
 3.
+    - TODO: Figure 5 represents no realistic scenario. 
+    - TODO: Each detector is located in a different medium with a different 
+        thickness of matter -> zenith dependent -> add plot with muon deflections 
+        as a function of the final muon energy and thickness of matter (water)
+    - TODO: instead of fixed energies, use cosmic-ray spectrum or spectrum of 
+        an astrophysical neutrino source
+    - TODO: Do the same simulations with Geant4 and compare the total results 
 4.
+    - remove intensive computing
 5.
+    - TODO: 4.1: add short description of the simulation
 6.
+    - TODO: Table 1, caption and text: explain an interaction in the multiple scattering process 
 7.
+    - split in two sentences
 8.
+    - TODO: ?? Figure 3: proposal underestimates for 0 < theta < 2??
 9.
+    - TODO: Figure 4: mention, that there were 2 PROPOSAL simulations. The tails
+        of all distributions seem to be correlated, since the binning of the 
+        data points is shifted.
+    - TODO: Figure 3 and 4: at 0.5 degree, data and simulated curves are all 
+        changing their shape - why?
 
 Referee 2:
 Introduction:
@@ -20,7 +44,7 @@ Introduction:
     - Ref. 16 (Soedingrekso) for muon decay -> semi-trivial -> removed Ref.
     - TODO: Alameddine et al, this way is unusual
 3. Muon Deflection per Interaction 
-    - TODO: use deg instead of °
+    - use deg for 10^{} and ° for single numbers
     - I don't use [unit] because of the style guide in: https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf, Section 5.4
     - Multiple Scattering (MS) - Multiple Scattering Molière (MSM) - 
         Multiple Scattering Highland (MSH)
@@ -40,9 +64,14 @@ Introduction:
 4.2 Data-MC Agreements and 4.3 Muon Deflection Impact on Angular Resolutions
     - TODO: add Data-MC ratio plots
     - TODO: add Geant4 comparison for Akimenko et al?
-    - TODO: add statement in discussion of Figure 5, that the presented data-MC 
+    - added statement in discussion of Figure 5, that the presented data-MC 
         agreements are very different to the used energy of the user's case
-    - TODO: Figure 5: explain, why energy range from 1 GeV to 10 PeV is chosen 
-    - TODO: parameter b seems to be compatible with 0 -> exclude or discuss this 
-    - TODO: Eq. (2) and (3). Mention explicitly, in which energy range this 
-        equation is valid
+    - Figure 5: explain, why energy range from 1 GeV to 10 PeV is chosen 
+    - parameter b seems to be compatible with 0 -> there was a mistake! 
+        Additionally, the fit in the figure used a higher precision on the 
+        parameters. Now I mentioned 4 digits of the parameters and I changed 
+        the fit in plot, since the fit is slightly shifted with 3 digits per 
+        parameter. Now it is plot with exactly these parameters and not 
+        with the parameters of the higher precision. 
+    - Eq. (2) and (3): Mention explicitly, in which energy range this 
+        equation is valid: 1 GeV to 50 PeV

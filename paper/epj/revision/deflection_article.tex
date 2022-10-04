@@ -188,8 +188,8 @@ For this purpose, $\num{1000}$ muons are propagated from $E_{\text{i}} = \SI{1}{
 The deflections per interaction are presented 
 for each interaction type and the sum over all types in Figure~\ref{fig:defl_per_int}. 
 The size of individual deflections 
-extend over several orders of magnitude with a median of $\SI{3.9e-6}{\degree}$
-and a $\SI{95}{\percent}$ central interval of $[\SI{2.2e-7}{\degree}, \,\SI{1.3e-3}{\degree}]$. 
+extend over several orders of magnitude with a median of $\num{3.9e-6}\,\pascaledit{\text{deg}}$
+and a $\SI{95}{\percent}$ central interval of $[\num{2.2e-7}\,\pascaledit{\text{deg}}, \,\num{1.3e-3}\,\pascaledit{\text{deg}}]$. 
 It follows that the deflections are primarily dominated by multiple scattering, except for a few outliers caused by bremsstrahlung, which 
 allows very large energy losses and thus the largest deflections. 
 The largest median deflection with the highest $\SI{95}{\percent}$ interval results due to photonuclear interaction.
@@ -220,7 +220,7 @@ Detailed values for each interaction type can be found in Table~\ref{tab:defl_pe
     \begin{tabular}{ccccccc}
         \toprule 
         Brems & Nuclint & Epair & Ioniz & \pascalreplace{Molière}{MSM} & \pascalreplace{Highland}{MSH} & Total  \vspace{6pt} \\
-        $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-5}{\degree}$ & $\theta\,/\,\SI{e-5}{\degree}$\\
+        $\theta\,/\,\num{e-5}\,\pascaledit{\text{deg}}$ & $\theta\,/\,\num{e-5}\,\pascaledit{\text{deg}}$ & $\theta\,/\,\num{e-5}\,\pascaledit{\text{deg}}$ & $\theta\,/\,\num{e-5}\,\pascaledit{\text{deg}}$ & $\theta\,/\,\num{e-5}\,\pascaledit{\text{deg}}$ & $\theta\,/\,\num{e-5}\,\pascaledit{\text{deg}}$ & $\theta\,/\,\num{e-5}\,\pascaledit{\text{deg}}$\\
         \midrule 
         $3.8_{-0.1}^{+297}$ & $11.7_{-4.2}^{+963}$ & $0.1_{-0.02}^{+4.2}$ & $4.4_{-0.1}^{+181}$& $1.2_{-0.05}^{+222}$ & $1.2_{-0.05}^{+225}$ & $0.4_{-0.02}^{+129}$\\ 
         \bottomrule
@@ -253,8 +253,8 @@ The Gaussian
 approximation \cite{HIGHLAND_1975} is set as multiple scattering. 
 \pascaledit{\textsc{Geant4}} is another common toolkit to simulate the passage of particles through 
 matter using the same cross section parametrizations except for photonuclear interaction~\cite{Borog:1975_inelastic}. The simulation is very precise and especially 
-made for simulations in particle detectors, but the computing is 
-intensive \pascaledit{\cite{GEANT4_standard, GEANT4}}. 
+made for simulations in particle detectors \pascaldelete{but the computing is 
+intensive} \pascaledit{\cite{GEANT4_standard, GEANT4}}. 
 
 A comparison of all three tools is shown in Figure~\ref{fig:compare_MUSIC} 
 for the 
@@ -330,7 +330,7 @@ these two tools for all four settings and are therefore consistent.
     \label{tab:compare_MUSIC}
 \end{table*}
 
-\subsection{Data-MC Agreements}
+\subsection{Data--MC Agreements}
 In the following, two comparisons are performed with measured data for 
 different energies and media.
 A measurement of muon deflections in low-$Z$ materials was done by Attwood et al. \cite{attwood_2006}. 
@@ -338,8 +338,10 @@ From this it can be seen that for $Z < 4$ the scattering angle is overestimated
 by Molière scattering in \pascaledit{\textsc{Geant4}}. Hence, the lower scattering in PROPOSAL leads 
 to a better agreement especially in the region of outliers. The comparison is 
 done in liquid $\text{H}_2$ with a thickness of $\SI{109}{\milli\meter}$ and an 
-initial particle energy of $E_{\mathrm{i}} = \SI{199}{\mega\electronvolt}$, which 
-results via the energy-momentum relation of an in Ref.~\cite{attwood_2006} used beam momentum 
+initial particle energy of $E_{\mathrm{i}} = \SI{199}{\mega\electronvolt}$. 
+\pascaledit{This energy}  
+results via the energy-momentum relation of an in Ref.~\cite{attwood_2006} used 
+beam momentum 
 of $p = \SI[per-mode=symbol]{168.9}{\mega\electronvolt\per\clight}$. 
 In PROPOSAL, the simulations are done with two different energy cuts $v_{\mathrm{cut}} = \num{e-3}$ and $v_{\mathrm{cut}} = \num{e-5}$, 
 but there is no significant difference between the resulting deflections.
@@ -405,13 +407,15 @@ from $E_{\text{i}} = \SI{10}{\tera\electronvolt}$ to
 $E_{\text{i}} = \SI{10}{\peta\electronvolt}$ are used and the final 
 energy is set to $E_{\text{f,\,min}} \geq \SI{1}{\giga\electronvolt}$ with 
 $E_{\text{f,\,min}} < E_{\text{i}}$ for each simulation. 
+\pascaledit{This energy range covers the muon energies typically measured in 
+neutrino experiments.}
 In total $\num{44}$ simulations are performed. 
 To compare the results of these simulations, the medians of the deflection distributions 
 with a $\SI{99}{\percent}$ central interval are presented in 
 Figure~\ref{fig:fit_median}.
 The lower the final muon energy, the larger the accumulated deflection. 
 For energies $E_{\text{f}} = \SI{1}{\peta\electronvolt}$, the median deflection 
-is $\SI{e-4}{\degree}$. For energies $E_{\text{f}} = \SI{100}{\giga\electronvolt}$, 
+is $\num{e-4}\,\pascaledit{\text{deg}}$. For energies $E_{\text{f}} = \SI{100}{\giga\electronvolt}$, 
 angles larger than $\SI{1}{\degree}$ are possible. 
 For energies  
 $E_{\text{f}} \leq \SI{1}{\tera\electronvolt}$, 
@@ -444,17 +448,25 @@ purpose, a polynomial of degree three as
     \label{eqn:fit_median}
 \end{equation} 
 can be used with the parameters 
+\pascaledit{
 \begin{align*}
-    a =& +0.018\pm 0.002\,,  & c =& +0.093\pm 0.053\,,\\
-    b =& -0.003\pm 0.019\,,  & d =& +0.073\pm 0.040\,,
+        a =& +0.0176\pm 0.0018\,,  & c =& +0.0929\pm 0.0527\,,\\
+        b =& -0.2328\pm 0.0185\,,  & d =& +0.0726\pm 0.0404\,,
 \end{align*}
+}
 in the logarithmic space via 
 \begin{align}
     g(x) =& 10^{f(x)}\,, & x =& \log_{10}\left(\frac{E_{\text{f}}}{\si{\giga\electronvolt}}\right)\,.
 \end{align}
 In general, the function $f(x)$ in Eq.~\eqref{eqn:fit_median} describes the median 
 deflection of a muon after a propagated distance in ice for a given, respectively measured energy 
-to estimate the deflection before the detector entry.
+to estimate the deflection before the detector entry. 
+\pascaledit{This equation is valid for muon energies between 
+$\SI{1}{\giga\electronvolt}$ and $\SI{50}{\peta\electronvolt}$. 
+Basically, it should be mentioned here that the data--MC comparisons shown 
+earlier are for energies of $E_{\mathrm{i}} = \SI{199}{\mega\electronvolt}$ and 
+$E_{\mathrm{i}} = \SI{7.3}{\giga\electronvolt}$, which are much lower than the 
+energies in these simulations.}
 
 \begin{figure*}
     \centering 
