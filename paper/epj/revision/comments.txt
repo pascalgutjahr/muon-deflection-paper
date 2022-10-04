@@ -1,0 +1,19 @@
+Author's comments
+
+Referee 1:
+1.
+2.
+3.
+4.
+5.
+6.
+7.
+8.
+9.
+
+Referee 2:
+Introduction:
+2. Overview of the Simulation Tool PROPOSAL 
+3. Muon Deflection per Interaction 
+4.1 Comparison with MUSIC and Geant4 
+4.2 Data-MC Agreements and 4.3 Muon Deflection Impact on Angular Resolutions
