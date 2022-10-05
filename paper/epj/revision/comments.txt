@@ -23,7 +23,8 @@ Referee 1:
 5.
     - 4.1: added short description of the simulation
 6.
-    - TODO: Table 1, caption and text: explain an interaction in the multiple scattering process 
+    - Figure 1, caption and text: explain an interaction in the multiple scattering 
+        process 
 7.
     - split in two sentences
 8.
@@ -41,7 +42,8 @@ Introduction:
     - added link and standard reference
     - use \textsc{Geant4}
 2. Overview of the Simulation Tool PROPOSAL 
-    - TODO: which energy cuts are chosen and why?!
+    - TODO: which energy cuts are chosen and why?! --> Typically we use 0.05 and 
+        1e-3 --> do we have any Ref.?!
     - Ref. 16 (Soedingrekso) for muon decay -> semi-trivial -> removed Ref.
     - TODO: Alameddine et al, this way is unusual
 3. Muon Deflection per Interaction 
@@ -63,7 +65,7 @@ Introduction:
             the distributions.
             ???Is this fine as an explanation???
 4.2 Data-MC Agreements and 4.3 Muon Deflection Impact on Angular Resolutions
-    - TODO: add Data-MC ratio plots
+    - added Data-MC ratio plots
     - TODO: add Geant4 comparison for Akimenko et al?
     - added statement in discussion of Figure 5, that the presented data-MC 
         agreements are very different to the used energy of the user's case
