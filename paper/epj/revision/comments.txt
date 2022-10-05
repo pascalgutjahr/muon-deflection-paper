@@ -21,19 +21,20 @@ Referee 1:
 4.
     - remove intensive computing
 5.
-    - TODO: 4.1: add short description of the simulation
+    - 4.1: added short description of the simulation
 6.
     - TODO: Table 1, caption and text: explain an interaction in the multiple scattering process 
 7.
     - split in two sentences
 8.
-    - TODO: ?? Figure 3: proposal underestimates for 0 < theta < 2??
+    - Figure 3: proposal underestimates for 0 < theta < 2 and for 3 < theta < 6
 9.
-    - TODO: Figure 4: mention, that there were 2 PROPOSAL simulations. The tails
+    - Figure 4: mention, that there were 2 PROPOSAL simulations. The tails
         of all distributions seem to be correlated, since the binning of the 
-        data points is shifted.
+        data points is shifted to wider bins
     - TODO: Figure 3 and 4: at 0.5 degree, data and simulated curves are all 
-        changing their shape - why?
+        changing their shape - why? --> have a look at the Molière 
+        parametrization --> too simple to describe the data perfectly?
 
 Referee 2:
 Introduction:

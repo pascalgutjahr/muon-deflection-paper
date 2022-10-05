@@ -259,7 +259,11 @@ intensive} \pascaledit{\cite{GEANT4_standard, GEANT4}}.
 A comparison of all three tools is shown in Figure~\ref{fig:compare_MUSIC} 
 for the 
 accumulated deflection angle $\theta_{\text{acc}}$ and the lateral displacement
-$x$. Four different settings are studied in PROPOSAL to compare the results with 
+$x$. 
+\pascaledit{The propagation of $\num{1000000}$ muons with an 
+initial energy of $E_{\mathrm{i}} = \SI{2}{\tera\electronvolt}$ is simulated 
+in water with a maximum propagation distance of $\SI{3}{\kilo\meter}$.}
+Four different settings are studied in PROPOSAL to compare the results with 
 the two multiple scattering methods and the different stochastic deflection parametrizations.
 The deflection angles are 
 similar in all cases. The 
@@ -350,7 +354,7 @@ The comparison is presented in Figure~\ref{fig:attwood_comparison}.
 \begin{figure*}
     \centering 
     % \resizebox{0.48\textwidth}{!}{%
-    \includegraphics{figures/attwood_comparison_moliere_199MeV_final_multi_mean_deg.pdf}
+    \includegraphics{figures/attwood_comparison_moliere_199MeV_final_multi_mean_deg_ratio.pdf}
     % }
     \caption{
     Muons are 
@@ -366,7 +370,9 @@ The comparison is presented in Figure~\ref{fig:attwood_comparison}.
     present the mean taking into account only Molière scattering.   
     The uncertainties on the $x$--axis result due to the measured bin widths. The $y$--uncertainties are the standard deviations.   
     The deflections are  
-    underestimated in PROPOSAL, except at $\theta_{\mathrm{y}} \approx \SI{0}{\degree}$. At deflections $\SI{2}{\degree} < \theta_{\mathrm{y}} < \SI{5}{\degree}$, 
+    underestimated in PROPOSAL, except at $\theta_{\mathrm{y}} \approx 
+    \SI{0}{\degree}$ \pascaledit{and at $\theta_{\mathrm{y}} \approx 
+    \SI{3}{\degree}$}. At deflections $\SI{2}{\degree} < \theta_{\mathrm{y}} < \SI{5}{\degree}$, 
     the result seems to be more accurate than \pascaledit{\textsc{Geant4}}'s. The consideration of the stochastic deflections shows no significant influence.}
     \label{fig:attwood_comparison}
 \end{figure*}
@@ -383,16 +389,19 @@ leads to smaller deflections. The result is presented in Figure~\ref{fig:akimenk
 \begin{figure*}
     \centering 
     % \resizebox{0.48\textwidth}{!}{%
-    \includegraphics{figures/akimenko_comparison_moliere_E7301MeV_final_multi_mean_deg.pdf}
+    \includegraphics{figures/akimenko_comparison_moliere_E7301MeV_final_multi_mean_deg_ratio.pdf}
     % }
-    \caption{A comparison between two PROPOSAL settings and measured data by Akimenko et al. \cite{akimenko_1984} 
+    \caption{A comparison between two PROPOSAL \pascalreplace{settings}{simulations}
+    and measured data by Akimenko et al. \cite{akimenko_1984} 
     is presented for the normalized counts in dependence of the projected scattering angle $\theta_{\mathrm{y}}$ in degree.
     $\num{100}$ simulations each with $\num{31125}$ muons with 
     $E_{\mathrm{i}} = \SI{7.301}{\giga\electronvolt}$ are propagated through a $\SI{1.44}{\centi\meter}$ 
     copper layer using the energy cut 
-    $v_{\mathrm{cut}} = \num{e-5}$. The blue points present the mean considering stochastic deflections and Molière scattering \pascaledit{(MSM)}, 
+    $v_{\mathrm{cut}} = \num{e-5}$. The blue points present the mean 
+    \pascaledit{of the simulation} considering stochastic deflections and Molière scattering \pascaledit{(MSM)}, 
     the orange points
-    present the mean taking into account only Molière scattering. The uncertainties on the $x$--axis result due to the measured bin widths. The $y$--uncertainties are the standard deviations for PROPOSAL and the Poisson errors with $\sqrt{N}$ for Akimenko, with $N$ as number of counts. More large deflections are simulated by PROPOSAL.
+    present the mean \pascaledit{of the simulation} taking into account only 
+    Molière scattering. The uncertainties on the $x$--axis result due to the measured bin widths. The $y$--uncertainties are the standard deviations for PROPOSAL and the Poisson errors with $\sqrt{N}$ for Akimenko, with $N$ as number of counts. More large deflections are simulated by PROPOSAL.
     Considering stochastic deflections has no significant impact.}
     \label{fig:akimenko_comparison}
 \end{figure*}
