@@ -1,0 +1,7 @@
+# Macro file for example B1 test
+
+/run/initialize
+/tracking/verbose 1
+/gun/particle mu-
+/gun/energy 1 TeV
+/run/beamOn 1

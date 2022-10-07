@@ -1,8 +1,0 @@
-/Users/pascalgutjahr/Documents/muon-deflection-paper/deflection/Geant4/B1_macro-build/CMakeFiles/install/local.dir
-/Users/pascalgutjahr/Documents/muon-deflection-paper/deflection/Geant4/B1_macro-build/CMakeFiles/install/strip.dir
-/Users/pascalgutjahr/Documents/muon-deflection-paper/deflection/Geant4/B1_macro-build/CMakeFiles/install.dir
-/Users/pascalgutjahr/Documents/muon-deflection-paper/deflection/Geant4/B1_macro-build/CMakeFiles/list_install_components.dir
-/Users/pascalgutjahr/Documents/muon-deflection-paper/deflection/Geant4/B1_macro-build/CMakeFiles/rebuild_cache.dir
-/Users/pascalgutjahr/Documents/muon-deflection-paper/deflection/Geant4/B1_macro-build/CMakeFiles/edit_cache.dir
-/Users/pascalgutjahr/Documents/muon-deflection-paper/deflection/Geant4/B1_macro-build/CMakeFiles/B1.dir
-/Users/pascalgutjahr/Documents/muon-deflection-paper/deflection/Geant4/B1_macro-build/CMakeFiles/exampleB1.dir

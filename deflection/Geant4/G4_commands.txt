@@ -8,6 +8,8 @@ geant4-v11.0.0  geant4-v11.0.0-build
 
 $ cd /path/to/geant4-v11.0.0-build
 $ cmake -DCMAKE_INSTALL_PREFIX=/path/to/geant4-v11.0.0-install /path/to/geant4-v11.0.0
+# my prefix path: /usr/local/
+# my installation path: /Users/pascalgutjahr/Documents/Geant4/installation
 
 $ cd /path/to/geant4-v11.0.0-build
 $ cmake -DGEANT4_INSTALL_DATA=ON .
@@ -28,6 +30,9 @@ $ ./exampleB1
 
 ### Execute macro program ###
 $ ./exampleB1  run1.mac
+# save output into file 
+$ ./exampleB1  exampleB1.in > exampleB1.out
+
 
 ### Execute interactive program ###
 $ ./exampleB1 
