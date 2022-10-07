@@ -1,0 +1,41 @@
+### Installation ###
+https://geant4-userdoc.web.cern.ch/UsersGuides/InstallationGuide/html/gettingstarted.html
+
+$ cd /path/to
+$ mkdir geant4-v11.0.0-build
+$ ls
+geant4-v11.0.0  geant4-v11.0.0-build
+
+$ cd /path/to/geant4-v11.0.0-build
+$ cmake -DCMAKE_INSTALL_PREFIX=/path/to/geant4-v11.0.0-install /path/to/geant4-v11.0.0
+
+$ cd /path/to/geant4-v11.0.0-build
+$ cmake -DGEANT4_INSTALL_DATA=ON .
+
+$ make -jN # N: number of cpu cores
+
+$ make install
+
+### Make executable program ###
+https://geant4-userdoc.web.cern.ch/UsersGuides/ForApplicationDeveloper/html/GettingStarted/makeFile.html
+
+$ mkdir B1-build
+$ cd $HOME/B1-build
+$ cmake -DCMAKE_PREFIX_PATH=/home/you/geant4-install $HOME/B1
+# my prefix path: /usr/local/
+$ make -jN
+$ ./exampleB1
+
+### Execute macro program ###
+$ ./exampleB1  run1.mac
+
+### Execute interactive program ###
+$ ./exampleB1 
+Idle> /tracking/verbose 1
+Idle> /gun/particle mu+
+Idle> /gun/energy 10 GeV
+Idle> /run/beamOn 1
+Idle> /gun/particle proton
+Idle> /gun/energy 100 MeV
+Idle> /run/beamOn 3
+Idle> exit
