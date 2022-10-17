@@ -10,7 +10,7 @@
 *.dvi
 *.out
 *.synctex(busy)
-
+*build*/
 *.zip
 plots/
 data/
