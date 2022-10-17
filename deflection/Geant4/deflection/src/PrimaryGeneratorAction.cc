@@ -100,7 +100,6 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
      "MyCode0002",JustWarning,msg);
   }
 
-  G4double size = 0.5;
   G4double x0 = 0; // size * envSizeXY;
   G4double y0 = 0; // size * envSizeXY;
   G4double z0 = 0; // -1 * envSizeZ;
