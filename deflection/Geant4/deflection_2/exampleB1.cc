@@ -51,7 +51,10 @@ int main(int argc,char** argv)
   // clear data file
   std::ofstream fw;
   fw.open("../data/deflection_2/data.txt", std::ofstream::out | std::ofstream::trunc);
-  fw << "x, y, z, TrackLength, TrackID, ParentID" << G4endl;
+  fw << 
+  "z, px, py, pz"
+  // "x, y, z, TrackLength, TrackID, ParentID, px, py, pz" 
+  << G4endl;
   fw.close();
 
   // Detect interactive mode (if no arguments) and define UI session
