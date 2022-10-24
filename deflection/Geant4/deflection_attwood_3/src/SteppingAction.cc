@@ -65,7 +65,7 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
   auto track = step->GetTrack();
   // G4cout << track->GetPosition().z() << G4endl;
   //open file for writing
-  std::ofstream fw("../data/data_attwood/data_n2.txt", std::ios_base::app); //std::ofstream::out);
+  std::ofstream fw("../data/data_attwood/data_3_n2.txt", std::ios_base::app); //std::ofstream::out);
   if (fw.is_open()) {
     if ( (track->GetParentID() == 0) && (fabs(track->GetPosition().z() - 10.9) < 0.000001) ) {
       fw << 

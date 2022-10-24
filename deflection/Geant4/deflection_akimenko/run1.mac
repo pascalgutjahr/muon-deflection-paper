@@ -16,7 +16,7 @@
 # /tracking/verbose 1
 # 
 /gun/particle mu-
-/gun/energy 168.9 MeV # 199 MeV
+/gun/energy 7.3 GeV
 # /tracking/verbose 2
 #
-/run/beamOn 200000
+/run/beamOn 311250

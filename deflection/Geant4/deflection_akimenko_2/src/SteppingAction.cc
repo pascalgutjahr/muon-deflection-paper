@@ -65,9 +65,9 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
   auto track = step->GetTrack();
   // G4cout << track->GetPosition().z() << G4endl;
   //open file for writing
-  std::ofstream fw("../data/data_attwood/data_n2.txt", std::ios_base::app); //std::ofstream::out);
+  std::ofstream fw("../data/data_akimenko/data_2_n10.txt", std::ios_base::app); //std::ofstream::out);
   if (fw.is_open()) {
-    if ( (track->GetParentID() == 0) && (fabs(track->GetPosition().z() - 10.9) < 0.000001) ) {
+    if ( (track->GetParentID() == 0) && (fabs(track->GetPosition().z() - 14.4) < 0.000001) ) {
       fw << 
       // track->GetPosition().x() << ", " << 
       // track->GetPosition().y() << ", " << 
@@ -78,6 +78,8 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
       track->GetMomentumDirection().x() << ", " <<
       track->GetMomentumDirection().y() << ", " <<
       track->GetMomentumDirection().z() << G4endl;
+      // track->GetVertexMomentumDirection() << ", " << 
+      // step->GetDeltaMomentum() << G4endl;
     } 
   } else G4cout << "Error with opening file" << G4endl;
 
