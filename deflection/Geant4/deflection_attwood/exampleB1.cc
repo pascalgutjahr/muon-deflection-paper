@@ -33,8 +33,8 @@
 #include "G4RunManagerFactory.hh"
 #include "G4SteppingVerbose.hh"
 #include "G4UImanager.hh"
-// #include "QBBC.hh"
-#include "PhysicsList.hh"
+#include "QBBC.hh"
+// #include "PhysicsList.hh"
 
 #include "G4VisExecutive.hh"
 #include "G4UIExecutive.hh"
@@ -51,7 +51,10 @@ int main(int argc,char** argv)
   // clear data file
   std::ofstream fw;
   fw.open("../data/data_attwood.txt", std::ofstream::out | std::ofstream::trunc);
-  fw << "x, y, z, TrackLength, TrackID, ParentID" << G4endl;
+  fw << 
+  "z, px, py, pz"
+  // "x, y, z, TrackLength, TrackID, ParentID" 
+  << G4endl;
   fw.close();
 
   // Detect interactive mode (if no arguments) and define UI session
@@ -77,10 +80,10 @@ int main(int argc,char** argv)
   runManager->SetUserInitialization(new DetectorConstruction());
 
   // Physics list
-  // G4VModularPhysicsList* physicsList = new QBBC;
-  // physicsList->SetVerboseLevel(1);
-  // runManager->SetUserInitialization(physicsList);
-  runManager->SetUserInitialization(new PhysicsList());
+  G4VModularPhysicsList* physicsList = new QBBC;
+  physicsList->SetVerboseLevel(1);
+  runManager->SetUserInitialization(physicsList);
+  // runManager->SetUserInitialization(new PhysicsList());
 
 
   // User action initialization

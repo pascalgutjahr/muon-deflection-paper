@@ -25,4 +25,5 @@
 # /gun/energy 199 MeV
 # /tracking/verbose 2
 #
-/run/beamOn 31125
+/run/beamOn 311250 
+# 31125

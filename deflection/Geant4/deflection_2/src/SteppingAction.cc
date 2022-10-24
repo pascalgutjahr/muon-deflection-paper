@@ -63,16 +63,23 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
   // G4cout << track->GetPosition() << G4endl << track->GetTrackLength() << G4endl << track->GetTrackID() << G4endl << track->GetParentID() << G4endl;
 
   auto track = step->GetTrack();
+  // G4cout << track->GetPosition().z() << G4endl;
   //open file for writing
   std::ofstream fw("../data/deflection_2/data.txt", std::ios_base::app); //std::ofstream::out);
   if (fw.is_open()) {
-    if (track->GetParentID() == 0) {
+    if ( (track->GetParentID() == 0) && (fabs(track->GetPosition().z() - 14.4) < 0.000001) ) {
       fw << 
-      track->GetPosition().x() << ", " << 
-      track->GetPosition().y() << ", " << 
-      track->GetPosition().z() << ", " << track->GetTrackLength() << ", " << 
-      track->GetTrackID() << ", " << 
-      track->GetParentID() << G4endl;
+      // track->GetPosition().x() << ", " << 
+      // track->GetPosition().y() << ", " << 
+      track->GetPosition().z() << ", " << 
+      // track->GetTrackLength() << ", " << 
+      // track->GetTrackID() << ", " << 
+      // track->GetParentID() << ", " << 
+      track->GetMomentumDirection().x() << ", " <<
+      track->GetMomentumDirection().y() << ", " <<
+      track->GetMomentumDirection().z() << G4endl;
+      // track->GetVertexMomentumDirection() << ", " << 
+      // step->GetDeltaMomentum() << G4endl;
     } 
   } else G4cout << "Error with opening file" << G4endl;
 
