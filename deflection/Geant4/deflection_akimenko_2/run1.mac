@@ -6,9 +6,14 @@
 # Change the default number of workers (in multi-threading mode) 
 #/run/numberOfThreads 4
 #
+
+# /testem/phys/addPhysics emstandard_opt3
+
 # Initialize kernel
 /run/initialize
-#
+
+# /run/setCut 1 mm
+
 /control/verbose 2
 # /run/verbose 2
 /run/printProgress 1000
@@ -16,7 +21,9 @@
 # /tracking/verbose 1
 # 
 /gun/particle mu-
-/gun/energy 168.9 MeV # 199 MeV
+/gun/energy 7.3 GeV
+# /gun/energy 199 MeV
 # /tracking/verbose 2
 #
-/run/beamOn 200000
+/run/beamOn 311250 
+# 31125

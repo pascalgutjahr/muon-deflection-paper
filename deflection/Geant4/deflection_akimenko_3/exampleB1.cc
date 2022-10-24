@@ -33,7 +33,7 @@
 #include "G4RunManagerFactory.hh"
 #include "G4SteppingVerbose.hh"
 #include "G4UImanager.hh"
-#include "QBBC.hh"
+#include "FTFP_BERT.hh"
 
 #include "G4VisExecutive.hh"
 #include "G4UIExecutive.hh"
@@ -49,9 +49,8 @@ int main(int argc,char** argv)
 {
   // clear data file
   std::ofstream fw;
-  fw.open("../data/data_attwood/data_n2.txt", std::ofstream::out | std::ofstream::trunc);
-  fw << 
-  "z, px, py, pz"
+  fw.open("../data/data_akimenko/data_3_n10.txt", std::ofstream::out | std::ofstream::trunc);
+  fw << "z, px, py, pz" 
   // "x, y, z, TrackLength, TrackID, ParentID" 
   << G4endl;
   fw.close();
@@ -79,7 +78,7 @@ int main(int argc,char** argv)
   runManager->SetUserInitialization(new DetectorConstruction());
 
   // Physics list
-  G4VModularPhysicsList* physicsList = new QBBC;
+  G4VModularPhysicsList* physicsList = new FTFP_BERT;
   physicsList->SetVerboseLevel(1);
   runManager->SetUserInitialization(physicsList);
 

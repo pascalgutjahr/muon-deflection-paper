@@ -49,9 +49,8 @@ int main(int argc,char** argv)
 {
   // clear data file
   std::ofstream fw;
-  fw.open("../data/data_attwood/data_n2.txt", std::ofstream::out | std::ofstream::trunc);
-  fw << 
-  "z, px, py, pz"
+  fw.open("../data/data_akimenko/data_n10.txt", std::ofstream::out | std::ofstream::trunc);
+  fw << "z, px, py, pz" 
   // "x, y, z, TrackLength, TrackID, ParentID" 
   << G4endl;
   fw.close();
