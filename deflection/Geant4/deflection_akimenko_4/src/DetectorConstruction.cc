@@ -62,7 +62,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
   // Envelope parameters
   //
-  G4double env_sizeXY = 20*cm, env_sizeZ = 25*cm;
+  G4double env_sizeXY = 20*cm, env_sizeZ = 100*cm;
   G4Material* env_mat = nist->FindOrBuildMaterial("G4_WATER");
 
   // Option to switch on/off checking of volumes overlaps
@@ -148,39 +148,25 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
   //
   // Shape 2
-  
-  // liquid H2
-  // G4int ncomponents, natoms;
-  G4String name, symbol;
-  G4double z;
-  // G4double a = 1.01*g/mole; 
-  
-  G4double density = 0.07085*g/cm3; 
-  // G4Element* elH = new G4Element("Hydrogen",symbol="H",z=1.,a);
-  // G4Material* LH2 = new G4Material(name="LiquidH2", density, ncomponents=1);
-  // LH2->AddElement(elH, natoms=2);
-
-  G4double a = 2.016*g/mole;
-  G4double temperature = 20*kelvin;
-  G4Material* LH2 = new G4Material(name="LiquidH2", z=2., a, density, kStateGas, temperature);
-  
+  //
+  G4Material* CuTarget = nist->FindOrBuildMaterial("G4_Cu");
   G4ThreeVector posTarget = G4ThreeVector(0, 0, 0);
   
   G4double box_sizeXY = 20*cm;
-  G4double box_sizeZ = 2*10.9*cm;
+  G4double box_sizeZ = 2*1.44*cm;
 
-  G4Box* solidLH2 = new G4Box("LiquidH2Box", 0.5*box_sizeXY, 0.5*box_sizeXY, 0.5*box_sizeZ);
+  G4Box* solidCu = new G4Box("CopperBox", 0.5*box_sizeXY, 0.5*box_sizeXY, 0.5*box_sizeZ);
   
 
   G4LogicalVolume* logicShape2 =
-    new G4LogicalVolume(solidLH2,             //its solid
-                        LH2,          //its material
-                        "liquidH2 Box");           //its name
+    new G4LogicalVolume(solidCu,             //its solid
+                        CuTarget,          //its material
+                        "Copper Box");           //its name
 
   new G4PVPlacement(0,                       //no rotation
                     posTarget,               //at position
                     logicShape2,             //its logical volume
-                    "H2 Box",                //its name
+                    "Cu Box",                //its name
                     logicEnv,                //its mother  volume
                     false,                   //no boolean operation
                     0,                       //copy number
