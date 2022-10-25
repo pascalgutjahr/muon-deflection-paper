@@ -62,7 +62,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
   // Envelope parameters
   //
-  G4double env_sizeXY = 20*cm, env_sizeZ = 10*cm;
+  G4double env_sizeXY = 20*cm, env_sizeZ = 25*cm;
   G4Material* env_mat = nist->FindOrBuildMaterial("G4_WATER");
 
   // Option to switch on/off checking of volumes overlaps
@@ -167,7 +167,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4ThreeVector posTarget = G4ThreeVector(0, 0, 0);
   
   G4double box_sizeXY = 20*cm;
-  G4double box_sizeZ = 2*1.09*cm;
+  G4double box_sizeZ = 2*10.9*cm;
 
   G4Box* solidLH2 = new G4Box("LiquidH2Box", 0.5*box_sizeXY, 0.5*box_sizeXY, 0.5*box_sizeZ);
   

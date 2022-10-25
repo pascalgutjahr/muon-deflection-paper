@@ -149,6 +149,9 @@ as continuous energy loss.
 The methodical uncertainties are small 
 for a relative energy cut $v_{\mathrm{cut}}\ll 1$, however, using a small energy 
 cut increases the runtime.
+\pascaledit{Typically, energy cuts of $v_{\mathrm{cut}} = \num{0.05}$ and 
+$e_{\mathrm{cut}} = \SI{500}{\mega\electronvolt}$ are chosen which enable 
+accurate propagations at low runtimes.}
 The 
 propagation process is defined by an initial muon energy $E_{\text{i}}$ and 
 two stopping criteria -- a final energy $E_{\text{f,\,min}}$ and a 
@@ -356,6 +359,10 @@ beam momentum
 of $p = \SI[per-mode=symbol]{168.9}{\mega\electronvolt\per\clight}$. 
 In PROPOSAL, the simulations are done with two different energy cuts $v_{\mathrm{cut}} = \num{e-3}$ and $v_{\mathrm{cut}} = \num{e-5}$, 
 but there is no significant difference between the resulting deflections.
+\pascaledit{Even though in the logarithmic figure the simulation date agree well 
+with the measured data, it is clear from the data--MC ratio that the deviations 
+are up to $\SI{200}{\percent}$ in some cases. Thus, the deflections are described 
+correctly only in a first approximation.}
 The comparison is presented in Figure~\ref{fig:attwood_comparison}.
 
 \begin{figure*}
@@ -392,15 +399,22 @@ in comparison with Molière scattering only are checked.
 Neither between the two energy cuts, nor when using the stochastic deflection a significant difference occurs. 
 PROPOSAL simulates more large deflections than observed in these data. This observation differs from the comparison with Attwood, 
 in which less higher deflections are simulated. In general, the higher muon energy 
-leads to smaller deflections. The result is presented in Figure~\ref{fig:akimenko_comparison}.
+leads to smaller deflections. 
+\pascaledit{Also a simulation with \textsc{Geant4} $\text{v}11.0.3$ using the 
+default settings is performed. At angles larger than $\SI{0.2}{\degree}$, 
+\textsc{Geant4} simulates less large deflections than PROPOSAL and 
+less than expected in the data. Similar to the comparison by Attwood, 
+data--MC mismatches larger than $\SI{100}{\percent}$ are observed.}  
+The result is presented in Figure~\ref{fig:akimenko_comparison}.
 \begin{figure*}
     \centering 
     % \resizebox{0.48\textwidth}{!}{%
-    \includegraphics{figures/akimenko_comparison_moliere_E7301MeV_final_multi_mean_deg_ratio.pdf}
+    \includegraphics{figures/akimenko_comparison_moliere_E7301MeV_final_multi_mean_deg_ratio_G4_v1_final.pdf}
     % }
     \caption{A comparison between two PROPOSAL \pascalreplace{settings}{simulations}
     and measured data by Akimenko et al. \cite{akimenko_1984} 
     is presented for the normalized counts in dependence of the projected scattering angle $\theta_{\mathrm{y}}$ in degree.
+    \pascaledit{Deflections are simulated with \textsc{Geant4} $\text{v}11.0.3$ as well.}
     $\num{100}$ simulations each with $\num{31125}$ muons with 
     $E_{\mathrm{i}} = \SI{7.301}{\giga\electronvolt}$ are propagated through a $\SI{1.44}{\centi\meter}$ 
     copper layer using the energy cut 
@@ -528,7 +542,12 @@ The results of PROPOSAL are compared with the common tools MUSIC and
 deflections fits the measured data better with PROPOSAL, than \pascaledit{\textsc{Geant4}}. 
 A second data comparison points out that PROPOSAL simulates more 
 large deflections at higher muon energies and less at lower 
-energies.
+energies. 
+\pascaledit{In the data--MC ratio deviations up 
+to a factor of $3$ are observed. 
+This points out that still improvements are required in the deflection 
+parameterizations and 
+in the multiple scattering, respectively.}
 
 The median accumulated deflection depends primarily on the final muon energy, which can be interpreted as the muon energy at detector entry 
 in neutrino telescopes or other muon detectors.

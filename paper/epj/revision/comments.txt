@@ -42,10 +42,10 @@ Introduction:
     - added link and standard reference
     - use \textsc{Geant4}
 2. Overview of the Simulation Tool PROPOSAL 
-    - TODO: which energy cuts are chosen and why?! --> Typically we use 0.05 and 
-        1e-3 --> do we have any Ref.?!
+    - which energy cuts are chosen and why?! --> Typically we use 0.05 and 
+        500 MeV --> used in Koehne and Soedingrekso PhD
     - Ref. 16 (Soedingrekso) for muon decay -> semi-trivial -> removed Ref.
-    - TODO: Alameddine et al, this way is unusual
+    - TODO: Alameddine et al, this way is unusual --> what is the correct way?
 3. Muon Deflection per Interaction 
     - use deg for 10^{} and ° for single numbers
     - I don't use [unit] because of the style guide in: https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf, Section 5.4
@@ -78,3 +78,11 @@ Introduction:
         with the parameters of the higher precision. 
     - Eq. (2) and (3): Mention explicitly, in which energy range this 
         equation is valid: 1 GeV to 50 PeV
+
+
+my comments:
+- I mention typically energy cuts are 0.05 and 500 MeV, but later I use 1e-3 and 1e-5
+    --> I should mention that I did a comparison and there is no significant 
+        difference (do I still have a comparison?!)
+- Data/MC has differs up to 200%!!! mention that!
+- conclusion: mention the big data/mc mismatch
