@@ -2,14 +2,15 @@ Author's comments
 
 Referee 1:
 1. 
-    - TODO: Muon tomography: mentioned only twice: remove it from the abstract 
+    - Muon tomography: mentioned only twice: remove it from the abstract 
         or add 
-        discussion section for muon tomography.
+        discussion section for muon tomography. --> changed to muography and added 
+        small discussion
 2.
     - TODO: Figure 5 is not clear. What is not clear? --> add table with all 
         data points
-    - TODO: Figure 5: add propagated distances (average)
-    - TODO: mention, that muons with a fixed final energy propagate various 
+    - Figure 5: add propagated distances (average)
+    - mention, that muons with a fixed final energy propagate various 
         distances
 3.
     - TODO: Figure 5 represents no realistic scenario. --> realistisches Szenario aus 

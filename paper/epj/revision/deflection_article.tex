@@ -80,11 +80,11 @@ natbib
 % The correct dates will be entered by Springer
 %
 \abstract{
-  Large scale neutrino detectors and muon tomography rely on the muon direction in the detector to infer the muon's or parent neutrino's origin. However, muons accumulate deflections along their propagation path prior to entering the detector, which may need to be accounted for as an additional source of uncertainty. 
+  Large scale neutrino detectors and \pascalreplace{muon tomography}{muography} rely on the muon direction in the detector to infer the muon's or parent neutrino's origin. However, muons accumulate deflections along their propagation path prior to entering the detector, which may need to be accounted for as an additional source of uncertainty. 
   In this paper, the deflection of muons is studied with the simulation tool PROPOSAL, which accounts for multiple scattering and deflection on stochastic interactions. Deflections along individual interactions depend on the muon energy and the interaction type, and can reach up to the order of degrees -- even at TeV to PeV energies. The accumulated deflection angle can be parametrized in dependence of the final muon energy, independent of the initial muon energy. The median accumulated deflection of a propagated muon with a final energy of $\SI{500}{\giga\electronvolt}$ is $\theta_{\text{acc}} = \SI{0.10}{\degree}$ 
   with a $\SI{99}{\percent}$ central interval of $[\SI{0.01}{\degree}, \,\SI{0.39}{\degree}]$. 
   This is on the order of magnitude of the directional resolution of present neutrino detectors. Furthermore, comparisons with the simulation tools MUSIC and \pascaledit{\textsc{Geant4}} as well as two different muon deflection measurements are performed.
-  \keywords{Neutrino Astronomy -- Neutrino Source Search -- Angular Resolution -- Muon Tomography}
+  \keywords{Neutrino Astronomy -- Neutrino Source Search -- Angular Resolution -- \pascalreplace{Muon Tomography}{Muography}}
 %
 % \PACS{
 %       {PACS-key}{discribing text of that key}   \and
@@ -98,7 +98,7 @@ natbib
 %
 \section{Introduction}\label{sec:introduction}
 
-The directional reconstruction of muons is an essential task for muon tomography or large scale neutrino detectors such as IceCube 
+The directional reconstruction of muons is an essential task for \pascalreplace{muon tomography}{muography} or large scale neutrino detectors such as IceCube 
 \cite{IceCube_Instrumentation} or KM3NeT \cite{KM3NeT_Design}. In both cases, the muon direction is measured at its crossing through the instrumented volume, which is then utilized to infer its origin or the origin of the parent neutrino. 
 However, muons may propagate many kilometers prior to entering the detector while interacting with the surrounding medium. 
 Along their propagation, muons can undergo many of thousands 
@@ -471,7 +471,9 @@ in ice, the same simulations are done in water to compare the results for
 water-based experiments. The deviations of the medians
 are less than $\SI{1}{\percent}$ for all energies and therefore not shown.
 \pascaledit{The accumulated deflections and also the propagated distances 
-of Figure~\ref{fig:fit_median} are presented in Table~\ref{tab:final_values}.}
+of Figure~\ref{fig:fit_median} are presented in Table~\ref{tab:final_values}.
+Muons are able to propagate various distances for a fixed final muon energy
+depending on the energy losses.}
 
 Note that the distribution of deflection angles at a given final energy $E_{\mathrm{f}}$ in Figure~\ref{fig:fit_median} overlap for differing initial energies. This result indicates that the total deflection of a muon 
 primarily depends on the final muon energy.
@@ -535,6 +537,24 @@ energies in these simulations.}
 \end{figure*}
 
 \subsection{Relevance for Muography}
+\pascaledit{Muography is a technique to study the inside of structures with a 
+wide field of applications such as the monitoring of volcanic activity an many 
+more. For this, the atmospheric muon flux is measured with a detector located 
+below or even behind the object, which is visualized. 
+The muon flux count rates then depend on the densities of the materials, 
+the higher the density, the stronger the attenuation. 
+Based on this, conclusions can be drawn about materials and cavities in the 
+respective object. Sufficient statistics in reasonable time are obtained for 
+muons in the $\si{\giga\electronvolt}$ energy range \cite{muography_2019}. 
+
+Angular resolutions of these detectors are below $\SI{0.6}{\degree}$, which 
+is on the order of magnitude of the muon deflection at $\si{\giga\electronvolt}$
+muon energies. Multiple scattering of muon deflection in several media is 
+also studied in \cite{muography_2019, Geant4_scattering}. The resulting 
+deflections are about $\SI{1}{\degree}$, similar to the deflections 
+expected with PROPOSAL in water and ice. Hence, the scattering 
+of muons can be a limited factor for the angular resolution in 
+muography at energies of a few $\si{\giga\electronvolt}$.}
 
 \section{Conclusion}\label{sec:conclusion}
 
