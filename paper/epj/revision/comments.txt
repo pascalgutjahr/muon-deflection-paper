@@ -7,7 +7,7 @@ Referee 1:
         discussion section for muon tomography. --> changed to muography and added 
         small discussion
 2.
-    - TODO: Figure 5 is not clear. What is not clear? --> add table with all 
+    - Figure 5 is not clear. What is not clear? --> add table with all 
         data points
     - Figure 5: add propagated distances (average)
     - mention, that muons with a fixed final energy propagate various 
@@ -89,3 +89,11 @@ Introduction:
 
 
 my comments:
+
+- First Referee 
+    3. add 3D plot with deflection, final energy and distance and discuss, that 
+    this scenario is realistic 
+    9. what happens at 0.5 degree?! - no idea
+
+- Second Referee 
+    2. how to cite Alameddine et al.?
