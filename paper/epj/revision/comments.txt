@@ -6,18 +6,25 @@ Referee 1:
         or add 
         discussion section for muon tomography.
 2.
-    - TODO: Figure 5 is not clear. What is not clear?
+    - TODO: Figure 5 is not clear. What is not clear? --> add table with all 
+        data points
     - TODO: Figure 5: add propagated distances (average)
     - TODO: mention, that muons with a fixed final energy propagate various 
         distances
 3.
-    - TODO: Figure 5 represents no realistic scenario. 
+    - TODO: Figure 5 represents no realistic scenario. --> realistisches Szenario aus 
+        Astro-Neutrino Sicht, da nur Eingangsenergie bekannt
     - TODO: Each detector is located in a different medium with a different 
         thickness of matter -> zenith dependent -> add plot with muon deflections 
         as a function of the final muon energy and thickness of matter (water)
     - TODO: instead of fixed energies, use cosmic-ray spectrum or spectrum of 
         an astrophysical neutrino source
-    - TODO: Do the same simulations with Geant4 and compare the total results 
+    - Do the same simulations with Geant4 and compare the total results: The Goal
+        of this paper is to estimate the muon deflections with the tool PROPOSAL 
+        at energies larger than GeV. Furthermore, Geant4 is not optimized to do 
+        simulations over large distances of kilometers. Hence, it is not 
+        possible to do the exact same simulations with Geant4 in a certain 
+        amount of time.
 4.
     - remove intensive computing
 5.
@@ -66,7 +73,7 @@ Introduction:
             ???Is this fine as an explanation???
 4.2 Data-MC Agreements and 4.3 Muon Deflection Impact on Angular Resolutions
     - added Data-MC ratio plots
-    - TODO: add Geant4 comparison for Akimenko et al?
+    - added Geant4 comparison for Akimenko et al
     - added statement in discussion of Figure 5, that the presented data-MC 
         agreements are very different to the used energy of the user's case
     - Figure 5: explain, why energy range from 1 GeV to 10 PeV is chosen 
@@ -81,8 +88,3 @@ Introduction:
 
 
 my comments:
-- I mention typically energy cuts are 0.05 and 500 MeV, but later I use 1e-3 and 1e-5
-    --> I should mention that I did a comparison and there is no significant 
-        difference (do I still have a comparison?!)
-- Data/MC has differs up to 200%!!! mention that!
-- conclusion: mention the big data/mc mismatch
