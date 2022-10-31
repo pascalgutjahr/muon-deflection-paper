@@ -150,9 +150,10 @@ as continuous energy loss.
 The methodical uncertainties are small 
 for a relative energy cut $v_{\mathrm{cut}}\ll 1$, however, using a small energy 
 cut increases the runtime.
-\pascaledit{Typically, energy cuts of $v_{\mathrm{cut}} \leq \num{0.05}$ and 
-$e_{\mathrm{cut}} = \SI{500}{\mega\electronvolt}$ are chosen which enable 
-accurate propagations at low runtimes.}
+\pascaledit{Typically, a relative energy cut of $v_{\mathrm{cut}} \leq \num{0.05}$ 
+is chosen which enables accurate propagations at low runtimes. The total energy 
+cut depends on the minimum visible energy loss in the detector. 
+It is often set to $e_{\mathrm{cut}} = \SI{500}{\mega\electronvolt}$.}
 The 
 propagation process is defined by an initial muon energy $E_{\text{i}}$ and 
 two stopping criteria -- a final energy $E_{\text{f,\,min}}$ and a 
@@ -184,7 +185,8 @@ in Ref.~\cite{phd_soedingrekso}.
 The stochastic deflections have been implemented in PROPOSAL recently and they are 
 described and studied in Ref.~\cite{Gutjahr_2021}.
 A publication describing the 
-updates in PROPOSAL is in preparation as Alameddine et al.
+updates in PROPOSAL is in preparation 
+\pascalreplace{as Alameddine et al}{\cite{alameddine_et_al}}.
 All simulations are done with PROPOSAL $7.3.1$.
 
 \section{Muon Deflection per Interaction}\label{sec:defl_per_int}
@@ -216,8 +218,8 @@ Detailed values for each interaction type can be found in Table~\ref{tab:defl_pe
     and Highland \pascaledit{(MSH)}.  
     The total distribution is presented only for all stochastic processes including \pascalreplace{Molière's}{MSM}. 
     \pascaledit{Since multiple scattering describes the deflection along a 
-    continuous energy loss, a single deflection occurs similar to a stochastic 
-    interaction.}
+    continuous energy loss, a single deflection occurs analogous to a stochastic 
+    deflection.}
     Multiple scattering dominates the deflection. Details are presented in 
     Table~\ref{tab:defl_per_int}.}
     \label{fig:defl_per_int}
@@ -248,7 +250,7 @@ muon direction is analyzed. This angle limits the angular resolution
 for neutrino source searches utilizing incoming muons, since there is no information 
 about the muon before the detector entry.
 
-\subsection{Comparison with MUSIC and \pascaledit{\textsc{Geant4}}}
+\subsection{Comparison with MUSIC and \pascaledit{\sc{Geant4}}}
 First, the deflections in PROPOSAL are compared to 
 the tools MUSIC \pascaldelete{\cite{MUSIC,comparison_MUSIC_GEANT4_2009}} and \pascaledit{\textsc{Geant4}} \pascaldelete{\cite{GEANT4}}.
 MUSIC is a tool to simulate the propagation of muons 
@@ -298,7 +300,8 @@ and $\overline{x} = \SI{3.3}{\meter}$, while MUSIC provides the lowest
 ones with $\overline{\theta} = \SI{0.22}{\degree}$ and 
 $\overline{x} = \SI{2.6}{\meter}$.
 The results of PROPOSAL lie between 
-these two tools for all four settings and are therefore consistent. 
+these two tools. \pascaledit{Hence, the mean 
+values of all tools are very close to each other and therefore consistent.}
 
 \begin{figure*}
     \centering 
@@ -354,13 +357,12 @@ by Molière scattering in \pascaledit{\textsc{Geant4}}. Hence, the lower scatter
 to a better agreement especially in the region of outliers. The comparison is 
 done in liquid $\text{H}_2$ with a thickness of $\SI{109}{\milli\meter}$ and an 
 initial particle energy of $E_{\mathrm{i}} = \SI{199}{\mega\electronvolt}$. 
-\pascaledit{This energy}  
-results via the energy-momentum relation of an in Ref.~\cite{attwood_2006} used 
-beam momentum 
-of $p = \SI[per-mode=symbol]{168.9}{\mega\electronvolt\per\clight}$. 
+\pascaledit{This energy is obtained} via the energy-momentum relation of 
+\pascaledit{a beam momentum of $p = \SI[per-mode=symbol]{168.9}{\mega\electronvolt\per\clight}$
+used in Ref.~\cite{attwood_2006}}. 
 In PROPOSAL, the simulations are done with two different energy cuts $v_{\mathrm{cut}} = \num{e-3}$ and $v_{\mathrm{cut}} = \num{e-5}$, 
 but there is no significant difference between the resulting deflections.
-\pascaledit{Even though in the logarithmic figure the simulation date agree well 
+\pascaledit{Even though in the logarithmic figure the simulation data agree well 
 with the measured data, it is clear from the data--MC ratio that the deviations 
 are up to $\SI{200}{\percent}$ in some cases. Thus, the deflections are described 
 correctly only in a first approximation.}
@@ -379,10 +381,10 @@ The comparison is presented in Figure~\ref{fig:attwood_comparison}.
     The figure presents 
     the normalized counts in dependence of the projected scattering angle $\theta_{\mathrm{y}}$ in degree.
     In PROPOSAL, $100$ simulations each with $\num{e5}$ muons are performed for two different settings using the energy cut 
-    $v_{\mathrm{cut}} = \num{e-5}$. The blue points present the mean considering
+    $v_{\mathrm{cut}} = \num{e-5}$. The blue points present the mean \pascaledit{of the simulations} considering
     stochastic deflections and Molière scattering \pascaledit{(MSM)}, the orange 
     points
-    present the mean taking into account only Molière scattering.   
+    present the mean \pascaledit{of the simulations} taking into account only Molière scattering.   
     The uncertainties on the $x$--axis result due to the measured bin widths. The $y$--uncertainties are the standard deviations.   
     The deflections are  
     underestimated in PROPOSAL, except at $\theta_{\mathrm{y}} \approx 
@@ -413,7 +415,7 @@ The result is presented in Figure~\ref{fig:akimenko_comparison}.
 \begin{figure*}
     \centering 
     % \resizebox{0.48\textwidth}{!}{%
-    \includegraphics{figures/akimenko_comparison_moliere_E7301MeV_final_multi_mean_deg_ratio_G4_v1_final.pdf}
+    \includegraphics{figures/akimenko_comparison_moliere_E7301MeV_final_multi_mean_deg_ratio_G4_v1_final_n100.pdf}
     % }
     \caption{A comparison between two PROPOSAL \pascalreplace{settings}{simulations}
     and measured data by Akimenko et al. \cite{akimenko_1984} 
@@ -421,8 +423,8 @@ The result is presented in Figure~\ref{fig:akimenko_comparison}.
     \pascaledit{Deflections are simulated with \textsc{Geant4} $\text{v}11.0.3$ as well.}
     $\num{100}$ simulations each with $\num{31125}$ muons with 
     $E_{\mathrm{i}} = \SI{7.301}{\giga\electronvolt}$ are propagated through a $\SI{1.44}{\centi\meter}$ 
-    copper layer using the energy cut 
-    $v_{\mathrm{cut}} = \num{e-5}$. The blue points present the mean 
+    copper layer. \pascaledit{In PROPOSAL} the energy cut 
+    $v_{\mathrm{cut}} = \num{e-5}$ is used. The blue points present the mean 
     \pascaledit{of the simulation} considering stochastic deflections and Molière scattering \pascaledit{(MSM)}, 
     the orange points
     present the mean \pascaledit{of the simulation} taking into account only 
@@ -473,7 +475,7 @@ are less than $\SI{1}{\percent}$ for all energies and therefore not shown.
 \pascaledit{The accumulated deflections and also the propagated distances 
 of Figure~\ref{fig:fit_median} are presented in Table~\ref{tab:final_values}.
 Muons are able to propagate various distances for a fixed final muon energy
-depending on the energy losses.}
+depending on the stochasticity of the energy losses.}
 
 Note that the distribution of deflection angles at a given final energy $E_{\mathrm{f}}$ in Figure~\ref{fig:fit_median} overlap for differing initial energies. This result indicates that the total deflection of a muon 
 primarily depends on the final muon energy.
@@ -538,7 +540,7 @@ energies in these simulations.}
 
 \subsection{Relevance for Muography}
 \pascaledit{Muography is a technique to study the inside of structures with a 
-wide field of applications such as the monitoring of volcanic activity an many 
+wide field of applications such as the monitoring of volcanic activity and many 
 more. For this, the atmospheric muon flux is measured with a detector located 
 below or even behind the object, which is visualized. 
 The muon flux count rates then depend on the densities of the materials, 
@@ -553,7 +555,7 @@ muon energies. Multiple scattering of muon deflection in several media is
 also studied in \cite{muography_2019, Geant4_scattering}. The resulting 
 deflections are about $\SI{1}{\degree}$, similar to the deflections 
 expected with PROPOSAL in water and ice. Hence, the scattering 
-of muons can be a limited factor for the angular resolution in 
+of muons can be a limiting factor for the angular resolution in 
 muography at energies of a few $\si{\giga\electronvolt}$.}
 
 \section{Conclusion}\label{sec:conclusion}
@@ -575,8 +577,10 @@ to a factor of $3$ are observed.
 This points out that still improvements are required in the deflection 
 parameterizations and 
 in the multiple scattering, respectively.
-However, since individual deflections occur in several orders of magnitude, 
-the results can still be considered sufficiently accurate.}
+Since the presented measurements of the muon deflection are based on muon energies 
+lower $\SI{10}{\giga\electronvolt}$, deflection measurements of muons with energies 
+up to $\si{\tera\electronvolt}$ or even higher are required to validate the 
+results at higher energies.}
 
 The median accumulated deflection depends primarily on the final muon energy, which can be interpreted as the muon energy at detector entry 
 in neutrino telescopes or other muon detectors.

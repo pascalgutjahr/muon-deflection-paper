@@ -2,17 +2,16 @@ Author's comments
 
 Referee 1:
 1. 
-    - Muon tomography: mentioned only twice: remove it from the abstract 
-        or add 
-        discussion section for muon tomography. --> changed to muography and added 
-        small discussion
+    - Muon tomography mentioned only twice: We changed it to muography and added 
+        small discussion.
 2.
-    - Figure 5 is not clear. What is not clear? --> add table with all 
-        data points
-    - Figure 5: add propagated distances (average)
-    - mention, that muons with a fixed final energy propagate various 
-        distances
+    - Figure 5: We added a table with all simulation results. Now there can be 
+        clearly seen, that the median deflection depends only on the final muon 
+        energy and the initial muon energy is negligible. Also the median propagated 
+        distances with a 99% interval are added and we mentioned, that muons with 
+        a fixed final energy propagate various distances.
 3.
+?!?!?!??!?!?!?!?!?!?!
     - TODO: Figure 5 represents no realistic scenario. --> realistisches Szenario aus 
         Astro-Neutrino Sicht, da nur Eingangsenergie bekannt
     - TODO: Each detector is located in a different medium with a different 
@@ -26,74 +25,71 @@ Referee 1:
         simulations over large distances of kilometers. Hence, it is not 
         possible to do the exact same simulations with Geant4 in a certain 
         amount of time.
+?!?!?!??!?!?!?!?!?!?!
 4.
-    - remove intensive computing
+    - Geant4: The intensive computing is removed.
 5.
-    - 4.1: added short description of the simulation
+    - Section 4.1: A short description of the simulation is added.
 6.
-    - Figure 1, caption and text: explain an interaction in the multiple scattering 
-        process 
+    - Figure 1, caption and text: A deflection due to an "interaction" in the 
+        multiple scattering process is now defined as a summation of elastic 
+        scatterings of one particle at another particle, called single scattering. 
+        Thus, the muon is deflected by a single angle for each continuous loss, 
+        analogous to a stochastic loss.
 7.
-    - split in two sentences
+    - Section 4.2: Grammar fixed.
 8.
-    - Figure 3: proposal underestimates for 0 < theta < 2 and for 3 < theta < 6
+    - Figure 3: PROPOSAL underestimates the deflections for 0 < theta < 2 and 
+        for 3 < theta < 6. Now the limits are correct.
 9.
-    - Figure 4: mention, that there were 2 PROPOSAL simulations. The tails
+    - Figure 4: Yes, there are 2 PROPOSAL simulations. The tails
         of all distributions seem to be correlated, since the binning of the 
-        data points is shifted to wider bins
-    - TODO: Figure 3 and 4: at 0.5 degree, data and simulated curves are all 
-        changing their shape - why? --> have a look at the Molière 
-        parametrization --> too simple to describe the data perfectly?
+        data points is shifted to wider bins.
+    - Figure 3 and 4: At 0.5 degree, data and simulated curves are all 
+        changing their shape. As shown in the added data-MC ratios, Molière scattering 
+        does not describe the data perfectly. Hence, the effect at 0,5° seems 
+        to be an artifact which is not fully understood yet.
 
 Referee 2:
 Introduction:
-    - added link and standard reference
-    - use \textsc{Geant4}
+    The link to Geant4 and the standard reference are stated. \textsc{Geant4} is 
+    used now.
 2. Overview of the Simulation Tool PROPOSAL 
-    - which energy cuts are chosen and why?! --> Typically we use 0.05 and 
-        500 MeV --> used in Koehne and Soedingrekso PhD
-    - Ref. 16 (Soedingrekso) for muon decay -> semi-trivial -> removed Ref.
-    - TODO: Alameddine et al, this way is unusual --> what is the correct way?
+    Typically used energy cuts are mentioned with a short description why these 
+    are often used.
+    Since the statement of the muon decay is semi-trivial, Ref. 16 (Soedingrekso) 
+    is removed. 
+    "Alameddine et al" is now cited as *unpublished* with a note.
 3. Muon Deflection per Interaction 
-    - use deg for 10^{} and ° for single numbers
-    - I don't use [unit] because of the style guide in: https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf, Section 5.4
-    - Multiple Scattering (MS) - Multiple Scattering Molière (MSM) - 
+    Now I use deg for 10^{} and ° for single numbers.
+    I don't use [unit] because of the style guide in: https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf, Section 5.4.
+    The different scattering methods are now stated as: Multiple Scattering (MS) - Multiple Scattering Molière (MSM) - 
         Multiple Scattering Highland (MSH)
 4.1 Comparison with MUSIC and Geant4 
-    - moved [21] to introduction and removed references at the beginning of this    
-        subsection
+    I moved [21] to introduction and I removed references at the beginning of this    
+        subsection.
     - Detailed information in Table 2: 
         1) There are no standard deviations given in Ref. [21]
-        2) TODO: The mean values of the angles and the deflections are very similar, 
+        2)  The mean values of the angles and the deflections are very similar, 
             which leads to the result, that all three simulations tools 
             have a similar output referred to the deflection angle 
             and the lateral displacement. Thus the results of PROPOSAL are 
             consistent with the results of MUSIC and Geant4. In general, I mean 
             the results of PROPOSAL are consistent with the mean values and 
             the distributions.
-            ???Is this fine as an explanation???
 4.2 Data-MC Agreements and 4.3 Muon Deflection Impact on Angular Resolutions
-    - added Data-MC ratio plots
-    - added Geant4 comparison for Akimenko et al
-    - added statement in discussion of Figure 5, that the presented data-MC 
-        agreements are very different to the used energy of the user's case
-    - Figure 5: explain, why energy range from 1 GeV to 10 PeV is chosen 
-    - parameter b seems to be compatible with 0 -> there was a mistake! 
+    Data-MC ratio plots are added and useful for logarithmic plots, thank you!
+    I also added a Geant4 simulation for the comparison with Akimenko et al.
+    A statement is added in the discussion of Figure 5, that the presented data-MC 
+        agreements are very different to the used energy of the user's case.
+    - Figure 5: The energy range from 1 GeV to 10 PeV is chosen because this is the 
+        energy range of the presented experiments. This follows from the energy range 
+        stated for the angular resolutions. 
+    - parameter b seems to be compatible with 0 -> There was a mistake! 
         Additionally, the fit in the figure used a higher precision on the 
         parameters. Now I mentioned 4 digits of the parameters and I changed 
-        the fit in plot, since the fit is slightly shifted with 3 digits per 
-        parameter. Now it is plot with exactly these parameters and not 
+        the fit in the plot, since the fit is slightly shifted with 3 digits per 
+        parameter. Now the plot is created with exactly these parameters and not 
         with the parameters of the higher precision. 
-    - Eq. (2) and (3): Mention explicitly, in which energy range this 
-        equation is valid: 1 GeV to 50 PeV
-
-
-my comments:
-
-- First Referee 
-    3. add 3D plot with deflection, final energy and distance and discuss, that 
-    this scenario is realistic 
-    9. what happens at 0.5 degree?! - no idea
-
-- Second Referee 
-    2. how to cite Alameddine et al.?
+    - For Eq. (2) and (3) it is mentioned explicitly, that these equations 
+        are valid for muon energy from 1 GeV to 50 PeV.
