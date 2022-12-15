@@ -1,23 +1,22 @@
-Muon deflection studied with PROPOSAL
+Study of high-energetic muon deflections
 
-The observation of incoming muon-neutrinos and muons rely on the reconstruction 
-of the detected muons in a detector. In general, the energy and the direction of 
-an incoming particle are estimated. In the past, there were many hardware 
-improvements performed and even new algorithms were developed to optimize the 
-reconstruction. With these improvements, the direction of an incoming 
+The analysis of incoming muon-neutrinos and muons relies on the reconstruction 
+of the detected muons. In general, the energy and the direction of 
+an incoming particle are estimated via likelihood methods. With new reconstruction algorithms 
+and hardware optimizations, the direction of an incoming 
 muon can be measured with an angular resolution lower than 1 degree. 
 
-However, very high-energetic muons are able to travel many kilometers 
-through dense media like ice and water. In these media, the muons do 
-a lot of interactions with energy losses of up to 99% of the muon energy 
+However, high-energetic muons are able to travel many kilometers 
+through dense media like ice and water. In these media, the muons interact 
+very frequently with energy losses of up to 90% of the muon energy 
 and even larger energy losses are possible. In each interaction, there is 
-momentum transfer which leads to a small deflection of the initial muon 
+a momentum transfer which leads to a small deflection of the initial muon 
 direction. 
 
 In this presentation, the lepton simulation framework PROPOSAL is used 
 to estimate the accumulated muon deflection. Muons with different energies 
 are propagated through ice and water over several distances. Data-Monte-Carlo 
-comparisons as well as comparisons with other simulation tools MUSIC and Geant4 
+comparisons as well as comparisons with the simulation tools MUSIC and Geant4 
 are shown. Finally, the impact of muon deflections for large scale neutrino 
 telescopes is discussed.  
 
