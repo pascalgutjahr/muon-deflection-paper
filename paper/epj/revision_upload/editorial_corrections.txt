@@ -1,0 +1,39 @@
+Corrections for the paper:
+Article Title:  Simulation of deflection uncertainties on directional reconstructions of muons using PROPOSAL
+DOI: 10.1140/epjc/s10052-022-11102-5
+Editorial manuscript number: EPJC-22-08-167.R1
+
+Please add the following ORCiD's:
+	- Jean-Marco Alameddine: 0000-0002-9534-9189
+	- Alexander Sandrock: 0000-0002-6779-1172
+	- Jan Soedingrekso: 0000-0003-1011-2797
+	- Mirco Hünnefeld: 0000-0002-2827-6522
+	- Wolfgang Rhode: 0000-0003-2636-5000
+
+
+line : comment
+- 127 and 322: only half space between ~ and 1°
+- 176: no *SI* before 0.27
+- 192: MeV/c instead of MeV/C 
+
+Table 2: PROPOSAL, MSM, MSH and the corresponding values 77.9 and 331±178 are not centered! 
+	In this way, the table is totally unclear! Please have a look at my original table attached to the submitted article and center the values. 
+
+Table 3: The energies in the first line are not centered -> please center these
+
+***Author Query Form***
+1. All data are produced with the simulation framework PROPOSAL which is available at https://github.com/tudo-astroparticlephysics/PROPOSAL 
+	and all the necessary settings to reproduce the results of this publication are stated above.
+
+2. Reference : Update
+- 13: \sigma_{\mathrm{tot}} ,(no further information available)
+- 15: (no further information available)
+- 17: B.B. Rossi, High-Energy Particles (Prentice-Hall, Englewood Cliffs), 1952
+- 23: (This paper is in preparation and will be published in 2023. Right now, there are no further information available)
+- 27: (no further information available)
+- 28: Journal: Nucl. Instrum. Methods B
+- 29: Journal: Nucl. Instrum. Methods A
+- 36: Add: Cambridge University Press, pp. 69-71
+- 38: remove DOI because the DOI is the ArXiv DOI, hence it is enough to mention the arXiv DOI
+
+- remove ISSN in Ref. 8, 20, 28 and 34 for consistency. The ISSN is not necessary here.
