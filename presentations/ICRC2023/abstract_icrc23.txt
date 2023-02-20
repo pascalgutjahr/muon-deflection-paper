@@ -1,8 +1,8 @@
 The Relevance of Muon Deflections for Neutrino Telescopes
 
-Large-scale neutrino telescopes are able to locate new point sources in the universe. 
+Large-scale neutrino telescopes are able to locate new neutrino point sources in the universe. 
 These experiments rely on the detection of charged leptons produced in the interaction of neutrinos 
-with other particles. The best angular resolution is better than 1 degree and is achieved by the reconstruction of muons, which 
+with nuclei. The best angular resolution is better than 1 degree. This is achieved by the reconstruction of muons, which 
 is a measure of the accuracy with which the direction of incoming neutrinos can be determined. 
 Since muons can traverse distances of several kilometers through media, the original muon direction 
 can differ from the muon direction inside the detector due to deflections by stochastic interactions 
@@ -13,31 +13,3 @@ with the simulation tool PROPOSAL. Muons with various energies are propagated th
 media over several distances. 
 Data-Monte-Carlo comparisons as well as comparisons to the simulation tools MUSIC and Geant4 are performed. 
 Finally, the impact of muon deflections on large scale neutrino telescopes is discussed.  
-
-
-
-
-
-DPG abstract:
-
-Study of high-energetic muon deflections
-
-The analysis of incoming muon-neutrinos and muons relies on the reconstruction 
-of the detected muons. In general, the energy and the direction of 
-an incoming particle are estimated via likelihood methods. With new reconstruction algorithms 
-and hardware optimizations, the direction of an incoming 
-muon can be measured with an angular resolution lower than 1 degree. 
-
-However, high-energetic muons are able to travel many kilometers 
-through dense media like ice and water. In these media, the muons interact 
-very frequently with energy losses of up to 90% of the muon energy 
-and even larger energy losses are possible. In each interaction, there is 
-a momentum transfer which leads to a small deflection of the initial muon 
-direction. 
-
-In this presentation, the lepton simulation framework PROPOSAL is used 
-to estimate the accumulated muon deflection. Muons with different energies 
-are propagated through ice and water over several distances. Data-Monte-Carlo 
-comparisons as well as comparisons with the simulation tools MUSIC and Geant4 
-are shown. Finally, the impact of muon deflections for large scale neutrino 
-telescopes is discussed.
