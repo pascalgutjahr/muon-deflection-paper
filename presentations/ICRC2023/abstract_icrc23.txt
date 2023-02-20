@@ -1,15 +1,16 @@
 The Relevance of Muon Deflections for Neutrino Telescopes
 
-Large-scale neutrino telescopes are able to locate new neutrino point sources in the universe. 
+Large-scale neutrino telescopes have the primary objective to detect and characterize neutrino sources in the universe. 
 These experiments rely on the detection of charged leptons produced in the interaction of neutrinos 
-with nuclei. The best angular resolution is better than 1 degree. This is achieved by the reconstruction of muons, which 
-is a measure of the accuracy with which the direction of incoming neutrinos can be determined. 
+with nuclei. 
+Angular resolutions are estimated to be better than 1 degree, which is achieved by the reconstruction of muons. 
+This angular resolution is a measure of the accuracy with which the direction of incoming neutrinos can be determined.
 Since muons can traverse distances of several kilometers through media, the original muon direction 
 can differ from the muon direction inside the detector due to deflections by stochastic interactions 
 and multiple scattering.  
 
-In this contribution, the impact of muon deflections on the angular resolution of muon reconstructions is estimated 
-with the simulation tool PROPOSAL. Muons with various energies are propagated through different 
+In this contribution, a recently published study of muon deflections based on the simulation tool PROPOSAL 
+is presented. Muons with various energies are propagated through different 
 media over several distances. 
 Data-Monte-Carlo comparisons as well as comparisons to the simulation tools MUSIC and Geant4 are performed. 
-Finally, the impact of muon deflections on large scale neutrino telescopes is discussed.  
+Finally, the impact of muon deflections on large-scale neutrino telescopes is discussed.  
