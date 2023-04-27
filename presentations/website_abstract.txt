@@ -1,0 +1,30 @@
+Paper published in December 2022: Simulation of deflection uncertainties on directional reconstructions of muons using PROPOSAL
+
+Large-scale neutrino telescopes have the primary objective to detect and characterize neutrino sources 
+in the universe. These experiments rely on the detection of charged leptons produced in the 
+interaction of neutrinos with nuclei. In general, the energy and the direction of 
+an incoming particle are estimated via likelihood methods. With new reconstruction algorithms 
+using machine learning and hardware optimizations, the direction of an incoming 
+muon can be measured with an angular resolution lower than 1 degree in telescopes like 
+the IceCube Neutrino Observatory or KM3NeT. 
+
+However, high-energetic muons are able to travel many kilometers 
+through dense media like ice and water. In these media, the muons interact 
+very frequently with energy losses of up to 90% of the muon energy 
+and even larger energy losses are possible. In each interaction, there is 
+a momentum transfer which leads to a small deflection of the initial muon 
+direction. The question is: Does these deflections accumulate and result to 
+a total deflection on the order of magnitude of the angular resolution of current 
+neutrino telescopes?
+
+In this paper, the lepton simulation framework PROPOSAL is used 
+to simulate the muon propagation and its deflections. The tool is optimized to perform efficient 
+lepton and photon propagations at very high energies and it is developed and maintained in our working group 
+in Dortmund. 
+As a validation, Data-Monte-Carlo comparisons as well as comparisons with the simulation tools MUSIC 
+and Geant4 are performed. Single deflections per interaction and the accumulated defelction 
+after a propagation through water and ice are studied. Finally, the impact of muon deflections 
+for large scale neutrino telescopes and muography are discussed.  
+
+
+https://doi.org/10.1140/epjc/s10052-022-11102-5
