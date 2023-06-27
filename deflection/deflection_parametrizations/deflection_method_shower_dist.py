@@ -1,4 +1,3 @@
-# %%
 import proposal as pp
 import numpy as np
 from tqdm import tqdm
@@ -76,25 +75,28 @@ def main(cfg):
 
     cross = pp.crosssection.make_std_crosssection(**args)
 
-    multiple_scatter = pp.make_multiple_scattering(cfg['scattering_method'], args["particle_def"], args["target"], cross, True)
-    stochastic_deflect = []
-    for d in deflection:
-        stochastic_deflect.append(pp.make_stochastic_deflection(d, 
-        args["particle_def"], args["target"]))
-
-
     collection = pp.PropagationUtilityCollection()
     collection.displacement = pp.make_displacement(cross, True)
     collection.interaction = pp.make_interaction(cross, True)
     collection.time = pp.make_time(cross, args["particle_def"], True)
     collection.decay = pp.make_decay(cross, args["particle_def"], True)
 
-    collection.scattering = pp.scattering.ScatteringMultiplier(
-        multiple_scatter, 
-        stochastic_deflect, 
-        beta_multiplescatter, 
-        [(pp.particle.Interaction_Type.brems, beta_brems), (pp.particle.Interaction_Type.ioniz, beta_ioniz), 
-        (pp.particle.Interaction_Type.epair, beta_epair), (pp.particle.Interaction_Type.photonuclear, beta_photonuclear)])
+    multiple_scatter = pp.make_multiple_scattering(cfg['scattering_method'], args["particle_def"], args["target"], cross, True)
+
+    if 'MS_only' in cfg and cfg['MS_only']:
+        collection.scattering = pp.scattering.ScatteringMultiplier(multiple_scatter, beta_multiplescatter)
+    else:
+        stochastic_deflect = []
+        for d in deflection:
+            stochastic_deflect.append(pp.make_stochastic_deflection(d, 
+            args["particle_def"], args["target"]))
+
+        collection.scattering = pp.scattering.ScatteringMultiplier(
+            multiple_scatter, 
+            stochastic_deflect, 
+            beta_multiplescatter, 
+            [(pp.particle.Interaction_Type.brems, beta_brems), (pp.particle.Interaction_Type.ioniz, beta_ioniz), 
+            (pp.particle.Interaction_Type.epair, beta_epair), (pp.particle.Interaction_Type.photonuclear, beta_photonuclear)])
 
     utility = pp.PropagationUtility(collection = collection)
     detector = pp.geometry.Sphere(pp.Cartesian3D(0,0,0), 1e20) # version 7
@@ -167,6 +169,9 @@ def main(cfg):
     df['lateral_disp'] = d # in cm
 
     key = 'E{}_{}_v_cut{}_e_cut{}'.format(int(cfg['E_i']/1e3), cfg['scattering_method'], cfg['v_cut'], e_cut).replace('.', '_') # E_i in GeV
+
+    if 'MS_only' in cfg and cfg['MS_only']:
+        key += '_MS_only'
 
     hdf_file = cfg['hdf_file']
     df.to_hdf(data_dir + f'{hdf_file}.hdf5', key=key)
