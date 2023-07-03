@@ -81,11 +81,24 @@ def main(cfg):
     collection.time = pp.make_time(cross, args["particle_def"], True)
     collection.decay = pp.make_decay(cross, args["particle_def"], True)
 
-    multiple_scatter = pp.make_multiple_scattering(cfg['scattering_method'], args["particle_def"], args["target"], cross, True)
 
     if 'MS_only' in cfg and cfg['MS_only']:
+        multiple_scatter = pp.make_multiple_scattering(cfg['scattering_method'], args["particle_def"], args["target"], cross, True)
         collection.scattering = pp.scattering.ScatteringMultiplier(multiple_scatter, beta_multiplescatter)
+
+    elif 'Stoch_only' in cfg and cfg['Stoch_only']:
+        stochastic_deflect = []
+        for d in deflection:
+            stochastic_deflect.append(pp.make_stochastic_deflection(d, 
+            args["particle_def"], args["target"]))
+
+        collection.scattering = pp.scattering.ScatteringMultiplier(
+            stochastic_deflect, 
+            [(pp.particle.Interaction_Type.brems, beta_brems), (pp.particle.Interaction_Type.ioniz, beta_ioniz), 
+            (pp.particle.Interaction_Type.epair, beta_epair), (pp.particle.Interaction_Type.photonuclear, beta_photonuclear)])
+
     else:
+        multiple_scatter = pp.make_multiple_scattering(cfg['scattering_method'], args["particle_def"], args["target"], cross, True)
         stochastic_deflect = []
         for d in deflection:
             stochastic_deflect.append(pp.make_stochastic_deflection(d, 
@@ -172,6 +185,9 @@ def main(cfg):
 
     if 'MS_only' in cfg and cfg['MS_only']:
         key += '_MS_only'
+
+    if 'Stoch_only' in cfg and cfg['Stoch_only']:
+        key += '_Stoch_only'
 
     hdf_file = cfg['hdf_file']
     df.to_hdf(data_dir + f'{hdf_file}.hdf5', key=key)
