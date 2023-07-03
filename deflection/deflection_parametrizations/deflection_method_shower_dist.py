@@ -153,7 +153,7 @@ def main(cfg):
         else:
             return  d 
     
-    d = d_shower(tracks_x, tracks_y, in_meter=False)
+    d = d_shower(tracks_pos_x, tracks_pos_y, in_meter=False)
         
     df = pd.DataFrame()
     df['x'] = tracks_x
