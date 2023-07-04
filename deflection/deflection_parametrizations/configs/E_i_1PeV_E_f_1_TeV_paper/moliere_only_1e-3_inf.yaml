@@ -1,5 +1,5 @@
-E_i: !!float 1e6 # in MeV
-E_f: !!float 1e3 # in MeV
+E_i: !!float 1e9 # in MeV
+E_f: !!float 1e6 # in MeV
 n_events: 10000
 max_dist: !!float 1e9
 
@@ -17,10 +17,10 @@ deflections: {
   'photoginneken', # 'photoborogpetrukhin',
   'epairginneken'
 }
-scattering_method: 'none'
-Stoch_only: True
+scattering_method: 'moliere'
+MS_only: True
 
-rnd_seed: 404
+rnd_seed: 101
 
 hdf_file: 'paper'
 

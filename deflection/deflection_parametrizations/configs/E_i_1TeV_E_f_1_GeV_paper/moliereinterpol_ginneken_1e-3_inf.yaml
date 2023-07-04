@@ -17,10 +17,10 @@ deflections: {
   'photoginneken', # 'photoborogpetrukhin',
   'epairginneken'
 }
-scattering_method: 'none'
-Stoch_only: True
+scattering_method: 'moliereinterpol'
+MS_only: False
 
-rnd_seed: 404
+rnd_seed: 303
 
 hdf_file: 'paper'
 

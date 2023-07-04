@@ -28,13 +28,6 @@ def main(cfg):
     os.system('mkdir -p {}'.format(plot_dir))
 
 
-    deflection = [
-        'bremsginneken', # 'bremstsaiapproximation', 
-        'ioniznaive',
-        'photoginneken', # 'photoborogpetrukhin',
-        'epairginneken'] ### same as default
-        
-
     interpol_nodes = 100 # 200
 
     initial_direction = [0, 0, 1]
@@ -88,7 +81,7 @@ def main(cfg):
 
     elif 'Stoch_only' in cfg and cfg['Stoch_only']:
         stochastic_deflect = []
-        for d in deflection:
+        for d in cfg['deflections']:
             stochastic_deflect.append(pp.make_stochastic_deflection(d, 
             args["particle_def"], args["target"]))
 
@@ -100,7 +93,7 @@ def main(cfg):
     else:
         multiple_scatter = pp.make_multiple_scattering(cfg['scattering_method'], args["particle_def"], args["target"], cross, True)
         stochastic_deflect = []
-        for d in deflection:
+        for d in cfg['deflections']:
             stochastic_deflect.append(pp.make_stochastic_deflection(d, 
             args["particle_def"], args["target"]))
 
@@ -188,6 +181,12 @@ def main(cfg):
 
     if 'Stoch_only' in cfg and cfg['Stoch_only']:
         key += '_Stoch_only'
+
+    if 'bremstsaiapproximation' and 'photoborogpetrukhin' in cfg['deflections']:
+        key += '_G4'
+
+    if 'bremsginneken' and 'photoginneken' in cfg['deflections']:
+        key += '_vG'
 
     hdf_file = cfg['hdf_file']
     df.to_hdf(data_dir + f'{hdf_file}.hdf5', key=key)

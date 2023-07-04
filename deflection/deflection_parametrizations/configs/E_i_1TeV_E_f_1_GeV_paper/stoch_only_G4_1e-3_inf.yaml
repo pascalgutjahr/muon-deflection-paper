@@ -17,7 +17,7 @@ deflections: {
   'photoborogpetrukhin',
   'epairginneken'
 }
-scattering_method: 'noneG4'
+scattering_method: 'none'
 Stoch_only: True
 
 rnd_seed: 4
