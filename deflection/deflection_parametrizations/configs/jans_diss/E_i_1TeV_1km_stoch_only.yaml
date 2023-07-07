@@ -1,0 +1,28 @@
+E_i: !!float 1e6 # in MeV
+E_f: !!float 1e2 # in MeV
+n_events: 100000
+max_dist: !!float 1e5
+
+v_cut: 1
+e_cut: 500
+cont_rand: True
+
+table_path: '/Users/pgutjahr/.cache/PROPOSAL' # macbook pro
+# table_path: '/net/nfshome/home/pgutjahr/.cache/PROPOSAL' # vollmond
+remove_old_tables: False
+
+deflections: {
+  'bremstsaiapproximation', 
+  'ioniznaive',
+  'photoborogpetrukhin',
+  'epairginneken'
+}
+scattering_method: ''
+MS_only: False
+Stoch_only: True
+
+rnd_seed: 303
+
+hdf_file: 'jan'
+
+
