@@ -12,7 +12,7 @@ import time
 import os
 import sys
 import pandas as pd
-from helper_functions_multi import muon_propagation_custom_multi
+from helper_functions_multi import muon_propagation_custom_multi, muon_propagation_custom_multi_continuous_energies
 
 
 
@@ -94,7 +94,10 @@ def main(cfg):
     # Start propagation
     start = time.time()
     pool = Pool(cfg['n_CPU']) # number CPU cores
-    results = pool.map(muon_propagation_custom_multi, args)
+    if 'continuous_energies' in cfg and cfg['continuous_energies']:
+        results = pool.map(muon_propagation_custom_multi_continuous_energies, args)
+    else:
+        results = pool.map(muon_propagation_custom_multi, args)
     pool.close()
     pool.join()
     

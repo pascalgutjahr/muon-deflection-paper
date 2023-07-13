@@ -142,7 +142,7 @@ def muon_propagation_custom_multi(args):
         'beta_photonuclear': 1.0,
         'rnd_seed': 1337, 
         'initial_direction': [0, 0, 1], 
-        'table_path': "/Users/pascalgutjahr/.cache/PROPOSAL",
+        'table_path': "/Users/pgutjahr/.cache/PROPOSAL",
     }
     
     for key in default_settings.keys():
@@ -244,7 +244,137 @@ def muon_propagation_custom_multi(args):
 
     return df
 
+def muon_propagation_custom_multi_continuous_energies(args):
 
+    default_settings = {
+        'inter_type': [
+                    pp.particle.Interaction_Type.ioniz, 
+                    pp.particle.Interaction_Type.brems, 
+                    pp.particle.Interaction_Type.photonuclear, 
+                    pp.particle.Interaction_Type.epair], 
+        'deflection': 'default', 
+        'deflection_type': 'm_scat+stochastic', 
+        'e_cut': 500, 
+        'v_cut': 0.05, 
+        'cont_rand': False, 
+        'medium': "ice",
+        'interpol_nodes': 100,
+        'scattering_method': "highlandintegral", 
+        'beta_brems': 1.0,
+        'beta_ioniz': 1.0,
+        'beta_epair': 1.0,
+        'beta_multiplescatter': 1.0,
+        'beta_photonuclear': 1.0,
+        'rnd_seed': 1337, 
+        'initial_direction': [0, 0, 1], 
+        'table_path': "/Users/pgutjahr/.cache/PROPOSAL",
+    }
+    
+    for key in default_settings.keys():
+        if key not in args:
+            args[key] = default_settings[key]
+    
+    #### bisection ###
+    ### args['rnd_seed'] =  430171
+    ####
+    
+    init_state, prop = propagate_deflected_muons_custom_settings_multi(
+        inter_type=args['inter_type'],
+        deflection=args['deflection'], 
+        deflection_type=args['deflection_type'],
+        e_cut=args['e_cut'], 
+        v_cut=args['v_cut'], 
+        cont_rand=args['cont_rand'], 
+        medium=args['medium'],
+        interpol_nodes=args['interpol_nodes'],
+        scattering_method=args['scattering_method'], 
+        beta_brems=args['beta_brems'],
+        beta_ioniz=args['beta_ioniz'],
+        beta_epair=args['beta_epair'],
+        beta_photonuclear=args['beta_photonuclear'],
+        beta_multiplescatter=args['beta_multiplescatter'],
+        rnd_seed=args['rnd_seed'], 
+        initial_direction=args['initial_direction'], 
+        table_path=args['table_path']
+    )
+    
+    n_events = args['n_events_per_job']
+    E_i = args['E_i']
+    E_f_min = args['E_f'][0]
+    E_f_max = args['E_f'][1]
+    E_f = np.geomspace(E_f_min, E_f_max, n_events)
+    
+    if 'max_dist' in args:
+        max_dist = args['max_dist']
+    else: max_dist = 1e9
+    
+    if args['print_settings']:
+        print('E_i: ', E_i)
+        print('E_f_min: ', E_f_min)
+        print('E_f_max: ', E_f_max)
+        print('max_dist: ', max_dist)
+        for key in args:
+            if key not in ['print_settings', 'rnd_seed']:
+                print('{}: {}'.format(key, args[key]))
+
+    ### print('rnd_seed for test: ',args['rnd_seed'])
+    
+    E_i_l = []
+    E_f_track_l = []
+    distance_l = []
+    deflection_l = []
+    x_f_l = []
+    y_f_l = []
+    z_f_l = []
+    x_dir_f = []
+    y_dir_f = []
+    z_dir_f = []
+    for e_f in E_f:
+        init_state.energy = E_i # initial energy in MeV
+        track = prop.propagate(init_state, max_distance = max_dist, min_energy = e_f) # max_dist=1e9
+        # Prepare data
+        E_f_track = track.track_energies()[-1] 
+        distance = track.track_propagated_distances()[-1]
+        deflection = get_angle_deviation(
+            track.track_directions()[0].spherical_coordinates[1], 
+            track.track_directions()[0].spherical_coordinates[2], 
+            track.track_directions()[-1].spherical_coordinates[1], 
+            track.track_directions()[-1].spherical_coordinates[2]
+        )
+        E_i_l.append(E_i)
+        E_f_track_l.append(E_f_track)
+        distance_l.append(distance)
+        deflection_l.append(deflection)
+        x_f_l.append(track.track_positions()[-1].x)
+        y_f_l.append(track.track_positions()[-1].y)
+        z_f_l.append(track.track_positions()[-1].z)
+        x_dir_f.append(track.track_directions()[-1].x)
+        y_dir_f.append(track.track_directions()[-1].y)
+        z_dir_f.append(track.track_directions()[-1].z)
+    
+    # Save data
+    df = pd.DataFrame()
+    df['E_i'] = np.array(E_i_l) / 1e3 # in GeV
+    df['E_f'] = np.array(E_f_track_l) / 1e3 # in GeV
+    df['distances'] = np.array(distance_l) / 100 # in meter
+    df['deflection'] = np.rad2deg(deflection_l) # in degree
+    df['x_dir_i'] = init_state.direction.x * np.ones(n_events)
+    df['y_dir_i'] = init_state.direction.y * np.ones(n_events)
+    df['z_dir_i'] = init_state.direction.z * np.ones(n_events)
+    df['x_dir_f'] = x_dir_f
+    df['y_dir_f'] = y_dir_f
+    df['z_dir_f'] = z_dir_f
+    df['x_i'] = init_state.position.x * np.ones(n_events) # position in cm
+    df['y_i'] = init_state.position.y * np.ones(n_events)
+    df['z_i'] = init_state.position.z * np.ones(n_events)
+    df['x_f'] = x_f_l
+    df['y_f'] = y_f_l
+    df['z_f'] = z_f_l
+    df['rnd_seed'] = args['rnd_seed'] * np.ones(n_events)
+        
+    print('-- job done --')
+
+    return df
 
 def muon_propagation_custom_multi_along(args):
 
@@ -321,7 +451,7 @@ def muon_propagation_custom_multi_along(args):
     return return_dict
 
 ### get deflection angle
-def get_angle_deviation(azimuth1, zenith1, azimuth2, zenith2, dtype='float128'):
+def get_angle_deviation(azimuth1, zenith1, azimuth2, zenith2, dtype='float64'): # 'float128' does not work on M1
     """Get opening angle of two vectors defined by (azimuth, zenith)
     Parameters
     ----------
