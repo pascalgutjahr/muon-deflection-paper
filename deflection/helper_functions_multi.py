@@ -451,7 +451,7 @@ def muon_propagation_custom_multi_along(args):
     return return_dict
 
 ### get deflection angle
-def get_angle_deviation(azimuth1, zenith1, azimuth2, zenith2, dtype='float64'): # 'float128' does not work on M1
+def get_angle_deviation(azimuth1, zenith1, azimuth2, zenith2, dtype='float128'): # 'float128' does not work on M1
     """Get opening angle of two vectors defined by (azimuth, zenith)
     Parameters
     ----------
