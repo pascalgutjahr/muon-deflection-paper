@@ -19,7 +19,7 @@ table_path: "/Users/pgutjahr/.cache/PROPOSAL" # mac mini
 # table_path: "/net/nfshome/home/pgutjahr/.cache/PROPOSAL" # vollmond
 
 file_name: "total_defl_continuous_E_f"
-output_folder:  "icrc2023/data/total_defl_moliere_10TeV_continuous_E_f"
+output_folder:  "icrc2023/data/total_defl_moliere_1TeV_continuous_E_f"
     
 n_CPU:  8
 n_jobs:  40
