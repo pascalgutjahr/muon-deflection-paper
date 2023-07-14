@@ -9,7 +9,7 @@ deflection: [
     
 e_cut: 500
 v_cut: 1
-cont_rand: False
+cont_rand: True
 scattering_method: "moliere"
 deflection_type: "m_scat"
     

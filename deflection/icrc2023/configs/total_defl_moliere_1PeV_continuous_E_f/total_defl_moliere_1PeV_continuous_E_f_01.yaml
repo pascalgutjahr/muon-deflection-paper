@@ -11,7 +11,7 @@ deflection: [
     
 e_cut: !!float inf
 v_cut: 0.05
-cont_rand: False
+cont_rand: True
 scattering_method: "moliere"
 deflection_type: "m_scat+stochastic"
     
